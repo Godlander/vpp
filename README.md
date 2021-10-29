@@ -18,6 +18,13 @@ Connected texture for sugar cane and vines.
 
 ![vanillactm](https://user-images.githubusercontent.com/16228717/139353051-85878743-5147-485b-941d-517ffae4be04.png)
 
+## [GUi](https://github.com/Godlander/vpp/blob/main/GUi.zip)
+Custom container GUIs that make sense.
+
+![image](https://user-images.githubusercontent.com/16228717/139380148-68662a02-e89b-42b5-b518-40427dda29dd.png)
+![image](https://user-images.githubusercontent.com/16228717/139380251-1271d0a5-457b-4e91-9fc5-1f40ae545ccc.png)
+
+
 ## Credits to cool people
 - thebbq's vanilla shaders: https://github.com/bradleyq/mc_vanilla_shaders (Modified)
 - Oran9eUtan's wind shader: https://www.planetminecraft.com/texture-pack/wind-shader/ (Modified)
