@@ -1,5 +1,5 @@
 # v++
-A vanilla complimentary resourcepack focused on improving visual quality and the survival experience.
+A compilation of vanilla complimentary resourcepacks focused on improving visual quality and the survival experience.
 
 ![image](https://user-images.githubusercontent.com/16228717/139354701-99ff5aa0-9374-4756-8d9c-48826e6e77f5.png)
 
