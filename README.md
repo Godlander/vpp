@@ -31,7 +31,7 @@ However, my own creations, downloadable as separate modules below, are not under
 
 ### If you don't want the entire pack, here are my own separate modules:
 
-## RealMaps
+## [RealMaps](https://github.com/Godlander/vpp/blob/main/RealMaps.zip)
 More realistic map colors using a core shader.
 Map icons are also tweaked a bit.
 
@@ -40,7 +40,7 @@ Map icons are also tweaked a bit.
 
 
 
-## VanillaCTM
+## [VanillaCTM](https://github.com/Godlander/vpp/blob/main/VanillaCTM.zip)
 Connected texture for sugar cane and vines.
 
 ![vanillactm](https://user-images.githubusercontent.com/16228717/139353051-85878743-5147-485b-941d-517ffae4be04.png)
