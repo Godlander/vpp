@@ -1,14 +1,4 @@
 v++
-1.1
-
-Blocks:
-+Water is more transparent
-+Underwater water side texture no longer missing
-+Wool and Carpet has a more cloth-like texture
-+Bedrock is more rocky
-
-
-
 1.0
 
 Items:
