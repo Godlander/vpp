@@ -33,3 +33,4 @@ Connected texture for sugar cane and vines.
 - vanillatweaks' hd shield banner patterns: https://vanillatweaks.net/
 - RyanGar46's classic 3d: https://www.curseforge.com/minecraft/texture-packs/classic-3d (Modified)
 - MrVerece's recipe book: https://www.reddit.com/r/Minecraft/comments/6gn47s/remade_the_recipebook_texture_to_fit_normal_books/ (Modified)
+- Everyone in the MCC discord: https://discord.gg/QAFXFtZ
