@@ -1,0 +1,6 @@
+{
+	"parent": "block/oak_trapdoor_top",
+    "textures": {
+        "particle": "block/iron_trapdoor"
+    }
+}

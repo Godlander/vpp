@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/door_bottom_rh",
+  "textures": {
+    "bottomright": "minecraft:block/iron_door_bottom",
+    "bottom": "minecraft:block/iron_door_bottom2",
+	"side": "minecraft:block/iron_door_sides"
+  }
+}

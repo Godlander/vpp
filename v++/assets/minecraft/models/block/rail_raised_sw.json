@@ -1,0 +1,172 @@
+{
+	"credit": "Made with Blockbench - Made/edited by RyanGar46",
+	"ambientocclusion": false,
+	"textures": {
+		"particle": "3d/rails/rail",
+		"rail_3d": "3d/rails/rail"
+	},
+	"elements": [
+		{
+			"name": "Cube",
+			"from": [1, 7.5, -2],
+			"to": [15, 8.5, 0],
+			"rotation": {"angle": -45, "axis": "x", "origin": [8, 8, 8]},
+			"faces": {
+				"north": {"uv": [4, 16, 5, 2], "rotation": 270, "texture": "#rail_3d"},
+				"east": {"uv": [6, 2, 4, 3], "texture": "#rail_3d"},
+				"south": {"uv": [5, 2, 6, 16], "rotation": 90, "texture": "#rail_3d"},
+				"west": {"uv": [4, 2, 6, 3], "texture": "#rail_3d"},
+				"up": {"uv": [4, 2, 6, 16], "rotation": 90, "texture": "#rail_3d"},
+				"down": {"uv": [4, 2, 6, 16], "rotation": 270, "texture": "#rail_3d"}
+			}
+		},
+		{
+			"name": "Cube",
+			"from": [12, 8.5, -2],
+			"to": [14, 9.5, 14],
+			"rotation": {"angle": -45, "axis": "x", "origin": [8, 8, 8]},
+			"faces": {
+				"north": {"uv": [0, 0, 2, 1], "texture": "#rail_3d"},
+				"east": {"uv": [4, 16, 3, 0], "rotation": 90, "texture": "#rail_3d"},
+				"west": {"uv": [3, 0, 2, 16], "rotation": 90, "texture": "#rail_3d"},
+				"up": {"uv": [4, 0, 2, 16], "rotation": 180, "texture": "#rail_3d"},
+				"down": {"uv": [4, 16, 2, 0], "rotation": 180, "texture": "#rail_3d"}
+			}
+		},
+		{
+			"name": "Cube",
+			"from": [2, 8.5, -2],
+			"to": [4, 9.5, 14],
+			"rotation": {"angle": -45, "axis": "x", "origin": [8, 8, 8]},
+			"faces": {
+				"north": {"uv": [0, 0, 2, 1], "rotation": 180, "texture": "#rail_3d"},
+				"east": {"uv": [2, 16, 1, 0], "rotation": 90, "texture": "#rail_3d"},
+				"west": {"uv": [0, 16, 1, 0], "rotation": 270, "texture": "#rail_3d"},
+				"up": {"uv": [0, 16, 2, 0], "texture": "#rail_3d"},
+				"down": {"uv": [2, 16, 0, 0], "rotation": 180, "texture": "#rail_3d"}
+			}
+		},
+		{
+			"name": "Cube",
+			"from": [11.99, 8.5, 14],
+			"to": [13.99, 9.5, 21],
+			"rotation": {"angle": -45, "axis": "x", "origin": [8, 8, 8]},
+			"faces": {
+				"east": {"uv": [4, 5, 3, 0], "rotation": 90, "texture": "#rail_3d"},
+				"south": {"uv": [2, 0, 4, 1], "texture": "#rail_3d"},
+				"west": {"uv": [3, 0, 2, 4], "rotation": 90, "texture": "#rail_3d"},
+				"up": {"uv": [4, 0, 2, 5], "rotation": 180, "texture": "#rail_3d"},
+				"down": {"uv": [4, 7, 2, 0], "rotation": 180, "texture": "#rail_3d"}
+			}
+		},
+		{
+			"name": "Cube",
+			"from": [2.01, 8.5, 14],
+			"to": [4.01, 9.5, 21],
+			"rotation": {"angle": -45, "axis": "x", "origin": [8, 8, 8]},
+			"faces": {
+				"east": {"uv": [2, 7, 1, 0], "rotation": 90, "texture": "#rail_3d"},
+				"south": {"uv": [2, 0, 4, 1], "rotation": 180, "texture": "#rail_3d"},
+				"west": {"uv": [1, 0, 0, 7], "rotation": 90, "texture": "#rail_3d"},
+				"up": {"uv": [2, 0, 0, 7], "rotation": 180, "texture": "#rail_3d"},
+				"down": {"uv": [2, 7, 0, 0], "rotation": 180, "texture": "#rail_3d"}
+			}
+		},
+		{
+			"name": "Cube",
+			"from": [1, 7.5, 2],
+			"to": [15, 8.5, 4],
+			"rotation": {"angle": -45, "axis": "x", "origin": [8, 8, 8]},
+			"faces": {
+				"north": {"uv": [4, 16, 5, 2], "rotation": 270, "texture": "#rail_3d"},
+				"east": {"uv": [6, 2, 4, 3], "texture": "#rail_3d"},
+				"south": {"uv": [5, 2, 6, 16], "rotation": 90, "texture": "#rail_3d"},
+				"west": {"uv": [4, 2, 6, 3], "texture": "#rail_3d"},
+				"up": {"uv": [4, 2, 6, 16], "rotation": 90, "texture": "#rail_3d"},
+				"down": {"uv": [4, 2, 6, 16], "rotation": 270, "texture": "#rail_3d"}
+			}
+		},
+		{
+			"name": "Cube",
+			"from": [1, 7.5, 6],
+			"to": [15, 8.5, 8],
+			"rotation": {"angle": -45, "axis": "x", "origin": [8, 8, 8]},
+			"faces": {
+				"north": {"uv": [4, 16, 5, 2], "rotation": 270, "texture": "#rail_3d"},
+				"east": {"uv": [6, 2, 4, 3], "texture": "#rail_3d"},
+				"south": {"uv": [5, 2, 6, 16], "rotation": 90, "texture": "#rail_3d"},
+				"west": {"uv": [4, 2, 6, 3], "texture": "#rail_3d"},
+				"up": {"uv": [4, 2, 6, 16], "rotation": 90, "texture": "#rail_3d"},
+				"down": {"uv": [4, 2, 6, 16], "rotation": 270, "texture": "#rail_3d"}
+			}
+		},
+		{
+			"name": "Cube",
+			"from": [1, 7.5, 10],
+			"to": [15, 8.5, 12],
+			"rotation": {"angle": -45, "axis": "x", "origin": [8, 8, 8]},
+			"faces": {
+				"north": {"uv": [4, 16, 5, 2], "rotation": 270, "texture": "#rail_3d"},
+				"east": {"uv": [6, 2, 4, 3], "texture": "#rail_3d"},
+				"south": {"uv": [5, 2, 6, 16], "rotation": 90, "texture": "#rail_3d"},
+				"west": {"uv": [4, 2, 6, 3], "texture": "#rail_3d"},
+				"up": {"uv": [4, 2, 6, 16], "rotation": 90, "texture": "#rail_3d"},
+				"down": {"uv": [4, 2, 6, 16], "rotation": 270, "texture": "#rail_3d"}
+			}
+		},
+		{
+			"name": "Cube",
+			"from": [1, 7.5, 14],
+			"to": [15, 8.5, 16],
+			"rotation": {"angle": -45, "axis": "x", "origin": [8, 8, 8]},
+			"faces": {
+				"north": {"uv": [4, 16, 5, 2], "rotation": 270, "texture": "#rail_3d"},
+				"east": {"uv": [6, 2, 4, 3], "texture": "#rail_3d"},
+				"south": {"uv": [5, 2, 6, 16], "rotation": 90, "texture": "#rail_3d"},
+				"west": {"uv": [4, 2, 6, 3], "texture": "#rail_3d"},
+				"up": {"uv": [4, 2, 6, 16], "rotation": 90, "texture": "#rail_3d"},
+				"down": {"uv": [4, 2, 6, 16], "rotation": 270, "texture": "#rail_3d"}
+			}
+		},
+		{
+			"name": "Cube",
+			"from": [1, 7.5, 18],
+			"to": [15, 8.5, 20],
+			"rotation": {"angle": -45, "axis": "x", "origin": [8, 8, 8]},
+			"faces": {
+				"north": {"uv": [4, 16, 5, 2], "rotation": 270, "texture": "#rail_3d"},
+				"east": {"uv": [6, 2, 4, 3], "texture": "#rail_3d"},
+				"south": {"uv": [5, 2, 6, 16], "rotation": 90, "texture": "#rail_3d"},
+				"west": {"uv": [4, 2, 6, 3], "texture": "#rail_3d"},
+				"up": {"uv": [4, 2, 6, 16], "rotation": 90, "texture": "#rail_3d"},
+				"down": {"uv": [4, 2, 6, 16], "rotation": 270, "texture": "#rail_3d"}
+			}
+		}
+	],
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [75, 315, 0],
+			"translation": [0, 2.5, 0],
+			"scale": [0.375, 0.375, 0.375]
+		},
+		"firstperson_righthand": {
+			"rotation": [0, 315, 0],
+			"translation": [0, 2.5, 0],
+			"scale": [0.4, 0.4, 0.4]
+		},
+		"ground": {
+			"translation": [0, 3, 0],
+			"scale": [0.25, 0.25, 0.25]
+		},
+		"gui": {
+			"rotation": [30, 45, 0],
+			"scale": [0.625, 0.625, 0.625]
+		},
+		"head": {
+			"rotation": [0, 180, 0]
+		},
+		"fixed": {
+			"rotation": [0, 180, 0]
+		}
+	}
+}

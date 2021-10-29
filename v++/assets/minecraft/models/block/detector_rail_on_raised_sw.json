@@ -1,0 +1,10 @@
+{
+	"credit": "Made with Blockbench",
+	"ambientocclusion": false,
+	"parent": "block/detector_rail_raised_sw",
+	"textures": {
+		"rail_3d": "3d/rails/rail",
+		"particle": "block/detector_rail_on",
+		"detector_rail": "block/detector_rail_on"
+	}
+}

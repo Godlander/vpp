@@ -1,0 +1,34 @@
+{
+	"credit": "Created by Stridey",
+	"textures": {
+		"3": "block/piston_side_sticky",
+		"4": "block/piston_bottom_sticky",
+		"particle": "block/piston_top_sticky",
+		"platform": "block/piston_top_sticky",
+		"side": "block/piston_side"
+	},
+	"elements": [
+		{
+			"from": [0, 0, 0],
+			"to": [16, 16, 4],
+			"faces": {
+				"north": {"uv": [0, 0, 16, 16], "texture": "#platform", "cullface": "north"},
+				"east": {"uv": [0, 0, 16, 4], "rotation": 90, "texture": "#3", "cullface": "east"},
+				"south": {"uv": [0, 0, 16, 16], "texture": "#4"},
+				"west": {"uv": [0, 0, 16, 4], "rotation": 270, "texture": "#3", "cullface": "west"},
+				"up": {"uv": [0, 0, 16, 4], "texture": "#3", "cullface": "up"},
+				"down": {"uv": [0, 0, 16, 4], "rotation": 180, "texture": "#3", "cullface": "down"}
+			}
+		},
+		{
+			"from": [6, 6, 4],
+			"to": [10, 10, 20],
+			"faces": {
+				"east": {"uv": [0, 0, 16, 4], "texture": "#side"},
+				"west": {"uv": [16, 4, 0, 0], "texture": "#side"},
+				"up": {"uv": [0, 0, 16, 4], "rotation": 270, "texture": "#side"},
+				"down": {"uv": [0, 0, 16, 4], "rotation": 90, "texture": "#side"}
+			}
+		}
+	]
+}
