@@ -1,4 +1,23 @@
 v++
+1.1
+
+Blocks:
++Water is more transparent
++Water is more wavy
++Lowest Flowing Water no longer waves through the floor
++Underwater water side texture no longer missing
++Wool and Carpet has a more cloth-like texture
++Bedrock is more rocky
+
+GUI:
++Enchanting Table has a more thematic book
++Cartography Table also has unique ui
+
+Environment:
++Slightly more Fog
+
+
+
 1.0
 
 Items:
