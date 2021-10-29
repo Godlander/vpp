@@ -1,0 +1,17 @@
+M-modified
+
+M bbq's vanilla shaders: https://github.com/bradleyq/mc_vanilla_shaders
+M Oran9eUtan's wind shader: https://www.planetminecraft.com/texture-pack/wind-shader/
+M StormDragon77's door tweaks: https://www.planetminecraft.com/texture-pack/door-tweaks/
+  Thy_Creeper_King's end crystal beautification: https://www.planetminecraft.com/texture-pack/end-crystal-beautification/
+M Yomna's better map icons: https://www.planetminecraft.com/texture-pack/yomny-pack-better-map-icons/
+M naterbobber's nate's tweaks: https://www.planetminecraft.com/texture-pack/nate-s-tweaks/
+  vanillatweaks' different stems: https://vanillatweaks.net/
+  vanillatweaks' bushy leaves: https://vanillatweaks.net/
+  vanillatweaks' shorter grass: https://vanillatweaks.net/
+  vanillatweaks' diminishing tools: https://vanillatweaks.net/
+  vanillatweaks' clear banner patterns: https://vanillatweaks.net/
+  vanillatweaks' sticky piston sides: https://vanillatweaks.net/
+  vanillatweaks' hd shield banner patterns: https://vanillatweaks.net/
+M RyanGar46's classic 3d: https://www.curseforge.com/minecraft/texture-packs/classic-3d
+M MrVerece's recipe book: https://www.reddit.com/r/Minecraft/comments/6gn47s/remade_the_recipebook_texture_to_fit_normal_books/
