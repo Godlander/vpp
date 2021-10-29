@@ -30,7 +30,6 @@ Custom container GUIs that make sense.
 - Oran9eUtan's wind shader: https://www.planetminecraft.com/texture-pack/wind-shader/ (Modified)
 - Thy_Creeper_King's end crystal beautification: https://www.planetminecraft.com/texture-pack/end-crystal-beautification/
 - Yomna's better map icons: https://www.planetminecraft.com/texture-pack/yomny-pack-better-map-icons/ (Modified)
-- naterbobber's nate's tweaks: https://www.planetminecraft.com/texture-pack/nate-s-tweaks/ (Modified)
 - vanillatweaks' different stems: https://vanillatweaks.net/
 - vanillatweaks' shorter grass: https://vanillatweaks.net/
 - vanillatweaks' diminishing tools: https://vanillatweaks.net/
