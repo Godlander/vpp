@@ -21,7 +21,6 @@ Connected texture for sugar cane and vines.
 ## Credits to cool people
 - thebbq's vanilla shaders: https://github.com/bradleyq/mc_vanilla_shaders (Modified)
 - Oran9eUtan's wind shader: https://www.planetminecraft.com/texture-pack/wind-shader/ (Modified)
-- StormDragon77's door tweaks: https://www.planetminecraft.com/texture-pack/door-tweaks/ (Modified)
 - Thy_Creeper_King's end crystal beautification: https://www.planetminecraft.com/texture-pack/end-crystal-beautification/
 - Yomna's better map icons: https://www.planetminecraft.com/texture-pack/yomny-pack-better-map-icons/ (Modified)
 - naterbobber's nate's tweaks: https://www.planetminecraft.com/texture-pack/nate-s-tweaks/ (Modified)
