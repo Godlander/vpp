@@ -3,7 +3,7 @@ A vanilla complimentary resourcepack focused on improving visual quality and the
 
 ![image](https://user-images.githubusercontent.com/16228717/139354701-99ff5aa0-9374-4756-8d9c-48826e6e77f5.png)
 
-For more information on what's included, check out changelog.txt
+For more information on what's included, check out [changelog.txt](https://github.com/Godlander/vpp/blob/main/changelog.txt)
 
 ## Licensing
 Because v++ uses resources made by other cool people, the pack itself is licensed under [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)
