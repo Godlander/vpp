@@ -38,6 +38,6 @@ Custom container GUIs that make sense.
 - vanillatweaks' hd shield banner patterns: https://vanillatweaks.net/
 - RyanGar46's classic 3d: https://www.curseforge.com/minecraft/texture-packs/classic-3d (Modified)
 - mr_ch0c0late1's blockstates+: https://www.curseforge.com/minecraft/texture-packs/blockstates
-- mr_ch0c0late1's flowerpots+: https://www.curseforge.com/minecraft/texture-packs/flowerpots
+- mr_ch0c0late1's flowerpots+: https://www.curseforge.com/minecraft/texture-packs/flower-pots
 - MrVerece's recipe book: https://www.reddit.com/r/Minecraft/comments/6gn47s/remade_the_recipebook_texture_to_fit_normal_books/ (Modified)
 - Everyone in the MCC discord: https://discord.gg/QAFXFtZ
