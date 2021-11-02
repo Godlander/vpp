@@ -1,4 +1,21 @@
 v++
+1.2
+
+Blocks:
++The following blocks have different textures for different stages:
+ Bamboo, Beehive, Bee Nest, Cactus, Carrots, Chorus Flower, Composter, Nether Warts, Potatoes, Saplings, Twisting Vines, Weeping Vines
++Flower Pots have different soil depending on the potted plant
+
+GUI:
++Survival inventory crafting text background positioning is higher
+
+Shaders:
++Post shaders are now version 150 (Requires Fabulous) (hopefully should work on macs now?)
++Mycelium color on map is more realistic
++Lava waves slowly
+
+
+
 1.1
 
 Blocks:
