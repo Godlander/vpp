@@ -1,0 +1,6 @@
+{
+    "variants": {
+        "stage=0": { "model": "block/acacia_sapling_stage_0" },
+		"stage=1": { "model": "block/acacia_sapling" }
+    }
+}

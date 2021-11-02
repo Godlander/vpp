@@ -1,0 +1,6 @@
+{
+  "variants": {
+    "age=0-14": { "model": "minecraft:block/cactus" },
+    "age=15": { "model": "minecraft:block/cactus_age_15" }
+  }
+}

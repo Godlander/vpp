@@ -1,0 +1,11 @@
+{
+	"parent": "block/powered_rail_raised_sw",
+	"ambientocclusion": false,
+	"credit": "Made with Blockbench",
+	"textures": {
+		"particle": "block/powered_rail_on",
+		"powered_rail": "block/powered_rail_on",
+		"rail_3d": "3d/rails/rail",
+		"rail_powered_3d": "3d/rails/rail_powered_on"
+	}
+}

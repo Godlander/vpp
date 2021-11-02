@@ -1,0 +1,13 @@
+{
+    "variants": {
+        "level=0": { "model": "block/composter_contents_0" },
+        "level=1": { "model": "block/composter_contents_1" },
+        "level=2": { "model": "block/composter_contents_2" },
+        "level=3": { "model": "block/composter_contents_3" },
+        "level=4": { "model": "block/composter_contents_4" },
+        "level=5": { "model": "block/composter_contents_5" },
+        "level=6": { "model": "block/composter_contents_6" },
+        "level=7": { "model": "block/composter_contents_7" },
+		"level=8": { "model": "block/composter_contents_8" }
+    }
+}

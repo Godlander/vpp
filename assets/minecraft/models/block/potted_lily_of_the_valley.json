@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/flower_pot_cross_plains",
+  "textures": {
+    "plant": "minecraft:block/lily_of_the_valley",
+    "flowerpot": "minecraft:block/flower_pot"
+  }
+}

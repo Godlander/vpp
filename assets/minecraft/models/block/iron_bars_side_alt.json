@@ -1,0 +1,40 @@
+{
+    "ambientocclusion": false,
+    "textures": {
+        "particle": "block/iron_bars",
+        "bars": "block/iron_bars"
+    },
+    "elements": [
+		{
+			"from": [ 7, 0, 12 ],
+            "to": [ 9, 16, 14 ],
+            "faces": {
+                "down":  { "texture": "#bars" },
+                "up":    { "texture": "#bars" },
+                "north": { "texture": "#bars" },
+                "south": { "texture": "#bars" },
+                "west":  { "texture": "#bars" },
+                "east":  { "texture": "#bars" }
+            }
+        },
+        {   "from": [ 7, 12, 9 ],
+            "to": [ 9, 14, 12 ],
+            "faces": {
+                "down":  { "texture": "#bars" },
+                "up":    { "texture": "#bars" },
+                "west":  { "uv": [ 4, 2, 7, 4 ], "texture": "#bars" },
+                "east":  { "texture": "#bars" }
+            }
+        },
+        {   "from": [ 7, 7, 14 ],
+            "to": [ 9, 9, 16 ],
+            "faces": {
+                "down":  { "texture": "#bars" },
+                "up":    { "texture": "#bars" },
+                "south": { "texture": "#bars", "cullface": "south" },
+                "west":  { "texture": "#bars" },
+                "east":  { "texture": "#bars" }
+            }
+        }
+    ]
+}

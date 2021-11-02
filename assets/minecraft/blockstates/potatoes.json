@@ -1,0 +1,12 @@
+{
+    "variants": {
+        "age=0": { "model": "block/potatoes_age_0" },
+        "age=1": { "model": "block/potatoes_age_1" },
+        "age=2": { "model": "block/potatoes_age_2" },
+        "age=3": { "model": "block/potatoes_age_3" },
+        "age=4": { "model": "block/potatoes_age_4" },
+        "age=5": { "model": "block/potatoes_age_5" },
+        "age=6": { "model": "block/potatoes_age_6" },
+        "age=7": { "model": "block/potatoes_age_7" }
+    }
+}

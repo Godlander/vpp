@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/flower_pot_cross_forest",
+  "textures": {
+    "plant": "minecraft:block/dark_oak_sapling",
+    "flowerpot": "minecraft:block/flower_pot"
+  }
+}
