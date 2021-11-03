@@ -41,3 +41,5 @@ Custom container GUIs that make sense.
 - mr_ch0c0late1's flowerpots+: https://www.curseforge.com/minecraft/texture-packs/flower-pots
 - MrVerece's recipe book: https://www.reddit.com/r/Minecraft/comments/6gn47s/remade_the_recipebook_texture_to_fit_normal_books/ (Modified)
 - Everyone in the MCC discord: https://discord.gg/QAFXFtZ
+
+Feel free to contact me on discord @Godlander#1020
