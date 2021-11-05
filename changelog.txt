@@ -1,4 +1,24 @@
 v++
+1.3
+
+Blocks:
++Grass sides are longer
++Moss Carpet droops down the side of the block it's on
++Command blocks are even
++Piston Arms have thicker biceps
++Redstone Block pulses slightly
++Jack O Lantern pulses slightly
+
+Items:
++Tool deterioration starts from 50% durability, further deteriorates at 25% and 10%
++Carrot On A Stick shows the carrot getting eaten as durability lowers
+
+GUI:
++Villagers speak their trades
+
+
+
+v++
 1.2
 
 Blocks:

@@ -7,21 +7,21 @@
         {
             "predicate": {
                 "damaged": 1,
-                "damage": 0.85
+                "damage": 0.5
             },
             "model": "item/netherite_sword/netherite_sword_1"
         },
         {
             "predicate": {
                 "damaged": 1,
-                "damage": 0.9
+                "damage": 0.8
             },
             "model": "item/netherite_sword/netherite_sword_2"
         },
         {
             "predicate": {
                 "damaged": 1,
-                "damage": 0.95
+                "damage": 0.9
             },
             "model": "item/netherite_sword/netherite_sword_3"
         }
