@@ -1,4 +1,17 @@
 v++
+1.4
+
+Blocks:
++Snow Layer droops down the side of the block it's on
++Most plants wave slightly
++Leaves wave slightly
+
+Misc:
++Tiny Twemojis ✨😎 ([Win]+[.] on Windows to access the emoji keyboard)
+
+
+
+v++
 1.3
 
 Blocks:
