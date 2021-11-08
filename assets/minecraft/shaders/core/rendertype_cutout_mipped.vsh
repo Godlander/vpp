@@ -22,7 +22,6 @@ out vec4 normal;
 #define pi 3.1415926535897932
 
 void main() {
-    vec3 position = Position * 8 * pi;
     float time = GameTime * 2048;
     float xx = Position.x / 2 * pi;
     float yy = Position.y / 2 * pi;
