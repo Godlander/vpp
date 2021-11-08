@@ -26,20 +26,24 @@ Custom container GUIs that make sense.
 
 
 ## Credits to cool people
-- thebbq's vanilla shaders: https://github.com/bradleyq/mc_vanilla_shaders (Modified)
-- Oran9eUtan's wind shader: https://www.planetminecraft.com/texture-pack/wind-shader/ (Modified)
+- bbq's vanilla shaders: https://github.com/bradleyq/mc_vanilla_shaders (Modified)
+- StormDragon77's door tweaks: https://www.planetminecraft.com/texture-pack/door-tweaks/ (Modified)
+- Reijvi's reinmagined: https://www.planetminecraft.com/texture-pack/minecraft-reimagined-5096190/ (Modified)
 - Thy_Creeper_King's end crystal beautification: https://www.planetminecraft.com/texture-pack/end-crystal-beautification/
-- Yomna's better map icons: https://www.planetminecraft.com/texture-pack/yomny-pack-better-map-icons/ (Modified)
+- Yomna's better map icons: https://www.planetminecraft.com/texture-pack/yomny-pack-better- ap-icons/ (Modified)
 - vanillatweaks' different stems: https://vanillatweaks.net/
-- vanillatweaks' shorter grass: https://vanillatweaks.net/
-- vanillatweaks' diminishing tools: https://vanillatweaks.net/
+- vanillatweaks' shorter grass: https://vanillatweaks.net/ (Modified)
+- vanillatweaks' diminishing tools: https://vanillatweaks.net/ (Modified)
 - vanillatweaks' clear banner patterns: https://vanillatweaks.net/
-- vanillatweaks' sticky piston sides: https://vanillatweaks.net/
+- vanillatweaks' sticky piston sides: https://vanillatweaks.net/ (Modified)
 - vanillatweaks' hd shield banner patterns: https://vanillatweaks.net/
+- vanillatweaks' wavy leaves: https://vanillatweaks.net/ (Modified)
+- Shock Micro's wavy plants: https://www.curseforge.com/minecraft/texture-packs/wavy-plants (Modified)
 - RyanGar46's classic 3d: https://www.curseforge.com/minecraft/texture-packs/classic-3d (Modified)
-- mr_ch0c0late1's blockstates+: https://www.curseforge.com/minecraft/texture-packs/blockstates
-- mr_ch0c0late1's flowerpots+: https://www.curseforge.com/minecraft/texture-packs/flower-pots
+- mr_ch0c0late1's blockstates+: https://www.curseforge.com/minecraft/texture-packs/blockstates (Modified)
+- mr_ch0c0late1's flowerpots+: https://www.curseforge.com/minecraft/texture-packs/flower-pots (Modified)
 - MrVerece's recipe book: https://www.reddit.com/r/Minecraft/comments/6gn47s/remade_the_recipebook_texture_to_fit_normal_books/ (Modified)
+- AmberW's tiny emoji font: https://github.com/AmberWat/TinyEmojiFontResource
 - Everyone in the MCC discord: https://discord.gg/QAFXFtZ
 
 Feel free to contact me on discord @Godlander#1020
