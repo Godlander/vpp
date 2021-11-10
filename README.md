@@ -3,6 +3,9 @@ A compilation of vanilla complimentary resourcepacks focused on improving visual
 
 ![image](https://user-images.githubusercontent.com/16228717/139354701-99ff5aa0-9374-4756-8d9c-48826e6e77f5.png)
 
+
+This pack uses vanilla shaders, which are likely incompatible with Optifine or any other mod that affects client side rendering.
+
 For more information on what's included, check out [changelog.txt](https://github.com/Godlander/vpp/blob/main/changelog.txt)
 
 ### If you don't want the entire pack, here are my own separate modules:
