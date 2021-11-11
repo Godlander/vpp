@@ -1,20 +1,25 @@
 M-modified
 
 M bbq's vanilla shaders: https://github.com/bradleyq/mc_vanilla_shaders
+M Shock Micro's vanilla dynamic emissives: https://github.com/ShockMicro/VanillaDynamicEmissives
+M Bálint's hanging lanterns: https://github.com/BalintCsala/HangingLanterns
 M StormDragon77's door tweaks: https://www.planetminecraft.com/texture-pack/door-tweaks/
 M Reijvi's reinmagined: https://www.planetminecraft.com/texture-pack/minecraft-reimagined-5096190/
-  Thy_Creeper_King's end crystal beautification: https://www.planetminecraft.com/texture-pack/end-crystal-beautification/
+M Thy_Creeper_King's end crystal beautification: https://www.planetminecraft.com/texture-pack/end-crystal-beautification/
 M Yomna's better map icons: https://www.planetminecraft.com/texture-pack/yomny-pack-better-map-icons/
-  vanillatweaks' different stems: https://vanillatweaks.net/
-M vanillatweaks' shorter grass: https://vanillatweaks.net/
-M vanillatweaks' diminishing tools: https://vanillatweaks.net/
-  vanillatweaks' clear banner patterns: https://vanillatweaks.net/
-M vanillatweaks' sticky piston sides: https://vanillatweaks.net/
-  vanillatweaks' hd shield banner patterns: https://vanillatweaks.net/
-M vanillatweaks' wavy leaves: https://vanillatweaks.net/
+M kemiu's quality creeper: https://www.planetminecraft.com/texture-pack/quality-creeper/
+M kemiu's new chests: https://www.planetminecraft.com/texture-pack/new-chests-1-15/
+  Chubins' creamier milk: https://www.planetminecraft.com/texture-pack/creamier-milk/
+  Vanilla Tweaks' different stems: https://vanillatweaks.net/
+M Vanilla Tweaks' shorter grass: https://vanillatweaks.net/
+M Vanilla Tweaks' diminishing tools: https://vanillatweaks.net/
+  Vanilla Tweaks' clear banner patterns: https://vanillatweaks.net/
+M Vanilla Tweaks' sticky piston sides: https://vanillatweaks.net/
+  Vanilla Tweaks' hd shield banner patterns: https://vanillatweaks.net/
+M Vanilla Tweaks' wavy leaves: https://vanillatweaks.net/
 M Shock Micro's wavy plants: https://www.curseforge.com/minecraft/texture-packs/wavy-plants
 M RyanGar46's classic 3d: https://www.curseforge.com/minecraft/texture-packs/classic-3d
 M mr_ch0c0late1's blockstates+: https://www.curseforge.com/minecraft/texture-packs/blockstates
-M mr_ch0c0late1's flowerpots+: https://www.curseforge.com/minecraft/texture-packs/flower-pots
+  mr_ch0c0late1's flowerpots+: https://www.curseforge.com/minecraft/texture-packs/flower-pots
 M MrVerece's recipe book: https://www.reddit.com/r/Minecraft/comments/6gn47s/remade_the_recipebook_texture_to_fit_normal_books/
   AmberW's tiny emoji font: https://github.com/AmberWat/TinyEmojiFontResource

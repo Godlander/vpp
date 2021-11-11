@@ -1,5 +1,7 @@
 #version 150
 
+#moj_import <light.glsl>
+
 in vec3 Position;
 in vec4 Color;
 in vec2 UV0;
@@ -16,6 +18,7 @@ uniform vec3 ChunkOffset;
 
 out float vertexDistance;
 out vec4 vertexColor;
+out vec4 lightColor;
 out vec2 texCoord0;
 out vec4 normal;
 
@@ -31,15 +34,16 @@ void main() {
     float ys = 0.0;
     float zs = 0.0;
 	float alpha = texture(Sampler0, UV0).a * 255;
-    if (alpha == 1.0 || alpha == 253.0) {
-        xs = ((sin(time + yy) + cos(time + zz)) * 0.01);
-        zs = ((sin(time + 256 + yy) + cos(time + 256 + xx)) * 0.01);
+    if (alpha == 1.0 || alpha == 253.0) { //leaves
+        xs = ((sin(time + yy) + cos(time + zz)) * 0.02);
+        zs = ((sin(time + 256 + yy) + cos(time + 256 + xx)) * 0.02);
     }
 
     gl_Position = ProjMat * ModelViewMat * (vec4(Position + ChunkOffset, 1.0) + vec4(xs, ys, zs, 0.0));
 
     vertexDistance = length((ModelViewMat * vec4(Position + ChunkOffset, 1.0)).xyz);
-    vertexColor = Color * texelFetch(Sampler2, UV2 / 16, 0);
+    lightColor = minecraft_sample_lightmap(Sampler2, UV2);
+    vertexColor = Color * lightColor;
     texCoord0 = UV0;
     normal = ProjMat * ModelViewMat * vec4(Normal, 0.0);
 }

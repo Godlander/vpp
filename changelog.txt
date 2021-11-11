@@ -1,17 +1,39 @@
 v++
+1.5
+
+Blocks:
++Beacon core is brighter
+-Snow Layer no longer droops until 2 layers high
+
+Items:
++Enchanting Table has the book
++Milk is extra thick and creamy
++Eye of Ender blinks
+
+Misc:
++Enchantment Glint is less obtrusive
+
+Shaders:
++Many blocks and items that would emit light are actually emissive
++Lanterns and Soul Lanterns sway slightly
++Tall grass no longer gets chopped in half at chunk borders
+
+
+
 1.4
 
 Blocks:
 +Snow Layer droops down the side of the block it's on
-+Most plants wave slightly
-+Leaves wave slightly
 
 Misc:
 +Tiny Twemojis ✨😎 ([Win]+[.] on Windows to access the emoji keyboard)
 
+Shaders:
++Most plants wave slightly
++Leaves wave slightly
 
 
-v++
+
 1.3
 
 Blocks:
@@ -31,7 +53,6 @@ GUI:
 
 
 
-v++
 1.2
 
 Blocks:
