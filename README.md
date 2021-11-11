@@ -30,10 +30,15 @@ Custom container GUIs that make sense.
 
 ## Credits to cool people
 - bbq's vanilla shaders: https://github.com/bradleyq/mc_vanilla_shaders (Modified)
+- Shock Micro's vanilla dynamic emissives: https://github.com/ShockMicro/VanillaDynamicEmissives (Modified)
+- Bálint's hanging lanterns: https://github.com/BalintCsala/HangingLanterns (Modified)
 - StormDragon77's door tweaks: https://www.planetminecraft.com/texture-pack/door-tweaks/ (Modified)
 - Reijvi's reinmagined: https://www.planetminecraft.com/texture-pack/minecraft-reimagined-5096190/ (Modified)
 - Thy_Creeper_King's end crystal beautification: https://www.planetminecraft.com/texture-pack/end-crystal-beautification/
 - Yomna's better map icons: https://www.planetminecraft.com/texture-pack/yomny-pack-better- ap-icons/ (Modified)
+- kemiu's quality creeper: https://www.planetminecraft.com/texture-pack/quality-creeper/ (Modified)
+- kemiu's new chests: https://www.planetminecraft.com/texture-pack/new-chests-1-15/ (Modified)
+- Chubins' creamier milk: https://www.planetminecraft.com/texture-pack/creamier-milk/
 - vanillatweaks' different stems: https://vanillatweaks.net/
 - vanillatweaks' shorter grass: https://vanillatweaks.net/ (Modified)
 - vanillatweaks' diminishing tools: https://vanillatweaks.net/ (Modified)
