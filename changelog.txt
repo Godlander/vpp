@@ -1,4 +1,22 @@
 v++
+1.6
+
+Blocks:
++Snow Layer has proper cullfaces at height 8
++Raised Powered Rails no longer z-fight
++Rails with redstone bits are properly emissive when on
++Decompressed Magma Block (oops)
+
+Items:
+-Removed the sword from Item Frames
+
+Shaders:
++Brightness is properly applied (no more pitch darkness at all brightness settings)
++Fog is properly applied to translucent blocks
++Leaves sway a bit more
+
+
+
 1.5
 
 Blocks:

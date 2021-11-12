@@ -36,7 +36,6 @@ void main() {
 
     float offset = 0.0;
     if (rougheq(texture(Sampler0, UV0).a*255., 165.)) { //lava
-
         if (!(mod(Position.y, 1.0) < 0.1)) {
             offset = ((sin(time + xx) + cos(time + zz)) * 0.01) - 0.01;
             offset /= dropoff;

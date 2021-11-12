@@ -23,7 +23,7 @@ void main() {
     vec4 color = texture(Sampler0, texCoord0) * vertexColor * ColorModulator;
 	float alpha = color.a * 255.0;
     color.rgb = mix(overlayColor.rgb, color.rgb, overlayColor.a);
-    color = make_emissive(make_emissive(color, lightColor, vertexDistance, alpha), lightColor, vertexDistance, alpha);
+    color = make_emissive_entity(color, lightColor, vertexDistance, alpha);
 	color.a = remap_alpha(alpha) / 255.0;
     fragColor = linear_fog(color, vertexDistance, FogStart, FogEnd, FogColor);
 }

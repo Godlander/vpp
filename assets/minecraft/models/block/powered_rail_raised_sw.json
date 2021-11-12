@@ -1,5 +1,4 @@
 {
-	"credit": "Made with Blockbench - Made/edited by RyanGar46",
 	"ambientocclusion": false,
 	"textures": {
 		"particle": "block/powered_rail",
@@ -9,8 +8,8 @@
 	"elements": [
 		{
 			"name": "Cube",
-			"from": [2, 8.5, -2],
-			"to": [5, 9.5, 14],
+			"from": [2, 8.4, -1.94975],
+			"to": [5, 9.4, 13.81145],
 			"rotation": {"angle": -45, "axis": "x", "origin": [8, 8, 8]},
 			"faces": {
 				"north": {"uv": [5, 15, 2, 16], "texture": "#powered_rail"},
@@ -23,8 +22,8 @@
 		},
 		{
 			"name": "Cube",
-			"from": [11, 8.5, -2],
-			"to": [14, 9.5, 14],
+			"from": [11, 8.4, -1.94975],
+			"to": [14, 9.4, 13.81145],
 			"rotation": {"angle": -45, "axis": "x", "origin": [8, 8, 8]},
 			"faces": {
 				"north": {"uv": [14, 15, 11, 16], "texture": "#powered_rail"},
@@ -37,8 +36,8 @@
 		},
 		{
 			"name": "Cube",
-			"from": [2.01, 8.5, 14],
-			"to": [5.01, 9.5, 21],
+			"from": [2.01, 8.4, 13.81145],
+			"to": [5.01, 9.4, 20.70697],
 			"rotation": {"angle": -45, "axis": "x", "origin": [8, 8, 8]},
 			"faces": {
 				"north": {"uv": [2, 0, 0, 1], "texture": "#missing"},
@@ -51,8 +50,8 @@
 		},
 		{
 			"name": "Cube",
-			"from": [10.99, 8.5, 14],
-			"to": [13.99, 9.5, 21],
+			"from": [10.99, 8.4, 13.81145],
+			"to": [13.99, 9.4, 20.70697],
 			"rotation": {"angle": -45, "axis": "x", "origin": [8, 8, 8]},
 			"faces": {
 				"north": {"uv": [4, 0, 2, 1], "texture": "#missing"},
@@ -65,8 +64,8 @@
 		},
 		{
 			"name": "Cube",
-			"from": [1, 7.5, 18],
-			"to": [15, 8.5, 20],
+			"from": [1, 7.4, 17.75175],
+			"to": [15, 8.4, 19.7219],
 			"rotation": {"angle": -45, "axis": "x", "origin": [8, 8, 8]},
 			"faces": {
 				"north": {"uv": [4, 2, 5, 16], "rotation": 270, "texture": "#rail_powered_3d"},
@@ -79,8 +78,8 @@
 		},
 		{
 			"name": "Cube",
-			"from": [1, 7.5, 14],
-			"to": [15, 8.5, 16],
+			"from": [1, 7.4, 13.81145],
+			"to": [15, 8.4, 15.7816],
 			"rotation": {"angle": -45, "axis": "x", "origin": [8, 8, 8]},
 			"faces": {
 				"north": {"uv": [4, 2, 5, 16], "rotation": 270, "texture": "#rail_powered_3d"},
@@ -93,8 +92,8 @@
 		},
 		{
 			"name": "Cube",
-			"from": [1, 7.5, 10],
-			"to": [15, 8.5, 12],
+			"from": [1, 7.4, 9.87115],
+			"to": [15, 8.4, 11.8413],
 			"rotation": {"angle": -45, "axis": "x", "origin": [8, 8, 8]},
 			"faces": {
 				"north": {"uv": [4, 2, 5, 16], "rotation": 270, "texture": "#rail_powered_3d"},
@@ -107,8 +106,8 @@
 		},
 		{
 			"name": "Cube",
-			"from": [1, 7.5, 6],
-			"to": [15, 8.5, 8],
+			"from": [1, 7.4, 5.93085],
+			"to": [15, 8.4, 7.901],
 			"rotation": {"angle": -45, "axis": "x", "origin": [8, 8, 8]},
 			"faces": {
 				"north": {"uv": [4, 2, 5, 16], "rotation": 270, "texture": "#rail_powered_3d"},
@@ -121,8 +120,8 @@
 		},
 		{
 			"name": "Cube",
-			"from": [1, 7.5, 2],
-			"to": [15, 8.5, 4],
+			"from": [1, 7.4, 1.99055],
+			"to": [15, 8.4, 3.9607],
 			"rotation": {"angle": -45, "axis": "x", "origin": [8, 8, 8]},
 			"faces": {
 				"north": {"uv": [4, 2, 5, 16], "rotation": 270, "texture": "#rail_powered_3d"},
@@ -135,8 +134,8 @@
 		},
 		{
 			"name": "Cube",
-			"from": [1, 7.5, -2],
-			"to": [15, 8.5, 0],
+			"from": [1, 7.4, -1.94975],
+			"to": [15, 8.4, 0.0204],
 			"rotation": {"angle": -45, "axis": "x", "origin": [8, 8, 8]},
 			"faces": {
 				"north": {"uv": [4, 2, 5, 16], "rotation": 270, "texture": "#rail_powered_3d"},
@@ -149,8 +148,8 @@
 		},
 		{
 			"name": "Cube",
-			"from": [7, 7.5, 0],
-			"to": [9, 8.5, 2],
+			"from": [7, 7.4, 0.0204],
+			"to": [9, 8.4, 1.99055],
 			"rotation": {"angle": -45, "axis": "x", "origin": [8, 8, 8]},
 			"faces": {
 				"east": {"uv": [9, 3, 8, 5], "texture": "#powered_rail"},
@@ -161,8 +160,8 @@
 		},
 		{
 			"name": "Cube",
-			"from": [7, 7.5, 4],
-			"to": [9, 8.5, 6],
+			"from": [7, 7.4, 3.9607],
+			"to": [9, 8.4, 5.93085],
 			"rotation": {"angle": -45, "axis": "x", "origin": [8, 8, 8]},
 			"faces": {
 				"east": {"uv": [9, 3, 8, 5], "texture": "#powered_rail"},
@@ -173,8 +172,8 @@
 		},
 		{
 			"name": "Cube",
-			"from": [7, 7.5, 8],
-			"to": [9, 8.5, 10],
+			"from": [7, 7.4, 7.901],
+			"to": [9, 8.4, 9.87115],
 			"rotation": {"angle": -45, "axis": "x", "origin": [8, 8, 8]},
 			"faces": {
 				"east": {"uv": [9, 3, 8, 5], "texture": "#powered_rail"},
@@ -185,8 +184,8 @@
 		},
 		{
 			"name": "Cube",
-			"from": [7, 7.5, 12],
-			"to": [9, 8.5, 14],
+			"from": [7, 7.4, 11.8413],
+			"to": [9, 8.4, 13.81145],
 			"rotation": {"angle": -45, "axis": "x", "origin": [8, 8, 8]},
 			"faces": {
 				"east": {"uv": [9, 3, 8, 5], "texture": "#powered_rail"},
@@ -197,8 +196,8 @@
 		},
 		{
 			"name": "Cube",
-			"from": [7, 7.5, 16],
-			"to": [9, 8.5, 18],
+			"from": [7, 7.4, 15.7816],
+			"to": [9, 8.4, 17.75175],
 			"rotation": {"angle": -45, "axis": "x", "origin": [8, 8, 8]},
 			"faces": {
 				"east": {"uv": [9, 3, 8, 5], "texture": "#powered_rail"},

@@ -30,16 +30,15 @@ void main() {
     float yy = Position.y / 2 * pi;
     float zz = Position.z / 2 * pi;
 
-    float xs = 0.0;
-    float ys = 0.0;
-    float zs = 0.0;
+    vec3 offset = vec3(0.0,0.0,0.0);
 	float alpha = texture(Sampler0, UV0).a * 255;
     if (alpha == 1.0 || alpha == 253.0) { //leaves
-        xs = ((sin(time + yy) + cos(time + zz)) * 0.02);
-        zs = ((sin(time + 256 + yy) + cos(time + 256 + xx)) * 0.02);
+        offset.x = ((sin(time * 0.9 + yy) + cos(time * 0.9 + zz)) * 0.02);
+        offset.y = ((cos(time / 3.0 + xx) + sin(time / 3.0 + zz)) * 0.01);
+        offset.z = ((sin(time + 256 + yy) + cos(time + 256 + xx)) * 0.02);
     }
 
-    gl_Position = ProjMat * ModelViewMat * (vec4(Position + ChunkOffset, 1.0) + vec4(xs, ys, zs, 0.0));
+    gl_Position = ProjMat * ModelViewMat * (vec4(Position + ChunkOffset + offset, 1.0));
 
     vertexDistance = length((ModelViewMat * vec4(Position + ChunkOffset, 1.0)).xyz);
     lightColor = minecraft_sample_lightmap(Sampler2, UV2);

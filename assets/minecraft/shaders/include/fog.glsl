@@ -9,6 +9,15 @@ vec4 linear_fog(vec4 inColor, float vertexDistance, float fogStart, float fogEnd
     return vec4(mix(inColor.rgb, fogColor.rgb, fogValue * fogColor.a), inColor.a);
 }
 
+vec4 linear_fog_trans(vec4 inColor, float vertexDistance, float fogStart, float fogEnd, vec4 fogColor) {
+    fogStart *= 0.8;
+    if (vertexDistance <= fogStart) {
+        return inColor;
+    }
+    float fogValue = vertexDistance < fogEnd ? smoothstep(fogStart, fogEnd, vertexDistance) : 1.0;
+    return vec4(mix(inColor.rgb, fogColor.rgb, fogValue * fogColor.a), inColor.a*(1.0-fogValue));
+}
+
 float linear_fog_fade(float vertexDistance, float fogStart, float fogEnd) {
     fogStart *= 0.8;
     if (vertexDistance <= fogStart) {
