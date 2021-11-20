@@ -5,6 +5,7 @@
         "swap2",
         "swap3",
         "swap4",
+        "swap5",
         "translucent",
         "itemEntity",
         "particles",
@@ -14,6 +15,17 @@
         { "name": "temporals2", "width": 16, "height": 1, "bilinear": false }
     ],
     "passes": [
+        {
+            "name": "shading",
+            "intarget": "minecraft:main",
+            "outtarget": "swap5",
+            "auxtargets": [
+                {
+                    "name": "DiffuseDepthSampler",
+                    "id": "minecraft:main:depth"
+                }
+            ]
+        },
         {
             "name": "fov_calc",
             "intarget": "temporals1",
@@ -140,7 +152,7 @@
         },
         {
             "name": "water",
-            "intarget": "minecraft:main",
+            "intarget": "swap5",
             "outtarget": "swap2",
             "auxtargets": [
                 {
@@ -154,10 +166,6 @@
                 {
                     "name": "TranslucentDepthSampler",
                     "id": "translucent:depth"
-                },
-                {
-                    "name": "TranslucentHeightSampler",
-                    "id": "swap1"
                 },
                 {
                     "name": "TemporalSampler",
@@ -214,7 +222,7 @@
         },
         {
             "name": "composite2",
-            "intarget": "minecraft:main",
+            "intarget": "swap5",
             "outtarget": "swap3",
             "auxtargets": [
                 {

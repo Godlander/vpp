@@ -21,6 +21,7 @@ out vec4 vertexColor;
 out vec4 lightColor;
 out vec2 texCoord0;
 out vec4 normal;
+out vec4 glpos;
 
 #define pi 3.1415926535897932
 
@@ -31,7 +32,7 @@ void main() {
     float zz = Position.z / 2 * pi;
 
     vec3 offset = vec3(0.0,0.0,0.0);
-	float alpha = texture(Sampler0, UV0).a * 255;
+    float alpha = texture(Sampler0, UV0).a * 255;
     if (alpha == 1.0 || alpha == 253.0) { //leaves
         offset.x = ((sin(time * 0.9 + yy) + cos(time * 0.9 + zz)) * 0.02);
         offset.y = ((cos(time / 3.0 + xx) + sin(time / 3.0 + zz)) * 0.01);
@@ -45,4 +46,5 @@ void main() {
     vertexColor = Color * lightColor;
     texCoord0 = UV0;
     normal = ProjMat * ModelViewMat * vec4(Normal, 0.0);
+    glpos = gl_Position;
 }

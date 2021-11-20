@@ -8,6 +8,6 @@
         "level=5": { "model": "block/composter_contents_5" },
         "level=6": { "model": "block/composter_contents_6" },
         "level=7": { "model": "block/composter_contents_7" },
-		"level=8": { "model": "block/composter_contents_8" }
+        "level=8": { "model": "block/composter_contents_8" }
     }
 }

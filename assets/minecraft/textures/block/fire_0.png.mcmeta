@@ -1,5 +1,6 @@
 {
   "animation": {
+    "interpolate":true,
     "frames": [
       16,
       17,

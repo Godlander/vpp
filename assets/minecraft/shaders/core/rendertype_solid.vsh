@@ -21,7 +21,9 @@ out float vertexDistance;
 out vec4 vertexColor;
 out vec4 lightColor;
 out vec2 texCoord0;
-out vec4 normal;
+out vec2 texCoord2;
+out vec3 normal;
+out vec4 glpos;
 
 #define pi 3.1415926535897932
 
@@ -36,13 +38,13 @@ void main() {
 
     float offset = 0.0;
     if (rougheq(texture(Sampler0, UV0).a*255., 165.)) { //lava
-        if (!(mod(Position.y, 1.0) < 0.1)) {
-            offset = ((sin(time + xx) + cos(time + zz)) * 0.01) - 0.01;
+        if ((mod(Position.y, 1.0) > 0.1) || (mod(Position.y, 1.0) < 0.01)) {
+            offset = ((sin(time + xx) + cos(time + zz)) * 0.02) - 0.01;
             offset /= dropoff;
-            offset += 0.01 * sin((Position.z * pi / 4.0 + anim * 700)) * 1.0 * (1.0 - smoothstep(0.0, 1.0, vertexDistance / far));
-            offset += 0.01 * cos((Position.z * pi / 8.0 + Position.x * pi / 4.0 + anim * 400) + pi / 13.0) * 1.2 * (1.0 - smoothstep(0.1, 1.0, vertexDistance / far));
-            offset += 0.01 * sin((Position.z * pi / 8.0 - Position.x * pi / 2.0 - anim * 900) - pi / 7.0) * 0.75 * (1.0 - smoothstep(0.0, 0.3, vertexDistance / far));
-            offset += 0.01 * cos((Position.z * pi * 7.0 + Position.x * pi / 2.0 - anim * 870) + pi / 5.0) * 0.75 * (1.0 - smoothstep(0.0, 0.9, vertexDistance / far));
+            offset += 0.03 * sin((Position.z * pi / 4.0 + anim * 700)) * 1.0 * (1.0 - smoothstep(0.0, 1.0, vertexDistance / far));
+            offset += 0.03 * cos((Position.z * pi / 8.0 + Position.x * pi / 4.0 + anim * 400) + pi / 13.0) * 1.2 * (1.0 - smoothstep(0.1, 1.0, vertexDistance / far));
+            offset += 0.03 * sin((Position.z * pi / 8.0 - Position.x * pi / 2.0 - anim * 900) - pi / 7.0) * 0.75 * (1.0 - smoothstep(0.0, 0.3, vertexDistance / far));
+            offset += 0.03 * cos((Position.z * pi * 7.0 + Position.x * pi / 2.0 - anim * 870) + pi / 5.0) * 0.75 * (1.0 - smoothstep(0.0, 0.9, vertexDistance / far));
         }
     }
 
@@ -52,5 +54,8 @@ void main() {
     lightColor = minecraft_sample_lightmap(Sampler2, UV2);
     vertexColor = Color * lightColor;
     texCoord0 = UV0;
-    normal = ProjMat * ModelViewMat * vec4(Normal, 0.0);
+    texCoord2 = UV2 / 255.0;
+    texCoord2.x *= 1.0 - getSun(Sampler2);
+    normal = Normal;
+    glpos = gl_Position;
 }

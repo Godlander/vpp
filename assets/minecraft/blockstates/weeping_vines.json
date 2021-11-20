@@ -1,6 +1,30 @@
 {
-  "variants": {
-    "age=0-24": { "model": "minecraft:block/weeping_vines" },
-    "age=25": { "model": "minecraft:block/weeping_vines_age_25" }
-  }
+    "variants": {
+        "age=0": { "model": "minecraft:block/weeping_vines" },
+        "age=1": { "model": "minecraft:block/weeping_vines" },
+        "age=2": { "model": "minecraft:block/weeping_vines" },
+        "age=3": { "model": "minecraft:block/weeping_vines" },
+        "age=4": { "model": "minecraft:block/weeping_vines" },
+        "age=5": { "model": "minecraft:block/weeping_vines" },
+        "age=6": { "model": "minecraft:block/weeping_vines" },
+        "age=7": { "model": "minecraft:block/weeping_vines" },
+        "age=8": { "model": "minecraft:block/weeping_vines" },
+        "age=9": { "model": "minecraft:block/weeping_vines" },
+        "age=10": { "model": "minecraft:block/weeping_vines" },
+        "age=11": { "model": "minecraft:block/weeping_vines" },
+        "age=12": { "model": "minecraft:block/weeping_vines" },
+        "age=13": { "model": "minecraft:block/weeping_vines" },
+        "age=14": { "model": "minecraft:block/weeping_vines" },
+        "age=15": { "model": "minecraft:block/weeping_vines" },
+        "age=16": { "model": "minecraft:block/weeping_vines" },
+        "age=17": { "model": "minecraft:block/weeping_vines" },
+        "age=18": { "model": "minecraft:block/weeping_vines" },
+        "age=19": { "model": "minecraft:block/weeping_vines" },
+        "age=20": { "model": "minecraft:block/weeping_vines" },
+        "age=21": { "model": "minecraft:block/weeping_vines" },
+        "age=22": { "model": "minecraft:block/weeping_vines" },
+        "age=23": { "model": "minecraft:block/weeping_vines" },
+        "age=24": { "model": "minecraft:block/weeping_vines" },
+        "age=25": { "model": "minecraft:block/weeping_vines_age_25" }
+    }
 }

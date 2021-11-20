@@ -3,7 +3,6 @@
 in vec4 Position;
 
 uniform vec2 OutSize;
-uniform mat4 ProjMat;
 uniform mat4 ModelViewMat;
 
 out vec2 texCoord;

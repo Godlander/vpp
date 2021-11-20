@@ -35,7 +35,7 @@ void main() {
     float far = ProjMat[3][2] * 0.05 / (ProjMat[3][2] + 2.0 * 0.05) / 3.0 * sqrt(3);
 
     float offset = 0.0;
-    if (rougheq(texture(Sampler0, UV0).a*255., 165.)) { //water
+    if (rougheq(texture(Sampler0, UV0).a*255., 131.)) { //water
 
         if ((mod(Position.y, 1.0) > 0.1) || (mod(Position.y, 1.0) < 0.01)) {
             offset = ((sin(time + xx) + cos(time + zz)) * 0.02) - 0.02;

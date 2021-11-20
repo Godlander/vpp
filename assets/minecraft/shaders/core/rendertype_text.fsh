@@ -2,6 +2,7 @@
 
 #moj_import <fog.glsl>
 #moj_import <tools.glsl>
+#moj_import <utils.glsl>
 
 in vec3 Position;
 uniform sampler2D Sampler0;
@@ -14,6 +15,7 @@ uniform vec4 FogColor;
 in float vertexDistance;
 in vec4 vertexColor;
 in vec2 texCoord0;
+in vec4 glpos;
 
 out vec4 fragColor;
 
@@ -26,6 +28,7 @@ float mapcolor(vec3 color, vec3 match) {
 }
 
 void main() {
+    if (vertexDistance < FogEnd) discardControlGLPos(gl_FragCoord.xy, glpos);
     vec4 color = texture(Sampler0, texCoord0);
     if (color.a < 0.1) {
         discard;

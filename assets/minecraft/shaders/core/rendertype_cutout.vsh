@@ -22,6 +22,7 @@ out vec4 vertexColor;
 out vec4 lightColor;
 out vec2 texCoord0;
 out vec4 normal;
+out vec4 glpos;
 
 #define pi 3.1415926535897932
 #define phi 1.61803398875
@@ -63,7 +64,7 @@ void main() {
         offset.z = cos(position.z + position.y + animation) / 32.;
 
     }
-    
+
     gl_Position = ProjMat * ModelViewMat * (vec4(Position + ChunkOffset + offset, 1.0));
 
     if (rougheq(alpha, 141.0)) { //lanterns
@@ -92,4 +93,5 @@ void main() {
     vertexColor = Color * lightColor;
     texCoord0 = UV0;
     normal = ProjMat * ModelViewMat * vec4(Normal, 0.0);
+    glpos = gl_Position;
 }

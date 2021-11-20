@@ -1,6 +1,20 @@
 {
-  "variants": {
-    "age=0-14": { "model": "minecraft:block/cactus" },
-    "age=15": { "model": "minecraft:block/cactus_age_15" }
-  }
+    "variants": {
+        "age=0": { "model": "minecraft:block/cactus" },
+        "age=1": { "model": "minecraft:block/cactus" },
+        "age=2": { "model": "minecraft:block/cactus" },
+        "age=3": { "model": "minecraft:block/cactus" },
+        "age=4": { "model": "minecraft:block/cactus" },
+        "age=5": { "model": "minecraft:block/cactus" },
+        "age=6": { "model": "minecraft:block/cactus" },
+        "age=7": { "model": "minecraft:block/cactus" },
+        "age=8": { "model": "minecraft:block/cactus" },
+        "age=9": { "model": "minecraft:block/cactus" },
+        "age=10": { "model": "minecraft:block/cactus" },
+        "age=11": { "model": "minecraft:block/cactus" },
+        "age=12": { "model": "minecraft:block/cactus" },
+        "age=13": { "model": "minecraft:block/cactus" },
+        "age=14": { "model": "minecraft:block/cactus" },
+        "age=15": { "model": "minecraft:block/cactus_age_15" }
+    }
 }

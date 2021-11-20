@@ -9,7 +9,7 @@ vec4 linear_fog(vec4 inColor, float vertexDistance, float fogStart, float fogEnd
     return vec4(mix(inColor.rgb, fogColor.rgb, fogValue * fogColor.a), inColor.a);
 }
 
-vec4 linear_fog_trans(vec4 inColor, float vertexDistance, float fogStart, float fogEnd, vec4 fogColor) {
+vec4 linear_fog_translucent(vec4 inColor, float vertexDistance, float fogStart, float fogEnd, vec4 fogColor) {
     fogStart *= 0.8;
     if (vertexDistance <= fogStart) {
         return inColor;

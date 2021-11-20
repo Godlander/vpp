@@ -1,4 +1,25 @@
 v++
+1.7
+
+Blocks:
++Glazed Terracotta colors are more conservative
++Lava texture is interpolated
+
+Items:
++More things are emissive
+
+Misc:
++Resolved all console warnings on load
+
+Shaders:
++Lava waves more
++Nether Wart waves
++Tips of Weeping and Twisting Vines wave
++SSAO
++Screenspace Reflections no longer become distorted at the edge when not using exactly 70 FOV
+
+
+
 1.6
 
 Blocks:
