@@ -53,5 +53,6 @@ Custom container GUIs that make sense.
 - MrVerece's recipe book: https://www.reddit.com/r/Minecraft/comments/6gn47s/remade_the_recipebook_texture_to_fit_normal_books/ (Modified)
 - AmberW's tiny emoji font: https://github.com/AmberWat/TinyEmojiFontResource
 - Everyone in the MCC discord: https://discord.gg/QAFXFtZ
+- And the ShaderLABS discord: https://discord.gg/RpzWN9S
 
 Feel free to contact me on discord @Godlander#1020
