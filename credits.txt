@@ -3,6 +3,7 @@ M-modified
 M bbq's vanilla shaders: https://github.com/bradleyq/mc_vanilla_shaders
 M Shock Micro's vanilla dynamic emissives: https://github.com/ShockMicro/VanillaDynamicEmissives
 M Bálint's hanging lanterns: https://github.com/BalintCsala/HangingLanterns
+M DartCat25's menus enchanted+: https://www.planetminecraft.com/texture-pack/menus-enchanted/
 M StormDragon77's door tweaks: https://www.planetminecraft.com/texture-pack/door-tweaks/
 M Reijvi's reinmagined: https://www.planetminecraft.com/texture-pack/minecraft-reimagined-5096190/
 M Thy_Creeper_King's end crystal beautification: https://www.planetminecraft.com/texture-pack/end-crystal-beautification/

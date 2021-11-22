@@ -20,7 +20,6 @@ void main() {
 
     vertexColor = Color;
     texCoord0 = UV0;
-    texCoord2 = UV2 / 255.0;
     normal = ProjMat * ModelViewMat * vec4(Normal, 0.0);
     glpos = gl_Position;
 }

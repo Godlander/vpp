@@ -168,6 +168,10 @@
                     "id": "translucent:depth"
                 },
                 {
+                    "name": "TranslucentHeightSampler",
+                    "id": "swap1"
+                },
+                {
                     "name": "TemporalSampler",
                     "id": "temporals1"
                 }

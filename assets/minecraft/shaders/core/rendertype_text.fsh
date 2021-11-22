@@ -1,12 +1,13 @@
 #version 150
 
 #moj_import <fog.glsl>
-#moj_import <tools.glsl>
+#moj_import <emissive_utils.glsl>
 #moj_import <utils.glsl>
 
-in vec3 Position;
+uniform mat4 ProjMat;
 uniform sampler2D Sampler0;
 
+in vec3 Position;
 uniform vec4 ColorModulator;
 uniform float FogStart;
 uniform float FogEnd;
@@ -14,6 +15,7 @@ uniform vec4 FogColor;
 
 in float vertexDistance;
 in vec4 vertexColor;
+in vec4 lightColor;
 in vec2 texCoord0;
 in vec4 glpos;
 
@@ -28,7 +30,7 @@ float mapcolor(vec3 color, vec3 match) {
 }
 
 void main() {
-    if (vertexDistance < FogEnd) discardControlGLPos(gl_FragCoord.xy, glpos);
+    if (!isGUI(ProjMat)) discardControlGLPos(gl_FragCoord.xy, glpos);
     vec4 color = texture(Sampler0, texCoord0);
     if (color.a < 0.1) {
         discard;
@@ -54,8 +56,10 @@ void main() {
         height = mapcolor(color.rgb*255., vec3(112.,2.,0.));     if (height > 0.) {color.rgb = vec3(113.,47.,47.)   * height / 255.;} else { //NETHER
         height = mapcolor(color.rgb*255., vec3(255.,0.,0.));     if (height > 0.) {color.rgb = vec3(230.,133.,44.)  * height / 255.;} }}}}}}}}}}}}}}}}//FIRE
     }                                                                                                                                //:works_as_intended:
-
-    color = color * vertexColor * ColorModulator;
-
+    color *= vertexColor * ColorModulator;
+    if (!isGUI(ProjMat)) {
+        float alpha = textureLod(Sampler0, texCoord0, 0.0).a * 255.0;
+        color = make_emissive(color, lightColor, vertexDistance, alpha);
+    }
     fragColor = linear_fog(color, vertexDistance, FogStart, FogEnd, FogColor);
 }

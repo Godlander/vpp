@@ -1,6 +1,7 @@
 #version 150
 
 #moj_import <fog.glsl>
+#moj_import <emissive_utils.glsl>
 #moj_import <utils.glsl>
 
 uniform sampler2D Sampler0;
@@ -28,6 +29,7 @@ void main() {
     }
     color *= vertexColor * ColorModulator;
     color.rgb = mix(overlayColor.rgb, color.rgb, overlayColor.a);
-    color *= lightMapColor;
+    float alpha = textureLod(Sampler0, texCoord0, 0.0).a * 255.0;
+    color = apply_lightmap(color, lightMapColor, vertexDistance, alpha);
     fragColor = linear_fog(color, vertexDistance, FogStart, FogEnd, FogColor);
 }

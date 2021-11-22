@@ -52,7 +52,7 @@ void main() {
 
     vertexDistance = length((ModelViewMat * vec4(position, 1.0)).xyz);
     lightColor = minecraft_sample_lightmap(Sampler2, UV2);
-    vertexColor = Color * lightColor;
+    vertexColor = Color;
     texCoord0 = UV0;
     normal = ProjMat * ModelViewMat * vec4(Normal, 0.0);
 }

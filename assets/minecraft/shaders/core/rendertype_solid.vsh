@@ -21,7 +21,6 @@ out float vertexDistance;
 out vec4 vertexColor;
 out vec4 lightColor;
 out vec2 texCoord0;
-out vec2 texCoord2;
 out vec3 normal;
 out vec4 glpos;
 
@@ -52,10 +51,8 @@ void main() {
 
     vertexDistance = length((ModelViewMat * vec4(Position + ChunkOffset, 1.0)).xyz);
     lightColor = minecraft_sample_lightmap(Sampler2, UV2);
-    vertexColor = Color * lightColor;
+    vertexColor = Color;
     texCoord0 = UV0;
-    texCoord2 = UV2 / 255.0;
-    texCoord2.x *= 1.0 - getSun(Sampler2);
     normal = Normal;
     glpos = gl_Position;
 }

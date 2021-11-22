@@ -1,4 +1,24 @@
 v++
+1.8
+
+Blocks:
++Water is more transparent
++Ice is more transparent
++More blocks are emissive
+
+Particles:
++Campfire Smoke particles are transparent
+
+Shaders:
++Fixed shading on inventory items
++Color of block lights are warmer while skylight is colder
++Emissives work properly again
++Main Menu Panorama cycles between all past panoramas
++Custom menu UI background
+-Reverted Screenspace Reflection algorithm (had some bugs)
+
+
+
 1.7
 
 Blocks:

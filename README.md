@@ -32,6 +32,7 @@ Custom container GUIs that make sense.
 - bbq's vanilla shaders: https://github.com/bradleyq/mc_vanilla_shaders (Modified)
 - Shock Micro's vanilla dynamic emissives: https://github.com/ShockMicro/VanillaDynamicEmissives (Modified)
 - Bálint's hanging lanterns: https://github.com/BalintCsala/HangingLanterns (Modified)
+- DartCat25's menus enchanted+: https://www.planetminecraft.com/texture-pack/menus-enchanted/ (Modified)
 - StormDragon77's door tweaks: https://www.planetminecraft.com/texture-pack/door-tweaks/ (Modified)
 - Reijvi's reinmagined: https://www.planetminecraft.com/texture-pack/minecraft-reimagined-5096190/ (Modified)
 - Thy_Creeper_King's end crystal beautification: https://www.planetminecraft.com/texture-pack/end-crystal-beautification/

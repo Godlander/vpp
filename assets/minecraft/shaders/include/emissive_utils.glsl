@@ -4,17 +4,27 @@ bool rougheq(float a, float b) {
     return (abs(a - b) < 1.);
 }
 
+bool rougheq(vec3 a, vec3 b) {
+    return (rougheq(a.x,b.x) && rougheq(a.y,b.y) && rougheq(a.z,b.z));
+}
+
+vec4 greater(vec4 a, vec4 b) {
+    a.r = max(a.r, b.r);
+    a.g = max(a.g, b.g);
+    a.b = max(a.b, b.b);
+    a.a = 1.0;
+    return a;
+}
+
 vec4 make_emissive(vec4 inputColor, vec4 lightColor, float vertexDistance, float inputAlpha) {
-    if (rougheq(inputAlpha, 252.0)) return inputColor; // Default case, checks for alpha 252 and just returns the input color if it is.
-    return inputColor * (0.2*lightColor + 0.8); // If none of the pixels are supposed to be emissive, then it adds the light.
+    if (rougheq(inputAlpha, 252.0)) {
+        return greater(inputColor, inputColor * lightColor);
+    };
+    return inputColor * lightColor;
 }
-
-vec4 make_emissive_entity(vec4 inputColor, vec4 lightColor, float vertexDistance, float inputAlpha) {
-    if (rougheq(inputAlpha, 252.0)) return inputColor; // Default case, checks for alpha 252 and just returns the input color if it is.
-    return inputColor * lightColor; // If none of the pixels are supposed to be emissive, then it adds the light.
-}
-
-float remap_alpha(float inputAlpha) {
-    if (rougheq(inputAlpha, 252.0)) return 255.0; // Default case, checks for alpha 252 and converts all pixels of that to alpha 255.
-    return inputAlpha; // If none of the pixels are meant to be mapped then it just doesn't map.
+vec4 apply_lightmap(vec4 inputColor, vec4 lightMapColor, float vertexDistance, float inputAlpha) {
+    if (rougheq(inputAlpha, 252.0)) {
+        return greater(inputColor, inputColor * lightMapColor);
+    };
+    return inputColor * lightMapColor;
 }

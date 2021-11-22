@@ -146,6 +146,7 @@ void main() {
         float rad = SAMPLE_RAD/linearizeDepth(depth);
         float ao = 1.0 - spiralAO(normCoord, fragpos, normal, rad) * INTENSITY;
 
+        //fade ao with fog
         float vertexDistance = length(backProject(vec4(scaledCoord, depth, 1.0)).xyz);
         float aov = vertexDistance < fogEnd ? smoothstep(fogEnd * 0.01, fogEnd, vertexDistance) : 1.0;
         ao = mix(ao, 1.0, aov);
@@ -153,7 +154,6 @@ void main() {
         fragColor.rgb *= ao;
 
         // desaturate bright pixels for more realistic feel
-        fragColor.rgb = mix(fragColor.rgb, vec3(length(fragColor.rgb)/sqrt(3.0)), luma(fragColor.rgb) * 0.5);
-
+        fragColor.rgb = mix(fragColor.rgb, vec3(length(fragColor.rgb)/sqrt(3.0)), luma(fragColor.rgb) * 0.3);
     }
 }
