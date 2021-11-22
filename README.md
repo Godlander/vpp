@@ -1,27 +1,27 @@
 # [v++](https://github.com/Godlander/vpp/releases/latest)
-A compilation of vanilla complimentary resourcepacks focused on improving visual quality and the survival experience.
+> A vanilla complimentary resourcepack focused on improving visual quality and the survival experience.
 
-![image](https://user-images.githubusercontent.com/16228717/139354701-99ff5aa0-9374-4756-8d9c-48826e6e77f5.png)
-
+![image](https://user-images.githubusercontent.com/16228717/142796442-6964e2f0-65a5-47e6-b74e-8938902649e3.png)
+[More screenshots here](Screenshots.md)
 
 This pack uses vanilla shaders, which are likely incompatible with Optifine or any other mod that affects client side rendering.
 
-For more information on what's included, check out [changelog.txt](https://github.com/Godlander/vpp/blob/main/changelog.txt)
+For more information on what's included, check out [changelog.txt](changelog.txt)
 
 ### If you don't want the entire pack, here are my own separate modules:
 
-## [RealMaps](https://github.com/Godlander/vpp/blob/main/RealMaps.zip)
+## [RealMaps](RealMaps.zip)
 More realistic map colors using a core shader.
 Map icons are also tweaked a bit.
 
 ![realmaps](https://media.discordapp.net/attachments/834866130585387009/903396347640688640/unknown.png?width=763&height=676)
 
-## [VanillaCTM](https://github.com/Godlander/vpp/blob/main/VanillaCTM.zip)
+## [VanillaCTM](VanillaCTM.zip)
 Connected texture for sugar cane and vines.
 
 ![vanillactm](https://user-images.githubusercontent.com/16228717/139353051-85878743-5147-485b-941d-517ffae4be04.png)
 
-## [GUi](https://github.com/Godlander/vpp/blob/main/GUi.zip)
+## [GUi](GUi.zip)
 Custom container GUIs that make sense.
 
 ![image](https://user-images.githubusercontent.com/16228717/139380148-68662a02-e89b-42b5-b518-40427dda29dd.png)
