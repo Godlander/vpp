@@ -16,8 +16,7 @@ out vec4 glpos;
 
 void main() {
     gl_Position = ProjMat * ModelViewMat * vec4(Position, 1.0);
-
     vertexDistance = length((ModelViewMat * vec4(Position, 1.0)).xyz);
-    vertexColor = Color * ColorModulator * texelFetch(Sampler2, UV2 / 16, 0);
+    vertexColor = Color * ColorModulator * texelFetch(Sampler2, UV2 / 16, 0) * float((gl_VertexID) % 100 > 1);
     glpos = gl_Position;
 }

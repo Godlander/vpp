@@ -60,6 +60,7 @@ vec4 backProject(vec4 vec) {
 #define SAMPLE_RAD 0.5
 #define MAX_DISTANCE 3.0
 #define SNAPRANGE 100.0
+#define GOLDEN_ANGLE 2.4
 
 #define MOD3 vec3(.1031,.11369,.13787)
 
@@ -84,7 +85,6 @@ float doAmbientOcclusion(vec2 tcoord, vec2 uv, vec3 p, vec3 cnorm)
 
 float spiralAO(vec2 uv, vec3 p, vec3 n, float rad)
 {
-    float goldenAngle = 2.4;
     float ao = 0.;
     float inv = 1. / float(SAMPLES);
     float radius = 0.;
@@ -98,7 +98,7 @@ float spiralAO(vec2 uv, vec3 p, vec3 n, float rad)
         spiralUV.y = cos(rotatePhase);
         radius += rStep;
         ao += doAmbientOcclusion(uv, spiralUV * radius, p, n);
-        rotatePhase += goldenAngle;
+        rotatePhase += GOLDEN_ANGLE;
     }
     ao *= inv;
     return ao;
@@ -114,7 +114,7 @@ void main() {
     if (linearizeDepth(depth) < far - FUDGE) {
         vec2 normCoord = texCoord;
 
-        depth = getNotControl(DiffuseDepthSampler, normCoord, inControl(normCoord * OutSize, OutSize.x) > -1).r;
+        depth = getNotControl(DiffuseDepthSampler, normCoord, inctrl).r;
         float depth2 = getNotControl(DiffuseDepthSampler, normCoord + vec2(0.0, oneTexel.y), inControl((normCoord + vec2(0.0, oneTexel.y)) * OutSize, OutSize.x) > -1).r;
         float depth3 = getNotControl(DiffuseDepthSampler, normCoord + vec2(oneTexel.x, 0.0), inControl((normCoord + vec2(oneTexel.x, 0.0)) * OutSize, OutSize.x) > -1).r;
         float depth4 = getNotControl(DiffuseDepthSampler, normCoord - vec2(0.0, oneTexel.y), inControl((normCoord - vec2(0.0, oneTexel.y)) * OutSize, OutSize.x) > -1).r;

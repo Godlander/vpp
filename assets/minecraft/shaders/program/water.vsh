@@ -11,7 +11,6 @@ out vec2 texCoord;
 out vec2 oneTexel;
 out vec3 approxNormal;
 out float aspectRatio;
-out float fogEnd;
 
 vec2 getControl(int index, vec2 screenSize) {
     return vec2(floor(screenSize.x / 2.0) + float(index) * 2.0 + 0.5, 0.5) / screenSize;
@@ -70,7 +69,6 @@ void main(){
     oneTexel = 1.0 / InSize;
 
     aspectRatio = InSize.x / InSize.y;
-    approxNormal = normalize(transpose(inverse(mat3(ModelViewMat))) * vec3(0.0, 1.0, 0.0));
+    approxNormal = normalize(mat3(ModelViewMat) * vec3(0.0, 1.0, 0.0));
     approxNormal.y *= -1;
-    fogEnd = float(decodeInt(texture(DiffuseSampler, start + 26.0 * inc).xyz));
 }

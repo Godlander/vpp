@@ -1,0 +1,36 @@
+{
+    "parent": "block/lantern",
+    "gui_light":"front",
+    "display": {
+        "gui": {
+            "rotation": [ 0, 0, 0 ],
+            "translation": [ 0, 3.25, 0 ],
+            "scale":[ 1.4, 1.3, 1.0 ]
+        },
+        "ground": {
+            "rotation": [ 0, 0, 0 ],
+            "translation": [ 0, 3, 0 ],
+            "scale":[ 0.35, 0.35, 0.35 ]
+        },
+        "fixed": {
+            "rotation": [ 0, 0, 0 ],
+            "translation": [ 0, 0, 0 ],
+            "scale":[ 0.75, 0.75, 0.75 ]
+        },
+        "thirdperson_righthand": {
+            "rotation": [ 72, 0, -2.5 ],
+            "translation": [ 0, -0.4, -1.3 ],
+            "scale": [ 0.75, 0.75, 0.75 ]
+        },
+        "firstperson_righthand": {
+            "rotation": [ 355, 20, 5 ],	
+            "translation": [ 1.5, 4, 0 ],
+            "scale": [ 0.60, 0.60, 0.60 ]
+        },
+        "firstperson_lefthand": {
+            "rotation": [ 355, 200, 355 ],
+            "translation": [ 1.5, 4, 0 ],
+            "scale": [ 0.60, 0.60, 0.60 ]
+        }
+    }
+}

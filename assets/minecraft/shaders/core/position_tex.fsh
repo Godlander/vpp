@@ -32,7 +32,7 @@ void main() {
             color = vec4(encodeFloat(sunDir[index]), 1.0);
         } 
         else if (isSun < 0.25) {
-            color = texture(Sampler0, texCoord0) * ColorModulator;
+            color = vec4(1.0);
         }
     }
 

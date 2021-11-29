@@ -11,7 +11,6 @@ in vec2 texCoord;
 in vec2 oneTexel;
 in vec3 approxNormal;
 in float aspectRatio;
-in float fogEnd;
 
 out vec4 fragColor;
 
@@ -286,6 +285,6 @@ void main() {
 
         vec4 outColor = vec4(reflection.rgb, min(min(fresnel * lookfresnel * max(lum, 1.0), reflection.a), lum * 2.0));
         fragColor = mix(color, outColor, outColor.a);
-        fragColor.a = max(mix(color.a, outColor.a, min(max(lum - 0.5, 0.0), 1.0)), color.a);
+        fragColor.a = max(mix(color.a, outColor.a, clamp(lum - 0.5, 0.0, 1.0)), color.a);
     }
 }

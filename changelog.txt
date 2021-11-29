@@ -1,4 +1,28 @@
 v++
+1.9
+
+Blocks:
++Nether Portal is more transparent
++Birch Trapdoor has proper cullfaces
++More blocks are emissive
+
+Items:
++Lanterns are 3D in hand
++More items are emissive
+
+Environment:
++Changed End Sky
+
+Shaders:
++Items spin when picked up by mouse in inventory GUIs
++Inventory/GUI/Pause menu darkens the screen in a gradient
++Player doll in Inventory UI no longer gets shaded
++Added Nether layer below Deepslate layer in the custom menu background (good luck getting there)
++Map color for fire is more red
++Fix for MC-212629 (credit to DartCat25)
+
+
+
 1.8
 
 Blocks:

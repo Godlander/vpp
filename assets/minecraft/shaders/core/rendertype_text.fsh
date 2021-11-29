@@ -54,7 +54,7 @@ void main() {
         height = mapcolor(color.rgb*255., vec3(129.,86.,49.));   if (height > 0.) {color.rgb = vec3(108.,75.,29.)   * height / 255.;} else { //PODZOL
         height = mapcolor(color.rgb*255., vec3(127.,63.,178.));  if (height > 0.) {color.rgb = vec3(133.,107.,153)  * height / 255.;} else { //MYCELIUM
         height = mapcolor(color.rgb*255., vec3(112.,2.,0.));     if (height > 0.) {color.rgb = vec3(113.,47.,47.)   * height / 255.;} else { //NETHER
-        height = mapcolor(color.rgb*255., vec3(255.,0.,0.));     if (height > 0.) {color.rgb = vec3(230.,133.,44.)  * height / 255.;} }}}}}}}}}}}}}}}}//FIRE
+        height = mapcolor(color.rgb*255., vec3(255.,0.,0.));     if (height > 0.) {color.rgb = vec3(215.,53.,2.)  * height / 255.;} }}}}}}}}}}}}}}}}//FIRE
     }                                                                                                                                //:works_as_intended:
     color *= vertexColor * ColorModulator;
     if (!isGUI(ProjMat)) {

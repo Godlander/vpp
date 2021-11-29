@@ -4,6 +4,7 @@
 
 in vec4 vertexColor;
 in float isHorizon;
+in float isSpyglass;
 
 uniform vec4 ColorModulator;
 uniform vec2 ScreenSize;
@@ -14,7 +15,6 @@ void main() {
     if (isHorizon > 0.5) {
         discardControl(gl_FragCoord.xy, ScreenSize.x);
     }
-
     vec4 color = vertexColor;
     if (color.a == 0.0) {
         discard;

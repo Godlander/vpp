@@ -23,5 +23,5 @@ bool rougheq(float a, float b) {
 }
 
 bool rougheq(vec3 a, vec3 b) {
-    return (rougheq(a.x,b.x) && rougheq(a.y,b.y) && rougheq(a.z,b.z));
+    return (lessThan(a, b+0.01)==bvec3(true) && lessThan(b-0.01,a)==bvec3(true));
 }

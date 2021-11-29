@@ -6,6 +6,8 @@
         "swap3",
         "swap4",
         "swap5",
+        "time",
+        "oldtime",
         "translucent",
         "itemEntity",
         "particles",
@@ -303,21 +305,6 @@
             "name": "tonemap",
             "intarget": "swap2",
             "outtarget": "minecraft:main"
-        },
-        {
-            "name": "blur",
-            "intarget": "minecraft:main",
-            "outtarget": "swap1",
-            "uniforms": [
-                {
-                    "name": "BlurDir",
-                    "values": [ 1.0, 0.0 ]
-                },
-                {
-                    "name": "Radius",
-                    "values": [ 7.0 ]
-                }
-            ]
         }
     ]
 }

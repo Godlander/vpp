@@ -21,7 +21,7 @@ void main() {
     if (index != -1) {
         fragColor = vec4(0.0, 0.0, 0.0, 1.0);
     }
-        else {
+    else {
         vec4 color = texture(Sampler0, texCoord0) * vertexColor;
         if (Pos.y == -1999) {
             #moj_import <menus-enchanted.glsl>

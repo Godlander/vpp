@@ -44,6 +44,7 @@ void main() {
     vec3 position = Position / 2 * pi;
     float animation = GameTime * 2048.;
 
+    //waving foliage
     vec3 offset = vec3(0.0,0.0,0.0);
     float alpha = texture(Sampler0, UV0).a * 255;
     if (alpha == 1.0 || alpha == 253.0 ) { // Most plants like grass and flowers use this
@@ -67,7 +68,8 @@ void main() {
 
     gl_Position = ProjMat * ModelViewMat * (vec4(Position + ChunkOffset + offset, 1.0));
 
-    if (rougheq(alpha, 141.0)) { //lanterns
+    //hanging lanterns
+    if (alpha == 250.) {
         vec3 relativePos = fract(Position);
         if (relativePos.y > 0.001) {
             float time = GameTime * 1000.0 + dot(floor(Position), vec3(1.0)) * 1234.0;
@@ -82,11 +84,10 @@ void main() {
             float cosAngle = newDown.y;
             vec4 quat = vec4(sqrt(1 - cosAngle * cosAngle) * axis, cosAngle);
             relativePos = quaternionRotate(relativePos, quat);
-            vec3 newPos = relativePos + vec3(0.5, 1.0, 0.5);
-            gl_Position = ProjMat * ModelViewMat * vec4(floor(Position) + newPos + ChunkOffset, 1.0);
+            offset = relativePos + vec3(0.5, 1.0, 0.5);
+            gl_Position = ProjMat * ModelViewMat * vec4(floor(Position) + offset + ChunkOffset, 1.0);
         }
     }
-
 
     vertexDistance = length((ModelViewMat * vec4(Position + ChunkOffset, 1.0)).xyz);
     lightColor = minecraft_sample_lightmap(Sampler2, UV2);

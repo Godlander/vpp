@@ -3,7 +3,9 @@ M-modified
 M bbq's vanilla shaders: https://github.com/bradleyq/mc_vanilla_shaders
 M Shock Micro's vanilla dynamic emissives: https://github.com/ShockMicro/VanillaDynamicEmissives
 M Bálint's hanging lanterns: https://github.com/BalintCsala/HangingLanterns
+M D_Dimensional's 3d hand torch: https://www.planetminecraft.com/texture-pack/3d-hand-torch/
 M DartCat25's menus enchanted+: https://www.planetminecraft.com/texture-pack/menus-enchanted/
+M DartCat25's rotating items: https://www.planetminecraft.com/texture-pack/rotating-items/
 M StormDragon77's door tweaks: https://www.planetminecraft.com/texture-pack/door-tweaks/
 M Reijvi's reinmagined: https://www.planetminecraft.com/texture-pack/minecraft-reimagined-5096190/
 M Thy_Creeper_King's end crystal beautification: https://www.planetminecraft.com/texture-pack/end-crystal-beautification/
@@ -11,11 +13,11 @@ M Yomna's better map icons: https://www.planetminecraft.com/texture-pack/yomny-p
 M kemiu's quality creeper: https://www.planetminecraft.com/texture-pack/quality-creeper/
 M kemiu's new chests: https://www.planetminecraft.com/texture-pack/new-chests-1-15/
   Chubins' creamier milk: https://www.planetminecraft.com/texture-pack/creamier-milk/
-  Vanilla Tweaks' different stems: https://vanillatweaks.net/
 M Vanilla Tweaks' shorter grass: https://vanillatweaks.net/
+  Vanilla Tweaks' different stems: https://vanillatweaks.net/
 M Vanilla Tweaks' diminishing tools: https://vanillatweaks.net/
-  Vanilla Tweaks' clear banner patterns: https://vanillatweaks.net/
 M Vanilla Tweaks' sticky piston sides: https://vanillatweaks.net/
+  Vanilla Tweaks' clear banner patterns: https://vanillatweaks.net/
   Vanilla Tweaks' hd shield banner patterns: https://vanillatweaks.net/
 M Vanilla Tweaks' wavy leaves: https://vanillatweaks.net/
 M Shock Micro's wavy plants: https://www.curseforge.com/minecraft/texture-packs/wavy-plants

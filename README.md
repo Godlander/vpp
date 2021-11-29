@@ -1,5 +1,6 @@
 # [v++](https://github.com/Godlander/vpp/releases/latest)
-> A vanilla complimentary resourcepack focused on improving visual quality and the survival experience.
+
+A vanilla complimentary resourcepack focused on improving visual quality and the survival experience.
 
 ![image](https://user-images.githubusercontent.com/16228717/142796442-6964e2f0-65a5-47e6-b74e-8938902649e3.png)
 [More screenshots here](Screenshots.md)
@@ -32,7 +33,9 @@ Custom container GUIs that make sense.
 - bbq's vanilla shaders: https://github.com/bradleyq/mc_vanilla_shaders (Modified)
 - Shock Micro's vanilla dynamic emissives: https://github.com/ShockMicro/VanillaDynamicEmissives (Modified)
 - Bálint's hanging lanterns: https://github.com/BalintCsala/HangingLanterns (Modified)
+- D_Dimensional's 3d hand torch: https://www.planetminecraft.com/texture-pack/3d-hand-torch/ (Modified)
 - DartCat25's menus enchanted+: https://www.planetminecraft.com/texture-pack/menus-enchanted/ (Modified)
+- DartCat25's rotating items: https://www.planetminecraft.com/texture-pack/rotating-items/ (Modified)
 - StormDragon77's door tweaks: https://www.planetminecraft.com/texture-pack/door-tweaks/ (Modified)
 - Reijvi's reinmagined: https://www.planetminecraft.com/texture-pack/minecraft-reimagined-5096190/ (Modified)
 - Thy_Creeper_King's end crystal beautification: https://www.planetminecraft.com/texture-pack/end-crystal-beautification/
@@ -40,11 +43,11 @@ Custom container GUIs that make sense.
 - kemiu's quality creeper: https://www.planetminecraft.com/texture-pack/quality-creeper/ (Modified)
 - kemiu's new chests: https://www.planetminecraft.com/texture-pack/new-chests-1-15/ (Modified)
 - Chubins' creamier milk: https://www.planetminecraft.com/texture-pack/creamier-milk/
-- vanillatweaks' different stems: https://vanillatweaks.net/
 - vanillatweaks' shorter grass: https://vanillatweaks.net/ (Modified)
+- vanillatweaks' different stems: https://vanillatweaks.net/
 - vanillatweaks' diminishing tools: https://vanillatweaks.net/ (Modified)
-- vanillatweaks' clear banner patterns: https://vanillatweaks.net/
 - vanillatweaks' sticky piston sides: https://vanillatweaks.net/ (Modified)
+- vanillatweaks' clear banner patterns: https://vanillatweaks.net/
 - vanillatweaks' hd shield banner patterns: https://vanillatweaks.net/
 - vanillatweaks' wavy leaves: https://vanillatweaks.net/ (Modified)
 - Shock Micro's wavy plants: https://www.curseforge.com/minecraft/texture-packs/wavy-plants (Modified)
