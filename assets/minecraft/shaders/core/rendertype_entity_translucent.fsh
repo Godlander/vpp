@@ -23,7 +23,7 @@ in vec4 glpos;
 out vec4 fragColor;
 
 void main() {
-    discardControlGLPos(gl_FragCoord.xy, glpos);
+    if (!isGUI(ProjMat)) discardControlGLPos(gl_FragCoord.xy, glpos);
     vec4 color = texture(Sampler0, texCoord0);
     color *= vertexColor * ColorModulator;
     color.rgb = mix(overlayColor.rgb, color.rgb, overlayColor.a);

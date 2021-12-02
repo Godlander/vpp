@@ -60,7 +60,7 @@ void main() {
         offset.y = sin(position.y + (animation / 1.5)) / 9.0;
         offset.z = cos(position.z + position.y + animation) * -1.0 / 32.;
         
-    } else if (alpha == 4.0) {
+    } else if (alpha == 4.0 || alpha == 2.0) {
         offset.x = sin(position.x + position.y + animation) / 32.;
         offset.z = cos(position.z + position.y + animation) / 32.;
 

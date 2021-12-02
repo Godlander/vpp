@@ -1,10 +1,9 @@
 {
-	"credit": "Made with Blockbench",
 	"textures": {
 		"bottom": "block/acacia_door_bottom2",
 		"side": "block/acacia_door_sides",
-		"bottomright": "block/acacia_door_bottom",
-		"particle": "#bottom"
+		"particle": "block/acacia_door_bottom",
+		"bottomright": "block/acacia_door_bottom"
 	},
 	"elements": [
 		{

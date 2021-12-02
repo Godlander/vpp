@@ -1,4 +1,19 @@
 v++
+2.0
++Pack format updated for 1.18
+
+Blocks:
++Ceiling Vines have correct models
++Vines no longer clip through each other
++Light Gray Wool has the correct texture
++Fixed wacky lighting on top half of Acacia Doors
+
+Shaders:
++Data control pixels no longer show under hotbar
++Changed bottom Grass in menu shader to Stone
+
+
+
 1.9
 
 Blocks:

@@ -31,12 +31,10 @@ void main() {
 
     // test if sun or moon. Position.y limit excludes worldborder.
     if (Position.y < SUNDIST  && Position.y > -SUNDIST && (ModelViewMat * vec4(Position, 1.0)).z > -SUNDIST) {
-
         // only the sun has a square texture
         if (tsize.x == tsize.y) {
             isSun = 1.0;
             candidate = vec4(-2.0 * OVERLAYSCALE, -OVERLAYSCALE, 0.0, 1.0);
-
             // modify position of sun so that it covers the entire screen and store c1, c2, c3 so player space position of sun can be extracted in fsh.
             // this is the key to get everything working since it guarantees that we can access sun info in the control pixels in fsh.
             if (UV0.x < 0.5) {

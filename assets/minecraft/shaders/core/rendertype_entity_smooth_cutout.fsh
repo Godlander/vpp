@@ -4,6 +4,7 @@
 #moj_import <emissive_utils.glsl>
 #moj_import <utils.glsl>
 
+uniform mat4 ProjMat;
 uniform sampler2D Sampler0;
 
 uniform vec4 ColorModulator;

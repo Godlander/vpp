@@ -8,7 +8,6 @@ uniform mat4 ProjMat;
 
 out vec4 vertexColor;
 out float isHorizon;
-out float isSpyglass;
 
 #define HORIZONDIST 128
 
@@ -22,23 +21,22 @@ bool rougheq(vec3 a, vec3 b)
 
 void main() {
     gl_Position = ProjMat * ModelViewMat * vec4(Position, 1.0);
-    vec3 offset = vec3(0.0);
+    vec3 pos = (ProjMat * vec4(Position, 1.0)).xyz;
     vertexColor = Color;
 
     isHorizon = 0.0;
-    isSpyglass = 0.0;
-    vec3 pos = (ProjMat * vec4(Position, 1.0)).xyz;
-    if ((ModelViewMat * vec4(Position, 1.0)).z > -HORIZONDIST - 10.0) {isHorizon = 1.0;}
-    else if ((ModelViewMat * vec4(Position, 1.0)).z < -2050 && (ModelViewMat * vec4(Position, 1.0)).z > -2100) {isSpyglass = 1.0;}
+    if ((ModelViewMat * vec4(Position, 1.0)).z > -HORIZONDIST - 10.0) {
+        isHorizon = 1.0;
+    }
     //full screen
     else if(rougheq(min(abs(pos.x),1.0), 1.0) && rougheq(min(abs(pos.y),1.0), 1.0)) {
         //gui menu and loading bg
         if (Position.z == 0.0) {
-            //bottom vertices
+            //top vertices
             if (gl_VertexID > -1 && gl_VertexID < 2) {
                 vertexColor = vec4(0.0);
             }
-            //top vertices
+            //bottom vertices
             else {
                 vertexColor = vec4(0.0,0.0,0.0,0.8);
             }
@@ -58,5 +56,5 @@ void main() {
     //    
     //}
 
-    gl_Position = ProjMat * ModelViewMat * vec4(Position + offset, 1.0);
+    gl_Position = ProjMat * ModelViewMat * vec4(Position, 1.0);
 }

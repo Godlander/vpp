@@ -113,7 +113,6 @@ void main() {
     // not control and sunDir exists
     if (linearizeDepth(depth) < far - FUDGE) {
         vec2 normCoord = texCoord;
-
         depth = getNotControl(DiffuseDepthSampler, normCoord, inctrl).r;
         float depth2 = getNotControl(DiffuseDepthSampler, normCoord + vec2(0.0, oneTexel.y), inControl((normCoord + vec2(0.0, oneTexel.y)) * OutSize, OutSize.x) > -1).r;
         float depth3 = getNotControl(DiffuseDepthSampler, normCoord + vec2(oneTexel.x, 0.0), inControl((normCoord + vec2(oneTexel.x, 0.0)) * OutSize, OutSize.x) > -1).r;

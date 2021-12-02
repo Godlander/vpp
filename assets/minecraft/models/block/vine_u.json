@@ -1,17 +1,27 @@
 {
-    "ambientocclusion": false,
-    "textures": {
-        "particle": "block/vine",
-        "vine": "block/vine"
-,    "vineu":"block/vineu"},
-    "elements": [
-        {   "from": [ 0, 15.2, 0 ],
-            "to": [ 16, 15.2, 16 ],
-            "shade": false,
-            "faces": {
-                "down":  { "uv": [ 0, 0, 16, 16 ], "texture": "#vine", "tintindex": 0 },
-                "up":    { "uv": [ 0, 0, 16, 16 ], "texture": "#vineu", "tintindex": 0 }
-            }
-        }
-    ]
+	"ambientocclusion": false,
+	"textures": {
+		"particle": "block/vine",
+		"vineu": "block/vineu"
+	},
+	"elements": [
+		{
+			"from": [0, 15.2, -16],
+			"to": [16, 15.2, 0],
+			"shade": false,
+			"faces": {
+				"up": {"uv": [4, 8, 12, 16], "rotation": 180, "texture": "#vineu", "tintindex": 0},
+				"down": {"uv": [4, 8, 12, 16], "texture": "#vineu", "tintindex": 0}
+			}
+		},
+		{
+			"from": [0, 15.2, 0],
+			"to": [16, 15.2, 16],
+			"shade": false,
+			"faces": {
+				"up": {"uv": [4, 0, 12, 8], "rotation": 180, "texture": "#vineu", "tintindex": 0},
+				"down": {"uv": [4, 0, 12, 8], "texture": "#vineu", "tintindex": 0}
+			}
+		}
+	]
 }

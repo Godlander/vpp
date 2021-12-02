@@ -70,8 +70,7 @@ else {
 }
 
 if (vertexColor.r > 0.25098 && vertexColor.r < 0.25099) {                                   //separate out top/bottom bar
-    if (texCoord.y > 13.)                                                                   offset = DIRT;
-    if (block.y == 12)                                                                      offset = GRASS;
+    if (texCoord.y > 13.)                                                                   offset = STONE;
 }
 
 color = texture(Sampler0, (texCoord - block) / 5.0 + offset) * (vertexColor + 0.1);
