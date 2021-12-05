@@ -33,8 +33,6 @@ flat out int skinEffects;
 flat out int isFace;
 flat out vec3 Times;
 
-#define EQ(a,b) (length(a - b) < 0.002)
-
 void main() {
     gl_Position = ProjMat * ModelViewMat * vec4(Position, 1.0);
     normal = ProjMat * ModelViewMat * vec4(Normal, 0.0);
@@ -50,13 +48,13 @@ void main() {
     //skin effects
     skinEffects = 0;
     isFace = 0;
-    vec4 skindata = texture(Sampler0, vec2(0.0, 0.0));
+    vec4 skindata = texture(Sampler0, vec2(0.5, 0.0));
     //face vertices
     if(((gl_VertexID >= 16 && gl_VertexID < 20) || (gl_VertexID >= 160 && gl_VertexID < 164))) {
         isFace = 1;
     }
     //enable blink
-    if (skindata.a > 0) {
+    if (abs(skindata.a - 0.918) < 0.001) {
         skinEffects = 1;
         Times = skindata.rgb;
     }
