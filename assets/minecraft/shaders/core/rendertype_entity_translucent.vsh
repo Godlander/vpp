@@ -10,6 +10,7 @@ in ivec2 UV1;
 in ivec2 UV2;
 in vec3 Normal;
 
+uniform sampler2D Sampler0;
 uniform sampler2D Sampler1;
 uniform sampler2D Sampler2;
 
@@ -28,11 +29,17 @@ out vec2 texCoord0;
 out vec4 normal;
 out vec4 glpos;
 
+flat out int skinEffects;
+flat out int isFace;
+flat out vec3 Times;
+
+#define EQ(a,b) (length(a - b) < 0.002)
+
 void main() {
     gl_Position = ProjMat * ModelViewMat * vec4(Position, 1.0);
     normal = ProjMat * ModelViewMat * vec4(Normal, 0.0);
     vertexColor = minecraft_mix_light(Light0_Direction, Light1_Direction, Normal, Color);
-
+    //rotating items
     float dist = -(ModelViewMat * vec4(1.0)).z;
     if (dist == 1602.) {
         mat4 rot = Rotate(GameTime * ROTSPEED, Y) * Scale(1.1, 1.1, 1.1);
@@ -40,7 +47,19 @@ void main() {
         normal = vec4((vec4(Normal, 0) * rot).xyz, 1.0);
         vertexColor = minecraft_mix_light(Light0_Direction, Light1_Direction, normal.xyz, Color);
     }
-
+    //skin effects
+    skinEffects = 0;
+    isFace = 0;
+    vec4 skindata = texture(Sampler0, vec2(0.0, 0.0));
+    //face vertices
+    if(((gl_VertexID >= 16 && gl_VertexID < 20) || (gl_VertexID >= 160 && gl_VertexID < 164))) {
+        isFace = 1;
+    }
+    //enable blink
+    if (skindata.a > 0) {
+        skinEffects = 1;
+        Times = skindata.rgb;
+    }
     vertexDistance = length((ModelViewMat * vec4(Position, 1.0)).xyz);
     lightColor = minecraft_sample_lightmap(Sampler2, UV2);
     overlayColor = texelFetch(Sampler1, UV1, 0);

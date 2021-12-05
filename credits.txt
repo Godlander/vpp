@@ -3,6 +3,8 @@ M-modified
 M bbq's vanilla shaders: https://github.com/bradleyq/mc_vanilla_shaders
 M Shock Micro's vanilla dynamic emissives: https://github.com/ShockMicro/VanillaDynamicEmissives
 M Bálint's hanging lanterns: https://github.com/BalintCsala/HangingLanterns
+M Ts' skin effects: https://github.com/McTsts/mc-core-shaders
+  Ts' simplified glowing: https://github.com/McTsts/mc-core-shaders
 M D_Dimensional's 3d hand torch: https://www.planetminecraft.com/texture-pack/3d-hand-torch/
 M DartCat25's menus enchanted+: https://www.planetminecraft.com/texture-pack/menus-enchanted/
 M DartCat25's rotating items: https://www.planetminecraft.com/texture-pack/rotating-items/

@@ -1,4 +1,12 @@
 v++
+2.1
+
+Shaders:
++Optimized entity outline shader
++Custom face animation for skins (check github for guide)
+
+
+
 2.0
 +Pack format updated for 1.18
 
