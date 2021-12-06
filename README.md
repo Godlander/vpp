@@ -13,12 +13,14 @@ For more information on what's included, check out [changelog.txt](changelog.txt
 
 ## [RealMaps](RealMaps.zip)
 More realistic map colors using a core shader.
+
 Map icons are also tweaked a bit.
 
 ![realmaps](https://media.discordapp.net/attachments/834866130585387009/903396347640688640/unknown.png?width=763&height=676)
 
 ## [AnimatedSkin](AnimatedSkin.zip)
 Allows custom animation of the face by encoding animation data in skin texture.
+
 Check [the guide](Animated%20Skin.md) to see how to encode animation in your own skin.
 
 ![image](https://user-images.githubusercontent.com/16228717/144769530-38812571-ade4-4a48-a612-f98912412d8a.png)
