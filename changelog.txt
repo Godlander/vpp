@@ -3,7 +3,7 @@ v++
 
 Shaders:
 +Optimized entity outline shader
-+Custom face animation for skins (check github for guide)
++Custom face animation for skins (check github for usage guide)
 
 
 
