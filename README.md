@@ -19,7 +19,9 @@ Map icons are also tweaked a bit.
 ![realmaps](https://media.discordapp.net/attachments/834866130585387009/903396347640688640/unknown.png?width=763&height=676)
 
 ## [AnimatedSkin](AnimatedSkin.zip)
-Allows custom animation of the face by encoding animation data in skin texture.
+Allows custom animation of the face by encoding animation data in skin texture. Also works for player head item/block.
+
+In multiplayer, anyone using AnimatedSkin or v++ above version 2.1 will be able to see the animation.
 
 Check [the guide](Animated%20Skin.md) to see how to encode animation in your own skin.
 
