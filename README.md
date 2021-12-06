@@ -19,6 +19,7 @@ Map icons are also tweaked a bit.
 
 ## [AnimatedSkin](AnimatedSkin.zip)
 Allows custom animation of the face by encoding animation data in skin texture.
+Check [the guide](Animated%20Skin.md) to see how to encode animation in your own skin.
 
 ![image](https://user-images.githubusercontent.com/16228717/144769530-38812571-ade4-4a48-a612-f98912412d8a.png)
 ![image](https://user-images.githubusercontent.com/16228717/144769565-45b798ae-42d1-48a1-8ba5-e0d74d11901b.png)
