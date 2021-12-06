@@ -17,6 +17,12 @@ Map icons are also tweaked a bit.
 
 ![realmaps](https://media.discordapp.net/attachments/834866130585387009/903396347640688640/unknown.png?width=763&height=676)
 
+## [AnimatedSkin](AnimatedSkin.zip)
+Allows custom animation of the face by encoding animation data in skin texture.
+
+![image](https://user-images.githubusercontent.com/16228717/144769530-38812571-ade4-4a48-a612-f98912412d8a.png)
+![image](https://user-images.githubusercontent.com/16228717/144769565-45b798ae-42d1-48a1-8ba5-e0d74d11901b.png)
+
 ## [VanillaCTM](VanillaCTM.zip)
 Connected texture for sugar cane and vines.
 
