@@ -32,7 +32,7 @@ void main() {
     vec4 color = texture(Sampler0, texCoord0);
     //blink effect
     vec2 texSize = textureSize(Sampler0, 0);
-    if(skinEffects == 1 && isFace == 1 && texCoord0.y < 16.0/texSize.y) {
+    if(skinEffects == 1 && (texCoord0.y > 0.125 && texCoord0.y < 0.25) && ((texCoord0.x > 0.125 && texCoord0.x < 0.25) || (texCoord0.x > 0.625 && texCoord0.x < 0.75))) {
         //grab second frame with offset
         vec4 color2 = texture(Sampler0, texCoord0 + vec2(16.0/texSize.x, -8.0/texSize.y));
         //calculate timing

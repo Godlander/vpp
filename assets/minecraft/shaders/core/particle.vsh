@@ -24,6 +24,6 @@ void main() {
     vertexDistance = length((ModelViewMat * vec4(Position, 1.0)).xyz);
     texCoord0 = UV0;
     vertexColor = Color;
-	lightColor = minecraft_sample_lightmap(Sampler2, UV2);
+    lightColor = minecraft_sample_lightmap(Sampler2, UV2);
     glpos = gl_Position;
 }

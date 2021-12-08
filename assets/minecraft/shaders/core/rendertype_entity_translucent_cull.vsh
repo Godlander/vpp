@@ -22,7 +22,6 @@ uniform vec3 Light1_Direction;
 out float vertexDistance;
 out vec4 vertexColor;
 out vec4 lightColor;
-out vec4 lightMapColor;
 out vec2 texCoord0;
 out vec2 texCoord2;
 out vec4 normal;
@@ -43,7 +42,6 @@ void main() {
 
     vertexDistance = length((ModelViewMat * vec4(Position, 1.0)).xyz);
     lightColor = minecraft_sample_lightmap(Sampler2, UV2);
-    lightMapColor = texelFetch(Sampler2, UV2 / 16, 0);
     texCoord0 = UV0;
     texCoord2 = UV2;
     normal = ProjMat * ModelViewMat * vec4(Normal, 0.0);

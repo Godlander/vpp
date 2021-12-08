@@ -19,12 +19,12 @@ vec4 greater(vec4 a, vec4 b) {
 vec4 make_emissive(vec4 inputColor, vec4 lightColor, float vertexDistance, float inputAlpha) {
     if (rougheq(inputAlpha, 252.0)) {
         return greater(inputColor, inputColor * lightColor);
-    };
+    }
     return inputColor * lightColor;
 }
 vec4 apply_lightmap(vec4 inputColor, vec4 lightMapColor, float vertexDistance, float inputAlpha) {
     if (rougheq(inputAlpha, 252.0)) {
         return greater(inputColor, inputColor * lightMapColor);
-    };
+    }
     return inputColor * lightMapColor;
 }

@@ -24,7 +24,6 @@ out float vertexDistance;
 out vec4 vertexColor;
 out vec4 overlayColor;
 out vec4 lightColor;
-out vec4 lightMapColor;
 out vec2 texCoord0;
 out vec4 normal;
 out vec4 glpos;
@@ -33,7 +32,7 @@ void main() {
     gl_Position = ProjMat * ModelViewMat * vec4(Position, 1.0);
     normal = ProjMat * ModelViewMat * vec4(Normal, 0.0);
     vertexColor = minecraft_mix_light(Light0_Direction, Light1_Direction, Normal, Color);
-
+    //rotating items
     float dist = -(ModelViewMat * vec4(1.0)).z;
     if (abs(dist - 1602.) < 5.) {
         mat4 rot = Rotate(GameTime * ROTSPEED, Y) * Scale(1.1, 1.1, 1.1);
@@ -43,7 +42,6 @@ void main() {
     }
     vertexDistance = length((ModelViewMat * vec4(Position, 1.0)).xyz);
     lightColor = minecraft_sample_lightmap(Sampler2, UV2);
-    lightMapColor = texelFetch(Sampler2, UV2 / 16, 0);
     overlayColor = texelFetch(Sampler1, UV1, 0);
     texCoord0 = UV0;
     glpos = gl_Position;

@@ -26,5 +26,6 @@ M Shock Micro's wavy plants: https://www.curseforge.com/minecraft/texture-packs/
 M RyanGar46's classic 3d: https://www.curseforge.com/minecraft/texture-packs/classic-3d
 M mr_ch0c0late1's blockstates+: https://www.curseforge.com/minecraft/texture-packs/blockstates
   mr_ch0c0late1's flowerpots+: https://www.curseforge.com/minecraft/texture-packs/flower-pots
+  redmatazz's prettier glowstone: https://www.planetminecraft.com/texture-pack/prettier-glowstone/
 M MrVerece's recipe book: https://www.reddit.com/r/Minecraft/comments/6gn47s/remade_the_recipebook_texture_to_fit_normal_books/
   AmberW's tiny emoji font: https://github.com/AmberWat/TinyEmojiFontResource

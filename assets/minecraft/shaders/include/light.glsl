@@ -12,7 +12,7 @@ vec4 minecraft_mix_light(vec3 lightDir0, vec3 lightDir1, vec3 normal, vec4 color
     return vec4(color.rgb * lightAccum, color.a);
 }
 
-#define NCOLOR normalize(vec3(42.0 / 255.0, 42.0 / 255.0, 72.0 / 255.0))
+#define NCOLOR normalize(vec3(0.0, 0.0, 1.0))
 #define DCOLOR normalize(vec3(1.0))
 
 float getSun(sampler2D lightMap) {
@@ -22,5 +22,9 @@ float getSun(sampler2D lightMap) {
 
 vec4 minecraft_sample_lightmap(sampler2D lightMap, ivec2 uv) {
     float sun = 1.0 - uv.y / 256.0 * getSun(lightMap);
-    return texture(lightMap, clamp(uv / 256.0, vec2(0.8 / 16.0), vec2(15.5 / 16.0))) * mix(vec4(1.0), vec4(1.2, 0.8, 0.5, 1.0),uv.x / 256.0 * sun); // x is torch, y is sun
+    vec4 light = texture(lightMap, clamp(uv / 256.0, vec2(0.8 / 16.0), vec2(15.5 / 16.0)));
+    //x is torch, y is sun
+    light *= mix(vec4(1.0), vec4(1.2, 0.9, 0.7, 1.0), uv.x / 256.0 * sun);
+    light.rgb *= light.rgb/2. + 0.5;
+    return light;
 }

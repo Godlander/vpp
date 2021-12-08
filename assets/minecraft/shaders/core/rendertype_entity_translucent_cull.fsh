@@ -15,7 +15,6 @@ uniform vec4 FogColor;
 in float vertexDistance;
 in vec4 vertexColor;
 in vec4 lightColor;
-in vec4 lightMapColor;
 in vec2 texCoord0;
 in vec4 normal;
 in vec4 glpos;
@@ -31,7 +30,6 @@ void main() {
     if (!isGUI(ProjMat)) {
         float alpha = textureLod(Sampler0, texCoord0, 0.0).a * 255.0;
         color = make_emissive(color, lightColor, vertexDistance, alpha);
-        color = apply_lightmap(color, lightMapColor, vertexDistance, alpha);
     }
     fragColor = linear_fog(color, vertexDistance, FogStart, FogEnd, FogColor);
 }

@@ -1,0 +1,29 @@
+{
+    "parent": "minecraft:item/handheld_rod",
+    "textures": {
+        "layer0": "item/warped_fungus_on_a_stick"
+    },
+    "overrides": [
+        {
+            "predicate": {
+                "damaged": 1,
+                "damage": 0.25
+            },
+            "model": "item/warped_fungus_on_a_stick/warped_fungus_on_a_stick_1"
+        },
+        {
+            "predicate": {
+                "damaged": 1,
+                "damage": 0.5
+            },
+            "model": "item/warped_fungus_on_a_stick/warped_fungus_on_a_stick_2"
+        },
+        {
+            "predicate": {
+                "damaged": 1,
+                "damage": 0.75
+            },
+            "model": "item/warped_fungus_on_a_stick/warped_fungus_on_a_stick_3"
+        }
+    ]
+}

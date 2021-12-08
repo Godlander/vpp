@@ -1,4 +1,35 @@
 v++
+2.2
+
+Blocks:
++Grass side texture is more defined
++Dirt Path side texture is smoother
++Glowstone texture is better
++Tall Seagrass no longer sticks out above water surface
++More blocks are emissive
+
+Items:
++Warped Fungus On A Stick has diminishing durability textures
++More items are emissive
+
+Entities:
++Some entities are emissive
+
+Particles:
++Some particles are emissive
+
+Misc:
++Entity shadows are softer
+
+Shaders:
++Improved transparency blending in Fabulous graphics
++Shadows are darker
++Animated Skins also apply properly to the hat layer of Player Head item
++Minecarts are properly shaded
++Armor no longer gets shaded on the player doll in inventory
+
+
+
 2.1
 
 Shaders:
