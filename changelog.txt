@@ -1,4 +1,12 @@
 v++
+2.3
++Updated fog shader to no longer crash in 1.18.1
+
+Blocks:
++All Infested blocks have unique textures
+
+
+
 2.2
 
 Blocks:

@@ -1,0 +1,62 @@
+{
+  "variants": {
+    "axis=x": [
+      {
+        "model": "minecraft:block/infested_deepslate",
+        "x": 90,
+        "y": 90
+      },
+      {
+        "model": "minecraft:block/infested_deepslate_mirrored",
+        "x": 90,
+        "y": 90
+      },
+      {
+        "model": "minecraft:block/infested_deepslate",
+        "y": 90,
+        "x": 90
+      },
+      {
+        "model": "minecraft:block/infested_deepslate_mirrored",
+        "y": 90,
+        "x": 90
+      }
+    ],
+    "axis=y": [
+      {
+        "model": "minecraft:block/infested_deepslate"
+      },
+      {
+        "model": "minecraft:block/infested_deepslate_mirrored"
+      },
+      {
+        "model": "minecraft:block/infested_deepslate",
+        "y": 180
+      },
+      {
+        "model": "minecraft:block/infested_deepslate_mirrored",
+        "y": 180
+      }
+    ],
+    "axis=z": [
+      {
+        "model": "minecraft:block/infested_deepslate",
+        "x": 90
+      },
+      {
+        "model": "minecraft:block/infested_deepslate_mirrored",
+        "x": 90
+      },
+      {
+        "model": "minecraft:block/infested_deepslate",
+        "y": 180,
+        "x": 90
+      },
+      {
+        "model": "minecraft:block/infested_deepslate_mirrored",
+        "y": 180,
+        "x": 90
+      }
+    ]
+  }
+}

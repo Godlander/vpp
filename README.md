@@ -12,6 +12,7 @@ For more information on what's included, check out [changelog.txt](changelog.txt
 ### If you don't want the entire pack, here are my own separate modules:
 
 ## [RealMaps](modules/RealMaps.zip)
+
 More realistic map colors using a core shader.
 
 Map icons are also tweaked a bit.
@@ -19,6 +20,7 @@ Map icons are also tweaked a bit.
 ![realmaps](https://media.discordapp.net/attachments/834866130585387009/903396347640688640/unknown.png?width=763&height=676)
 
 ## [AnimatedSkin](modules/AnimatedSkin.zip)
+
 Allows custom animation of the face by encoding animation data in skin texture. Also works for player head item/block.
 
 In multiplayer, anyone using AnimatedSkin or v++ above version 2.1 will be able to see the animation.
@@ -29,18 +31,20 @@ Check [the guide](modules/Animated%20Skin.md) to see how to encode animation in 
 ![image](https://user-images.githubusercontent.com/16228717/144769565-45b798ae-42d1-48a1-8ba5-e0d74d11901b.png)
 
 ## [VanillaCTM](modules/VanillaCTM.zip)
+
 Connected texture for sugar cane and vines.
 
 ![vanillactm](https://user-images.githubusercontent.com/16228717/139353051-85878743-5147-485b-941d-517ffae4be04.png)
 
 ## [GUi](modules/GUi.zip)
+
 Custom container GUIs that make sense.
 
 ![image](https://user-images.githubusercontent.com/16228717/139380148-68662a02-e89b-42b5-b518-40427dda29dd.png)
 ![image](https://user-images.githubusercontent.com/16228717/139380251-1271d0a5-457b-4e91-9fc5-1f40ae545ccc.png)
 
-
 ## Credits to cool people
+
 - bbq's vanilla shaders: https://github.com/bradleyq/mc_vanilla_shaders (Modified)
 - Shock Micro's vanilla dynamic emissives: https://github.com/ShockMicro/VanillaDynamicEmissives (Modified)
 - Bálint's hanging lanterns: https://github.com/BalintCsala/HangingLanterns (Modified)
@@ -68,6 +72,7 @@ Custom container GUIs that make sense.
 - mr_ch0c0late1's blockstates+: https://www.curseforge.com/minecraft/texture-packs/blockstates (Modified)
 - mr_ch0c0late1's flowerpots+: https://www.curseforge.com/minecraft/texture-packs/flower-pots (Modified)
 - redmatazz's prettier glowstone: https://www.planetminecraft.com/texture-pack/prettier-glowstone/
+- Tal's clear vanilla: https://www.planetminecraft.com/texture-pack/clear-vanilla-resource-pack/
 - MrVerece's recipe book: https://www.reddit.com/r/Minecraft/comments/6gn47s/remade_the_recipebook_texture_to_fit_normal_books/ (Modified)
 - AmberW's tiny emoji font: https://github.com/AmberWat/TinyEmojiFontResource
 - Everyone in the MCC discord: https://discord.gg/QAFXFtZ

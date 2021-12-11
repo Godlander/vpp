@@ -3,6 +3,7 @@ The following images were taken directly in-game.
 No third party mods, such as Optifine, or any image editing tools, such as Photoshop, were used.
 
 ---
+
 ![First](https://user-images.githubusercontent.com/16228717/142796442-6964e2f0-65a5-47e6-b74e-8938902649e3.png)
 ![Fourth](https://user-images.githubusercontent.com/16228717/142795678-0d646b12-4951-4969-8f11-b3110f18f316.png)
 ![Second](https://user-images.githubusercontent.com/16228717/142795963-9f20b67f-4868-45df-b684-0bd60559a6c6.png)
