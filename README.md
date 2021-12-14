@@ -1,7 +1,5 @@
 # [v++](https://github.com/Godlander/vpp/releases/latest)
 
-A vanilla complimentary resourcepack focused on improving visual quality and the survival experience.
-
 ![image](https://user-images.githubusercontent.com/16228717/142796442-6964e2f0-65a5-47e6-b74e-8938902649e3.png)
 [More screenshots here](Screenshots.md)
 
