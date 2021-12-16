@@ -56,7 +56,7 @@ Custom container GUIs that make sense.
 - StormDragon77's door tweaks: https://www.planetminecraft.com/texture-pack/door-tweaks/ (Modified)
 - Reijvi's reinmagined: https://www.planetminecraft.com/texture-pack/minecraft-reimagined-5096190/ (Modified)
 - Thy_Creeper_King's end crystal beautification: https://www.planetminecraft.com/texture-pack/end-crystal-beautification/
-- Yomna's better map icons: https://www.planetminecraft.com/texture-pack/yomny-pack-better- ap-icons/ (Modified)
+- Yomna's better map icons: https://www.planetminecraft.com/texture-pack/yomny-pack-better-map-icons/ (Modified)
 - kemiu's quality creeper: https://www.planetminecraft.com/texture-pack/quality-creeper/ (Modified)
 - kemiu's new chests: https://www.planetminecraft.com/texture-pack/new-chests-1-15/ (Modified)
 - Chubins' creamier milk: https://www.planetminecraft.com/texture-pack/creamier-milk/
