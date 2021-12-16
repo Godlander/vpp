@@ -59,6 +59,8 @@ Custom container GUIs that make sense.
 - Yomna's better map icons: https://www.planetminecraft.com/texture-pack/yomny-pack-better-map-icons/ (Modified)
 - kemiu's quality creeper: https://www.planetminecraft.com/texture-pack/quality-creeper/ (Modified)
 - kemiu's new chests: https://www.planetminecraft.com/texture-pack/new-chests-1-15/ (Modified)
+- redmatazz's prettier glowstone: https://www.planetminecraft.com/texture-pack/prettier-glowstone/
+- Tal's clear vanilla: https://www.planetminecraft.com/texture-pack/clear-vanilla-resource-pack/
 - Chubins' creamier milk: https://www.planetminecraft.com/texture-pack/creamier-milk/
 - vanillatweaks' shorter grass: https://vanillatweaks.net/ (Modified)
 - vanillatweaks' different stems: https://vanillatweaks.net/
@@ -71,8 +73,6 @@ Custom container GUIs that make sense.
 - RyanGar46's classic 3d: https://www.curseforge.com/minecraft/texture-packs/classic-3d (Modified)
 - mr_ch0c0late1's blockstates+: https://www.curseforge.com/minecraft/texture-packs/blockstates (Modified)
 - mr_ch0c0late1's flowerpots+: https://www.curseforge.com/minecraft/texture-packs/flower-pots (Modified)
-- redmatazz's prettier glowstone: https://www.planetminecraft.com/texture-pack/prettier-glowstone/
-- Tal's clear vanilla: https://www.planetminecraft.com/texture-pack/clear-vanilla-resource-pack/
 - MrVerece's recipe book: https://www.reddit.com/r/Minecraft/comments/6gn47s/remade_the_recipebook_texture_to_fit_normal_books/ (Modified)
 - AmberW's tiny emoji font: https://github.com/AmberWat/TinyEmojiFontResource
 - Everyone in the MCC discord: https://discord.gg/QAFXFtZ
