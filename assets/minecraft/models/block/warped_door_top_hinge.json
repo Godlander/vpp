@@ -1,5 +1,5 @@
 {
-  "parent": "minecraft:block/door_top_rh",
+  "parent": "minecraft:block/template_door_top_rh",
   "textures": {
     "top": "minecraft:block/warped_door_top2",
     "topright": "minecraft:block/warped_door_top",

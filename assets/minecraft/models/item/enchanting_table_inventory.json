@@ -1,6 +1,5 @@
 {
-	"credit": "Made with Blockbench",
-	"parent": "block/block",
+		"parent": "block/block",
 	"textures": {
 		"3": "entity/enchanting_table_book",
 		"particle": "block/enchanting_table_bottom",

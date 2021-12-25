@@ -1,5 +1,5 @@
 {
-	"credit": "Made with Blockbench",
+	"ambientocclusion":false,
 	"textures": {
 		"0": "block/jungle_door_top2",
 		"1": "block/jungle_door_sides",

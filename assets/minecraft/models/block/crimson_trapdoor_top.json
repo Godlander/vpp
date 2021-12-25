@@ -1,5 +1,5 @@
 {
-	"credit": "Made with Blockbench - Made/edited by RyanGar46",
+	"ambientocclusion":false,
 	"parent": "block/template_orientable_trapdoor_bottom",
 	"textures": {
 		"particle": "block/crimson_trapdoor",

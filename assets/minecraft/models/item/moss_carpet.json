@@ -1,6 +1,5 @@
 {
-	"credit": "Made with Blockbench",
-	"parent": "minecraft:block/cube_all",
+		"parent": "minecraft:block/cube_all",
 	"textures": {
 		"all": "block/moss_block"
 	},

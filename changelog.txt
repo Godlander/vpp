@@ -1,4 +1,18 @@
 v++
+2.4
+
+Blocks:
++Doors no longer override default model
++Lantern and Soul Lantern textures are interpolated
++Sticky Piston Head is still sticky when extending/retracting
++Birch Trapdoor has proper cullfaces
+
+Shaders:
++Massively simplified core shader structure
++Block Selection Outline pulses slightly
+
+
+
 2.3
 +Updated fog shader to no longer crash in 1.18.1
 

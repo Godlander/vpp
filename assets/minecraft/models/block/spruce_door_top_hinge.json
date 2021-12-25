@@ -1,5 +1,5 @@
 {
-  "parent": "minecraft:block/door_top_rh",
+  "parent": "minecraft:block/template_door_top_rh",
   "textures": {
     "top": "minecraft:block/spruce_door_top2",
 	"side": "minecraft:block/spruce_door_sides",

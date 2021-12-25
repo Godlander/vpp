@@ -1,4 +1,5 @@
 {
+	"ambientocclusion":false,
 	"textures": {
 		"3": "block/piston_side",
 		"4": "block/piston_top",

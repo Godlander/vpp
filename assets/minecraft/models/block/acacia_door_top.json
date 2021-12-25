@@ -1,4 +1,5 @@
 {
+	"ambientocclusion":false,
 	"textures": {
 		"particle": "block/acacia_door_top",
 		"top": "block/acacia_door_top",

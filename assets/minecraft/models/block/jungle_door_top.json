@@ -1,4 +1,5 @@
 {
+	"ambientocclusion":false,
 	"textures": {
 		"4": "block/jungle_door_top2",
 		"particle": "block/jungle_door_top2",

@@ -1,5 +1,4 @@
 {
-	"credit": "Made with Blockbench",
 	"ambientocclusion": false,
 	"parent": "block/activator_rail_raised_sw",
 	"textures": {

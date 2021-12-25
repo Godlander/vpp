@@ -4,8 +4,8 @@
         "srcrgb": "srcalpha",
         "dstrgb": "1-srcalpha"
     },
-    "vertex": "rendertype_entity_cutout_no_cull_z_offset",
-    "fragment": "rendertype_entity_cutout_no_cull_z_offset",
+    "vertex": "common/entity_lightmap_colored",
+    "fragment": "common/entity_lightmap_colored",
     "attributes": [
         "Position",
         "Color",

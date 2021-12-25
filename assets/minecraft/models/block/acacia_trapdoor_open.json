@@ -1,5 +1,4 @@
 {
-	"credit": "Made with Blockbench - Made/edited by RyanGar46",
 	"parent": "block/template_orientable_trapdoor_open",
 	"textures": {
 		"texture": "block/acacia_trapdoor"
@@ -72,28 +71,6 @@
 				"south": {"uv": [9, 3, 12, 13], "rotation": 180, "texture": "#texture", "cullface": "south"},
 				"west": {"uv": [9, 3, 12, 13], "rotation": 180, "texture": "#texture"}
 			}
-		},
-		{
-			"from": [5, 14, 16],
-			"to": [11, 16, 16.25],
-			"faces": {
-				"east": {"uv": [5, 14, 6, 16], "texture": "#texture", "cullface": "south"},
-				"south": {"uv": [5, 14, 11, 16], "texture": "#texture", "cullface": "south"},
-				"west": {"uv": [5, 14, 6, 16], "texture": "#texture", "cullface": "south"},
-				"up": {"uv": [5, 15, 11, 16], "rotation": 180, "texture": "#texture", "cullface": "up"},
-				"down": {"uv": [5, 14, 11, 15], "texture": "#texture", "cullface": "south"}
-			}
-		},
-		{
-			"from": [5, 14, 12.75],
-			"to": [11, 16, 13],
-			"faces": {
-				"north": {"uv": [5, 14, 11, 16], "texture": "#texture"},
-				"east": {"uv": [5, 14, 6, 16], "texture": "#texture"},
-				"west": {"uv": [5, 14, 6, 16], "texture": "#texture"},
-				"up": {"uv": [5, 15, 11, 16], "rotation": 180, "texture": "#texture", "cullface": "up"},
-				"down": {"uv": [5, 14, 11, 15], "texture": "#texture"}
-			}
 		}
 	],
 	"display": {
@@ -139,12 +116,17 @@
 		{
 			"name": "birch_trapdoor_open",
 			"origin": [8, 8, 8],
+			"color": 0,
 			"children": [
 				{
 					"name": "oak_trapdoor_open",
 					"origin": [8, 8, 8],
+					"color": 0,
 					"children": [0, 1, 2, 3]
 				}
 			]
-		}, 4, 5, 6, 7]
+		},
+		4,
+		5
+	]
 }

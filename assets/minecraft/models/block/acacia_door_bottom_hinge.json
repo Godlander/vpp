@@ -1,4 +1,5 @@
 {
+	"ambientocclusion":false,
 	"textures": {
 		"bottom": "block/acacia_door_bottom2",
 		"side": "block/acacia_door_sides",

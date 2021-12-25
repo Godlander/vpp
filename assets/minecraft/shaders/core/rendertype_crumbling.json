@@ -6,8 +6,8 @@
         "srcalpha" : "0",
         "dstalpha" : "1"
     },
-    "vertex": "rendertype_crumbling",
-    "fragment": "rendertype_crumbling",
+    "vertex": "common/entity_colored",
+    "fragment": "common/entity_colored",
     "attributes": [
         "Position",
         "Color",
