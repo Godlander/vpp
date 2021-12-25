@@ -5,7 +5,7 @@
         "dstrgb": "1-srcalpha"
     },
     "vertex": "common/block",
-    "fragment": "common/block",
+    "fragment": "common/block_translucent",
     "attributes": [
         "Position",
         "Color",

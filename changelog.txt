@@ -1,4 +1,14 @@
 v++
+2.5
+
+Shaders:
++Water no longer disconnected at chunk borders
++Translucent blocks have fog properly applied
++Fog is cylindrical
++Cutout blocks have proper mipmapping alpha
+
+
+
 2.4
 
 Blocks:

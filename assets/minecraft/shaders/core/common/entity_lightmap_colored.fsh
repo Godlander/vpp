@@ -29,7 +29,7 @@ void main() {
         float alpha = textureLod(Sampler0, texCoord0, 0.0).a * 255.0;
         color = make_emissive(color, lightColor, vertexDistance, alpha);
     }
-    if (color.a < 0.1) {
+    if (color.a < 0.01) {
         discard;
     }
     fragColor = linear_fog(color, vertexDistance, FogStart, FogEnd, FogColor);

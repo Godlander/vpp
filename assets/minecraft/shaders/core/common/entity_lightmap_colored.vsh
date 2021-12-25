@@ -1,5 +1,6 @@
 #version 150
 
+#moj_import <fog.glsl>
 #moj_import <light.glsl>
 #moj_import <matf.glsl>
 
@@ -14,8 +15,9 @@ uniform sampler2D Sampler1;
 uniform sampler2D Sampler2;
 
 uniform float GameTime;
-uniform mat4 ModelViewMat;
 uniform mat4 ProjMat;
+uniform mat4 ModelViewMat;
+uniform mat3 IViewRotMat;
 
 uniform vec3 Light0_Direction;
 uniform vec3 Light1_Direction;
@@ -44,7 +46,7 @@ void main() {
         vertexColor = minecraft_mix_light(Light0_Direction, Light1_Direction, normal.xyz, Color);
     }
 
-    vertexDistance = length((ModelViewMat * vec4(Position, 1.0)).xyz);
+    vertexDistance = cylindrical_distance(ModelViewMat, IViewRotMat * Position);
     lightColor = minecraft_sample_lightmap(Sampler2, UV2);
     overlayColor = texelFetch(Sampler1, ivec2(UV1), 0);
     texCoord0 = UV0;

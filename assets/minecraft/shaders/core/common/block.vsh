@@ -1,5 +1,6 @@
 #version 150
 
+#moj_import <fog.glsl>
 #moj_import <tools.glsl>
 #moj_import <light.glsl>
 
@@ -41,6 +42,7 @@ vec3 quaternionRotate(vec3 pos, vec4 q) {
 }
 
 void main() {
+    vec3 relpos = Position + ChunkOffset;
     vec3 position = Position / 2 * pi;
     float animation = GameTime * 2048.;
     float anim = GameTime * pi;
@@ -48,7 +50,7 @@ void main() {
     float xx = Position.x / 2 * pi;
     float yy = Position.y / 2 * pi;
     float zz = Position.z / 2 * pi;
-    float dropoff = max((position.x*position.x) + (position.z*position.z) - 64., 512.) / 512.;
+    float dropoff = max((relpos.x*relpos.x) + (relpos.z*relpos.z) - 128., 512.) / 512.;
     float far = ProjMat[3][2] * 0.05 / (ProjMat[3][2] + 2.0 * 0.05) / 3.0 * sqrt(3);
 
     vec3 offset = vec3(0.0,0.0,0.0);
@@ -76,6 +78,8 @@ void main() {
     //waving liquid
     else if (alpha == 131) { //water
         time = GameTime * 512;
+        xx = Position.x/16. * 2 * pi;
+        zz = Position.z/16. * 2 * pi;
         if ((mod(Position.y, 1.0) > 0.1) || (mod(Position.y, 1.0) < 0.01)) {
             offset.y = ((sin(time + xx) + cos(time + zz)) * 0.02) - 0.02;
             offset.y += ((sin(time*7 + xx*4.) + cos(time*7 + zz*4.)) * 0.01) - 0.01;
@@ -87,6 +91,8 @@ void main() {
         }
     } else if (alpha == 165) { //lava
         time = GameTime * 128;
+        xx = Position.x/16. * 2 * pi;
+        zz = Position.z/16. * 2 * pi;
         if ((mod(Position.y, 1.0) > 0.1) || (mod(Position.y, 1.0) < 0.01)) {
             offset.y = ((sin(time + xx) + cos(time + zz)) * 0.02) - 0.01;
             offset.y /= dropoff;
@@ -120,7 +126,7 @@ void main() {
         }
     }
 
-    vertexDistance = length((ModelViewMat * vec4(Position + ChunkOffset, 1.0)).xyz);
+    vertexDistance = cylindrical_distance(ModelViewMat, Position + ChunkOffset);
     lightColor = minecraft_sample_lightmap(Sampler2, UV2);
     vertexColor = Color;
     texCoord0 = UV0;
