@@ -23,9 +23,9 @@ in vec4 glpos;
 out vec4 fragColor;
 
 void main() {
-    if (!isGUI(ProjMat)) discardControlGLPos(gl_FragCoord.xy, glpos);
     vec4 color = texture(Sampler0, texCoord0) * vertexColor * ColorModulator;
     if (!isGUI(ProjMat)) {
+        discardControlGLPos(gl_FragCoord.xy, glpos);
         float alpha = textureLod(Sampler0, texCoord0, 0.0).a * 255.0;
         color = make_emissive(color, lightColor, vertexDistance, alpha);
     }

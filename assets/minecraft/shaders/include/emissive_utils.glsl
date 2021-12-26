@@ -8,12 +8,12 @@ bool rougheq(vec3 a, vec3 b) {
     return (rougheq(a.x,b.x) && rougheq(a.y,b.y) && rougheq(a.z,b.z));
 }
 
+float luma(vec4 color){
+    return dot(color.rgb,vec3(0.2126, 0.7152, 0.0722));
+}
+
 vec4 greater(vec4 a, vec4 b) {
-    a.r = max(a.r, b.r);
-    a.g = max(a.g, b.g);
-    a.b = max(a.b, b.b);
-    a.a = 1.0;
-    return a;
+    return mix(a,b, luma(b));
 }
 
 vec4 make_emissive(vec4 inputColor, vec4 lightColor, float vertexDistance, float inputAlpha) {

@@ -1,4 +1,17 @@
 v++
+2.6
+
+Blocks:
++Lit Redstone Lamps are less green
++Brewing Stands are less green
+
+Shaders:
++Shadows are no longer blue in the Nether
++Shadows are slightly purple in the End
++Improved Emissives to use Luma instead of rgb comparison
+
+
+
 2.5
 
 Shaders:

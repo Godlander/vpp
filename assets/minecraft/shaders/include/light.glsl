@@ -25,11 +25,19 @@ vec4 minecraft_sample_lightmap(sampler2D lightMap, ivec2 uv) {
     float torch = uv.x / 256.;
     vec4 light = texture(lightMap, clamp(uv / 256.0, vec2(0.8 / 16.0), vec2(15.5 / 16.0)));
 
-    //warmer blocklight
+    vec3 map = texelFetch(lightMap, ivec2(0), 0).rgb;
+    //warmer blocklight (torch AND (NOT sun))
     light *= mix(vec4(1.0), vec4(1.7, 1.0, 0.4, 1.0), torch * (1.0-sun));
-
-    //darker shadows
-    light *= mix(vec4(1.0), vec4(0.0, 0.1, 0.8, 1.0), max(1.0 - (torch + sun), 0.0));
+    //shadows colors (NOT (torch OR sun))
+    vec3 tint = vec3(1.0);
+    if (map.r == map.g && map.g == map.b) { //bluer shadows in overworld
+        tint = vec3(0.0, 0.1, 0.8);
+    } else if (map.r > map.g) { //redder shadows in nether
+        tint = vec3(0.9, 0.6, 0.5);
+    } else { //purple shadows in end
+        tint = vec3(0.8, 0.5, 0.8);
+    }
+    light *= mix(vec4(1.0), vec4(tint, 1.0), max(1.0 - (torch + sun), 0.0));
 
     return light;
 }
