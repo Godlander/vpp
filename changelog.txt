@@ -2,10 +2,12 @@ v++
 2.5
 
 Shaders:
++Entities have overlays properly applied
 +Water no longer disconnected at chunk borders
 +Translucent blocks have fog properly applied
 +Fog is cylindrical
 +Cutout blocks have proper mipmapping alpha
++Shadows are more blue
 
 
 

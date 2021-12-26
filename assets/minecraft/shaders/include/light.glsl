@@ -21,10 +21,15 @@ float getSun(sampler2D lightMap) {
 }
 
 vec4 minecraft_sample_lightmap(sampler2D lightMap, ivec2 uv) {
-    float sun = 1.0 - uv.y / 256.0 * getSun(lightMap);
+    float sun = uv.y / 256.0 * getSun(lightMap);
+    float torch = uv.x / 256.;
     vec4 light = texture(lightMap, clamp(uv / 256.0, vec2(0.8 / 16.0), vec2(15.5 / 16.0)));
-    //x is torch, y is sun
-    light *= mix(vec4(1.0), vec4(1.2, 0.9, 0.7, 1.0), uv.x / 256.0 * sun);
-    light.rgb *= light.rgb/2. + 0.5;
+
+    //warmer blocklight
+    light *= mix(vec4(1.0), vec4(1.7, 1.0, 0.4, 1.0), torch * (1.0-sun));
+
+    //darker shadows
+    light *= mix(vec4(1.0), vec4(0.0, 0.1, 0.8, 1.0), max(1.0 - (torch + sun), 0.0));
+
     return light;
 }

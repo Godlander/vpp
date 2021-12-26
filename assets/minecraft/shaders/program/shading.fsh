@@ -153,6 +153,6 @@ void main() {
         fragColor.rgb *= ao;
 
         // desaturate bright pixels for more realistic feel
-        fragColor.rgb = mix(fragColor.rgb, vec3(length(fragColor.rgb)/sqrt(3.0)), luma(fragColor.rgb) * 0.3);
+        fragColor.rgb = mix(fragColor.rgb, vec3(luma(fragColor.rgb)/sqrt(3.0)), luma(fragColor.rgb) * 0.3);
     }
 }
