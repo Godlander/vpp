@@ -2,7 +2,6 @@
 
 vec4 linear_fog(vec4 inColor, float vertexDistance, float fogStart, float fogEnd, vec4 fogColor) {
     fogStart *= 0.9;
-    fogEnd *= 1.1;
     if (vertexDistance <= fogStart) {
         return inColor;
     }
@@ -21,7 +20,6 @@ vec4 linear_fog_translucent(vec4 inColor, float vertexDistance, float fogStart, 
 
 float linear_fog_fade(float vertexDistance, float fogStart, float fogEnd) {
     fogStart *= 0.9;
-    fogEnd *= 1.1;
     if (vertexDistance <= fogStart) {
         return 1.0;
     } else if (vertexDistance >= fogEnd) {
