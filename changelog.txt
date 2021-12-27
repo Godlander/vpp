@@ -6,8 +6,11 @@ Blocks:
 +Brewing Stands are less green
 
 Shaders:
++Block breaking texture is no longer white
++Name tag background no longer breaks lighting
 +Shadows are no longer blue in the Nether
 +Shadows are slightly purple in the End
++Fog is properly applied to enchanted armor
 +Improved Emissives to use Luma instead of rgb comparison
 
 

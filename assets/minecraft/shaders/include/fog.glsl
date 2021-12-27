@@ -1,7 +1,8 @@
 #version 150
 
 vec4 linear_fog(vec4 inColor, float vertexDistance, float fogStart, float fogEnd, vec4 fogColor) {
-    fogStart *= 0.8;
+    fogStart *= 0.9;
+    fogEnd *= 1.1;
     if (vertexDistance <= fogStart) {
         return inColor;
     }
@@ -10,8 +11,7 @@ vec4 linear_fog(vec4 inColor, float vertexDistance, float fogStart, float fogEnd
 }
 
 vec4 linear_fog_translucent(vec4 inColor, float vertexDistance, float fogStart, float fogEnd, vec4 fogColor) {
-    fogEnd *= 0.95;
-    fogStart *= 0.75;
+    fogStart *= 0.8;
     if (vertexDistance <= fogStart) {
         return inColor;
     }
@@ -20,13 +20,14 @@ vec4 linear_fog_translucent(vec4 inColor, float vertexDistance, float fogStart, 
 }
 
 float linear_fog_fade(float vertexDistance, float fogStart, float fogEnd) {
-    fogStart *= 0.8;
+    fogStart *= 0.9;
+    fogEnd *= 1.1;
     if (vertexDistance <= fogStart) {
         return 1.0;
     } else if (vertexDistance >= fogEnd) {
         return 0.0;
     }
-    return smoothstep(fogEnd, fogStart, vertexDistance);
+    return smoothstep(fogStart, fogEnd, vertexDistance);
 }
 
 float cylindrical_distance(mat4 modelViewMat, vec3 pos) {

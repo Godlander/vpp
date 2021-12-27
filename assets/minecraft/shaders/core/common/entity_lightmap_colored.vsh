@@ -46,7 +46,7 @@ void main() {
         vertexColor = minecraft_mix_light(Light0_Direction, Light1_Direction, normal.xyz, Color);
     }
 
-    vertexDistance = cylindrical_distance(ModelViewMat, IViewRotMat * Position);
+    vertexDistance = cylindrical_distance(ModelViewMat, Position);
     lightColor = minecraft_sample_lightmap(Sampler2, UV2);
     overlayColor = texelFetch(Sampler1, ivec2(UV1), 0);
     texCoord0 = UV0;

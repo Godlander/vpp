@@ -31,7 +31,7 @@ vec4 minecraft_sample_lightmap(sampler2D lightMap, ivec2 uv) {
     //shadows colors (NOT (torch OR sun))
     vec3 tint = vec3(1.0);
     if (map.r == map.g && map.g == map.b) { //bluer shadows in overworld
-        tint = vec3(0.0, 0.1, 0.8);
+        tint = vec3(0.2, 0.2, 0.9);
     } else if (map.r > map.g) { //redder shadows in nether
         tint = vec3(0.9, 0.6, 0.5);
     } else { //purple shadows in end
