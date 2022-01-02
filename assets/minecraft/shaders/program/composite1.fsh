@@ -72,6 +72,6 @@ void main() {
             }
         }
     }
-    
+
     fragColor = outColor;
 }

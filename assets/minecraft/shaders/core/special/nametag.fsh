@@ -14,7 +14,7 @@ in vec4 glpos;
 out vec4 fragColor;
 
 void main() {
-    if (!isGUI(ProjMat)) discardControlGLPos(gl_FragCoord.xy, glpos);
+    discardControlGLPos(gl_FragCoord.xy, glpos);
     vec4 color = texture(Sampler0, texCoord0) * vertexColor;
     if (color.a < 0.1) {
         discard;
