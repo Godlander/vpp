@@ -48,7 +48,7 @@ Custom container GUIs that make sense.
 - bbq's vanilla shaders: https://github.com/bradleyq/mc_vanilla_shaders (Modified)
 - Shock Micro's vanilla dynamic emissives: https://github.com/ShockMicro/VanillaDynamicEmissives (Modified)
 - Bálint's hanging lanterns: https://github.com/BalintCsala/HangingLanterns (Modified)
-- Ts' skin effects: https://github.com/McTsts/mc-core-shaders
+- Ts' skin effects: https://github.com/McTsts/mc-core-shaders (Modified)
 - Ts' simplified glowing: https://github.com/McTsts/mc-core-shaders
 - D_Dimensional's 3d hand torch: https://www.planetminecraft.com/texture-pack/3d-hand-torch/ (Modified)
 - DartCat25's menus enchanted+: https://www.planetminecraft.com/texture-pack/menus-enchanted/ (Modified)
