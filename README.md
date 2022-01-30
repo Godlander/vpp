@@ -1,4 +1,4 @@
-# [v++](https://github.com/Godlander/vpp/releases/latest)
+# [v++](v++.zip)
 
 A vanilla minecraft complimentary resourcepack focused on improving visual quality and the survival experience.
 
