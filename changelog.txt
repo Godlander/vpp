@@ -1,4 +1,15 @@
 v++
+2.7
+
+GUI:
++Added frozen hearts
+
+Shaders:
+-Fog distance changed back to default
++Remove unneccesary in/out variables that causes load fail on some hardware
+
+
+
 2.6
 
 Blocks:
@@ -310,7 +321,7 @@ Environment:
 +Light Rain and Snow
 +Water related particles are less blue
 
-GUI
+GUI:
 +Cleaner UI buttons
 +Cleaner Health and Hunger icons
 +Cleaner XP and Horse jump bars
@@ -319,7 +330,7 @@ GUI
 +All container UIs are more immersive
 +Ghost items in specialized slots are bezeled
 
-Misc
+Misc:
 +Pumpkin Blur is a heavy vignette
 +Map icons are arguably better
 

@@ -27,8 +27,6 @@ out vec4 vertexColor;
 out vec4 overlayColor;
 out vec4 lightColor;
 out vec2 texCoord0;
-out vec2 texCoord1;
-out ivec2 texCoord2;
 out vec4 normal;
 out vec4 glpos;
 
@@ -50,7 +48,5 @@ void main() {
     lightColor = minecraft_sample_lightmap(Sampler2, UV2);
     overlayColor = texelFetch(Sampler1, ivec2(UV1), 0);
     texCoord0 = UV0;
-    texCoord1 = UV1;
-    texCoord2 = UV2;
     glpos = gl_Position;
 }

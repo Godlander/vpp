@@ -102,7 +102,7 @@ void main() {
             offset.y += 0.03 * cos((Position.z * pi * 7.0 + Position.x * pi / 2.0 - anim * 870) + pi / 5.0) * 0.75 * (1.0 - smoothstep(0.0, 0.9, vertexDistance / far));
         }
     }
-    
+
     gl_Position = ProjMat * ModelViewMat * (vec4(Position + ChunkOffset + offset, 1.0));
 
     //hanging lanterns
@@ -115,7 +115,6 @@ void main() {
                 -1.0,
                 sin(time) * 0.015
             ));
-        
             relativePos -= vec3(0.5, 1.0, 0.5);
             vec3 axis = normalize(cross(vec3(0, 1, 0), newDown));
             float cosAngle = newDown.y;
