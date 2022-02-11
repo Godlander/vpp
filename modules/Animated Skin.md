@@ -8,3 +8,5 @@
 - B value used to set interpolation. If not 0 the animation will be interpolated
 - First frame is what would normally show as player skin
 - Second frame is stored in what normally is unused space on the skin texture
+
+[this tool](https://jsfiddle.net/Godlander/5sen7Lw1/120/) can be used to generate the control pixel with an input skin.
