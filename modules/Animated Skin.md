@@ -9,4 +9,4 @@
 - First frame is what would normally show as player skin
 - Second frame is stored in what normally is unused space on the skin texture
 
-[this tool](https://jsfiddle.net/Godlander/5sen7Lw1/120/) can be used to generate the control pixel with an input skin.
+[this tool](https://jsfiddle.net/Godlander/5sen7Lw1/137/) can be used to generate the control pixel with an input skin.
