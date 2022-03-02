@@ -18,6 +18,7 @@ uniform sampler2D Sampler2;
 uniform mat4 ModelViewMat;
 uniform mat4 ProjMat;
 uniform mat3 IViewRotMat;
+uniform int FogShape;
 
 uniform float GameTime;
 uniform vec3 Light0_Direction;
@@ -62,7 +63,7 @@ void main() {
         }
     }
 
-    vertexDistance = cylindrical_distance(ModelViewMat, IViewRotMat * Position);
+    vertexDistance = fog_distance(ModelViewMat, IViewRotMat * Position, FogShape);
     lightColor = minecraft_sample_lightmap(Sampler2, UV2);
     overlayColor = texelFetch(Sampler1, UV1, 0);
     texCoord0 = UV0;

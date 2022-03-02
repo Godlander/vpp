@@ -17,6 +17,7 @@ uniform float GameTime;
 uniform mat4 ModelViewMat;
 uniform mat4 ProjMat;
 uniform vec3 ChunkOffset;
+uniform int FogShape;
 
 out float vertexDistance;
 out vec4 vertexColor;
@@ -125,7 +126,7 @@ void main() {
         }
     }
 
-    vertexDistance = cylindrical_distance(ModelViewMat, Position + ChunkOffset);
+    vertexDistance = fog_distance(ModelViewMat, Position + ChunkOffset, FogShape);
     lightColor = minecraft_sample_lightmap(Sampler2, UV2);
     vertexColor = Color;
     texCoord0 = UV0;

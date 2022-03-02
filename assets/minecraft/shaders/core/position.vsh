@@ -1,10 +1,12 @@
 #version 150
 
+#moj_import <fog.glsl>
+
 in vec3 Position;
 
 uniform mat4 ModelViewMat;
 uniform mat4 ProjMat;
-uniform float FogEnd;
+uniform int FogShape;
 
 out mat4 ProjInv;
 out float isSky;
@@ -39,5 +41,5 @@ void main() {
         gl_Position = ProjMat * ModelViewMat * vec4(scaledPos, 1.0);
     }
     ProjInv = inverse(ProjMat * ModelViewMat);
-    vertexDistance = length((ModelViewMat * vec4(Position, 1.0)).xyz);
+    vertexDistance = fog_distance(ModelViewMat, Position, FogShape);
 }
