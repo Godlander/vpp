@@ -4,8 +4,8 @@
         "srcrgb": "srcalpha",
         "dstrgb": "1-srcalpha"
     },
-    "vertex": "common/entity_lightmap_colored",
-    "fragment": "common/entity_lightmap_colored",
+    "vertex": "common/entity_overlay",
+    "fragment": "common/entity",
     "attributes": [
         "Position",
         "Color",

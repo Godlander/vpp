@@ -14,6 +14,7 @@ uniform int FogShape;
 
 out float vertexDistance;
 out vec4 vertexColor;
+out vec4 glpos;
 
 const float VIEW_SHRINK = 1.0 - (1.0 / 256.0);
 const mat4 VIEW_SCALE = mat4(
@@ -29,7 +30,7 @@ void main() {
 
     vec4 col = Color;
     float width = LineWidth;
-    if (col.a < 0.5) {
+    if (col.a < 0.5) { //block selection outline
         float n = float(gl_VertexID % 4 <= 1);
         col = vec4(n, n, n, 0.01);
         width *= 1.5;
@@ -53,4 +54,5 @@ void main() {
 
     vertexDistance = fog_distance(ModelViewMat, Position, FogShape);
     vertexColor = col;
+    glpos = gl_Position;
 }

@@ -1,4 +1,15 @@
 v++
+2.9
++Reformat core shaders with new template
+
+GUI:
++Smooth difficulty lock button to be consistent with other GUI buttons
+
+Shaders:
++Glowing entities properly show their team color
++Block breaking is now in 3D
+
+
 2.8
 +Updated fog shader to 1.18.2
 

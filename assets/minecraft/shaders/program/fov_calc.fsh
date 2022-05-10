@@ -16,7 +16,7 @@ out vec4 fragColor;
 
 #define BIGNEG -100000.0
 #define NEAR 0.1
-#define FAR 2048.0 
+#define FAR 2048.0
 #define FUDGE 0.001
 #define MAXSLOPE 30.0
 #define MINSLOPE 0.03
@@ -48,10 +48,10 @@ int decodeInt(vec3 ivec) {
     num += int(ivec.b) * 255 * 255;
     return num;
 }
-  
+
 float LinearizeDepth(float depth) {
     float z = depth * 2.0 - 1.0;
-    return (NEAR * FAR) / (FAR + NEAR - z * (FAR - NEAR));    
+    return (NEAR * FAR) / (FAR + NEAR - z * (FAR - NEAR));
 }
 
 float depthLerp(sampler2D tex, vec2 coord) {
@@ -94,10 +94,10 @@ void main() {
         float depthV2 = depthLerp(DiffuseDepthSampler, scaledCoord.xy * OutSize - 0.5 + vec2(projBitangent.y, -projBitangent.x));
         float depthV3 = depthLerp(DiffuseDepthSampler, scaledCoord.xy * OutSize - 0.5 + vec2(projTangent.y, -projTangent.x));
 
-        if (((depth1 >= depthM - FUDGE && depthM + FUDGE >= depth2) || (depth1 <= depthM + FUDGE && depthM - FUDGE <= depth2)) 
-        && ((depth3 >= depthM - FUDGE && depthM + FUDGE >= depth4) || (depth3 <= depthM + FUDGE && depthM - FUDGE <= depth4)) 
-        && ((depth5 >= depthM - FUDGE && depthM + FUDGE >= depth6) || (depth5 <= depthM + FUDGE && depthM - FUDGE <= depth6)) 
-        && depth1 < Range 
+        if (((depth1 >= depthM - FUDGE && depthM + FUDGE >= depth2) || (depth1 <= depthM + FUDGE && depthM - FUDGE <= depth2))
+        && ((depth3 >= depthM - FUDGE && depthM + FUDGE >= depth4) || (depth3 <= depthM + FUDGE && depthM - FUDGE <= depth4))
+        && ((depth5 >= depthM - FUDGE && depthM + FUDGE >= depth6) || (depth5 <= depthM + FUDGE && depthM - FUDGE <= depth6))
+        && depth1 < Range
         && depth2 < Range
         && depth3 < Range
         && depth4 < Range
@@ -167,6 +167,6 @@ void main() {
         }
     }
 
-    
+
     fragColor = outColor;
 }

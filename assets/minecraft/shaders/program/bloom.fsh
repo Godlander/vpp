@@ -84,7 +84,7 @@ void main() {
     poissonDisk[63] = vec2(-0.178564, -0.596057);
 
     vec3 OutTexel = texture(DiffuseSampler, texCoord).rgb;
-    
+
     vec2 tapScale = vec2(AMT / aspectRatio, AMT); // Fixed step for in resolutions
 
     vec3 bloomAccumulator = vec3(0.0);

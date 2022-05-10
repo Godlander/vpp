@@ -53,6 +53,7 @@ Custom container GUIs that make sense.
 - D_Dimensional's 3d hand torch: https://www.planetminecraft.com/texture-pack/3d-hand-torch/ (Modified)
 - DartCat25's menus enchanted+: https://www.planetminecraft.com/texture-pack/menus-enchanted/ (Modified)
 - DartCat25's rotating items: https://www.planetminecraft.com/texture-pack/rotating-items/ (Modified)
+- DartCat25's 3d breaking: https://www.planetminecraft.com/texture-pack/3d-breaking/
 - StormDragon77's door tweaks: https://www.planetminecraft.com/texture-pack/door-tweaks/ (Modified)
 - Reijvi's reinmagined: https://www.planetminecraft.com/texture-pack/minecraft-reimagined-5096190/ (Modified)
 - Thy_Creeper_King's end crystal beautification: https://www.planetminecraft.com/texture-pack/end-crystal-beautification/

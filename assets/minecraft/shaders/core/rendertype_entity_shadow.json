@@ -4,8 +4,8 @@
         "srcrgb": "srcalpha",
         "dstrgb": "1-srcalpha"
     },
-    "vertex": "common/entity_colored",
-    "fragment": "common/entity_colored",
+    "vertex": "special/simple",
+    "fragment": "special/simple",
     "attributes": [
         "Position",
         "Color",

@@ -41,7 +41,7 @@ vec4 getNotControl(sampler2D inSampler, vec2 coords, bool inctrl) {
 }
 
 float linearizeDepth(float depth) {
-    return (2.0 * near * far) / (far + near - depth * (far - near));    
+    return (2.0 * near * far) / (far + near - depth * (far - near));
 }
 
 float luma(vec3 color){
@@ -128,9 +128,9 @@ void main() {
         p4 = p4 - fragpos;
         vec3 p5 = backProject(vec4(scaledCoord - 2.0 * vec2(oneTexel.x, 0.0), depth5, 1.0)).xyz;
         p5 = p5 - fragpos;
-        vec3 normal = normalize(cross(p2, p3)) 
-                    + normalize(cross(-p4, p3)) 
-                    + normalize(cross(p2, -p5)) 
+        vec3 normal = normalize(cross(p2, p3))
+                    + normalize(cross(-p4, p3))
+                    + normalize(cross(p2, -p5))
                     + normalize(cross(-p4, -p5));
         normal = normal == vec3(0.0) ? vec3(0.0, 1.0, 0.0) : normalize(-normal);
 

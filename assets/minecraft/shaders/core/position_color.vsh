@@ -14,8 +14,7 @@ out float isHorizon;
 bool rougheq(float a, float b) {
     return (abs(a - b) < 0.001);
 }
-bool rougheq(vec3 a, vec3 b)
-{
+bool rougheq(vec3 a, vec3 b) {
     return (lessThan(a, b+0.0001)==bvec3(true) && lessThan(b-0.0001,a)==bvec3(true));
 }
 
@@ -53,7 +52,7 @@ void main() {
     //}
     //hover
     //else if (Color.rgb == vec3(1.0)) {
-    //    
+    //
     //}
 
     gl_Position = ProjMat * ModelViewMat * vec4(Position, 1.0);

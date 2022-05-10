@@ -4,7 +4,7 @@
         "srcrgb": "srcalpha",
         "dstrgb": "1-srcalpha"
     },
-    "vertex": "special/simple",
+    "vertex": "special/simple_lightmap",
     "fragment": "rendertype_translucent_moving_block",
     "attributes": [
         "Position",

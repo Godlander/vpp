@@ -4,7 +4,7 @@
         "srcrgb": "srcalpha",
         "dstrgb": "1-srcalpha"
     },
-    "vertex": "common/entity_glint_rotate",
+    "vertex": "common/entity_glint",
     "fragment": "common/entity_glint",
     "attributes": [
         "Position",

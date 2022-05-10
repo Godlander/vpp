@@ -24,7 +24,7 @@ void main() {
     vec4 color = vec4(0.0);
     int index = inControl(gl_FragCoord.xy, ScreenSize.x);
     //currently in a control/message pixel
-    if(index != -1) {
+    if (index != -1) {
         //store the sun position in eye space indices [0,2]
         if (isSun > 0.75 && index >= 0 && index <= 2) {
             vec4 sunDir = ModelViewMat * vec4(normalize(c1 / cscale.x + c3 / cscale.z), 0.0);
@@ -35,7 +35,7 @@ void main() {
         }
     }
     //calculate screen space UV of the sun since it was transformed to cover the entire screen in vsh so texCoord0 no longer works
-    else if(isSun > 0.75) {
+    else if (isSun > 0.75) {
         vec3 p1 = c1 / cscale.x;
         vec3 p2 = c2 / cscale.y;
         vec3 p3 = c3 / cscale.z;

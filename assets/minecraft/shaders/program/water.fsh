@@ -21,7 +21,7 @@ out vec4 fragColor;
 #define NORMRAD 5
 #define FOV_FIXEDPOINT 100.0
 
-#define near 0.00004882812 
+#define near 0.00004882812
 #define far 1.0
 
 #define SSR_TAPS 3
@@ -39,7 +39,7 @@ out vec4 fragColor;
 #define HEIGHTMAP_SCALE 6.0
 #define HEIGHTMAP_DECAY 48.0
 
-float LinearizeDepth(float depth) 
+float LinearizeDepth(float depth)
 {
     return (2.0 * near * far) / (far + near - depth * (far - near));
 }
@@ -238,20 +238,20 @@ void main() {
         bool p3v = ldepth3 < gdepth3;
         bool p4v = ldepth4 < gdepth4;
         bool p5v = ldepth5 < gdepth5;
-        vec3 normal = normalize(cross(p2, p3)) * float(p2v && p3v) 
-                    + normalize(cross(-p4, p3)) * float(p4v && p3v) 
-                    + normalize(cross(p2, -p5)) * float(p2v && p5v) 
+        vec3 normal = normalize(cross(p2, p3)) * float(p2v && p3v)
+                    + normalize(cross(-p4, p3)) * float(p4v && p3v)
+                    + normalize(cross(p2, -p5)) * float(p2v && p5v)
                     + normalize(cross(-p4, -p5)) * float(p4v && p5v);
         normal = normal == vec3(0.0) ? approxNormal : normalize(-normal);
 
         if (p2v && p3v) {
             float currH = decodeInt(texture(TranslucentHeightSampler, texCoord).rgb) / float(HEIGHTMAP_PRECISION);
             normal -= (normalize(p2) * (currH - decodeInt(texture(TranslucentHeightSampler, texCoord + vec2(0.0, oneTexel.y)).rgb) / float(HEIGHTMAP_PRECISION)) * HEIGHTMAP_SCALE
-                     + normalize(p3) * (currH - decodeInt(texture(TranslucentHeightSampler, texCoord + vec2(oneTexel.x, 0.0)).rgb) / float(HEIGHTMAP_PRECISION)) * HEIGHTMAP_SCALE * aspectRatio) 
+                     + normalize(p3) * (currH - decodeInt(texture(TranslucentHeightSampler, texCoord + vec2(oneTexel.x, 0.0)).rgb) / float(HEIGHTMAP_PRECISION)) * HEIGHTMAP_SCALE * aspectRatio)
                      * pow(1.0 - ldepth, HEIGHTMAP_DECAY) * pow(dot(normal, normalize(fragpos)), 0.25);
             normal = normalize(normal);
         }
-        
+
         float ndlsq = dot(normal, vec3(0.0, 0.0, 1.0));
         float horizon = clamp(ndlsq * 100000.0, -1.0, 1.0);
         ndlsq = ndlsq * ndlsq;

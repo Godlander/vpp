@@ -13,7 +13,7 @@ out vec3 bitangent;
 out float aspectRatio;
 
 void main(){
-    float x = -1.0; 
+    float x = -1.0;
     float y = -1.0;
     if (Position.x > 0.001){
         x = 1.0;
@@ -22,7 +22,7 @@ void main(){
         y = 1.0;
     }
     gl_Position = vec4(x, y, 0.2, 1.0);
-    
+
     normal = normalize(transpose(inverse(mat3(ModelViewMat))) * vec3(0.0, 1.0, 0.0));
     tangent = normalize(transpose(inverse(mat3(ModelViewMat))) * vec3(1.0, 0.0, 0.0));
     bitangent = normalize(transpose(inverse(mat3(ModelViewMat))) * vec3(0.0, 0.0, 1.0));

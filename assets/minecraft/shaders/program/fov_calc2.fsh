@@ -115,10 +115,10 @@ void main() {
             realxbar = xbar;
             count = 1.0;
         }
-        
+
         for (int i = 0; i < TAPS; i += 1) {
             vec4 tmpv = texture(DiffuseSampler, abs(0.25 - abs(0.25 - sampleCoord + poissonDisk[i + OFFSET] * RADIUS)));
-            if (tmpv.a > 0.0) { 
+            if (tmpv.a > 0.0) {
                 count += 1.0;
                 float xn = float(decodeInt(tmpv.rgb));
                 float xnmxbar = xn - xbar;

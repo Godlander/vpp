@@ -30,9 +30,8 @@ void main() {
             #moj_import <background-transitions.glsl>
         }
 
-        if (color.a < 0.1) {
-            discard;
-        }
+        if (color.a < 0.1) discard;
+
         fragColor = color * ColorModulator;
     }
 }

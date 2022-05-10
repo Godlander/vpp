@@ -9,7 +9,7 @@ out vec2 texCoord;
 out vec2 oneTexel;
 
 void main(){
-    float x = -1.0; 
+    float x = -1.0;
     float y = -1.0;
     if (Position.x > 0.001){
         x = 1.0;

@@ -6,13 +6,13 @@ in vec2 texCoord;
 
 out vec4 fragColor;
 
-#define TonemapExposure 1.1 
-#define TonemapWhiteCurve 70.4 
-#define TonemapLowerCurve 1.0 
-#define TonemapUpperCurve 0.5 
+#define TonemapExposure 1.1
+#define TonemapWhiteCurve 70.4
+#define TonemapLowerCurve 1.0
+#define TonemapUpperCurve 0.5
 
-#define Saturation 1.00 
-#define Vibrance 1.30 
+#define Saturation 1.00
+#define Vibrance 1.30
 
 vec3 BSLTonemap(vec3 x){
 	x = TonemapExposure * x;

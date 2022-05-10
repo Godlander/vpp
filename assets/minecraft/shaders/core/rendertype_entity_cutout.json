@@ -4,7 +4,7 @@
         "srcrgb": "srcalpha",
         "dstrgb": "1-srcalpha"
     },
-    "vertex": "common/entity",
+    "vertex": "common/entity_overlay",
     "fragment": "common/entity",
     "attributes": [
         "Position",

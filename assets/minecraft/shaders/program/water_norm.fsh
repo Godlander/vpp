@@ -10,14 +10,14 @@ in float aspectRatio;
 
 out vec4 fragColor;
 
-#define near 0.00004882812 
+#define near 0.00004882812
 #define far 1.0
 #define HEIGHTMAP_TAPS 24
 #define HEIGHTMAP_PRECISION 1000000
-  
-float LinearizeDepth(float depth) 
+
+float LinearizeDepth(float depth)
 {
-    return (2.0 * near * far) / (far + near - depth * (far - near));    
+    return (2.0 * near * far) / (far + near - depth * (far - near));
 }
 
 int intmod(int i, int base) {

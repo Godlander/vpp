@@ -137,15 +137,15 @@ void main() {
         }
 
         color = vec4(vec3(mix(color.r, lum / EXPOSURE_SAMPLES, 0.01)), 1.0);
-    } 
+    }
     else if (texCoord.x > 10.0 / 16.0) { // Exposure aggregate
-        float exposuretmp = texture(DiffuseSampler, vec2(11.5 / 16.0, 0.5)).r 
-                        + texture(DiffuseSampler, vec2(12.5 / 16.0, 0.5)).r 
-                        + texture(DiffuseSampler, vec2(13.5 / 16.0, 0.5)).r 
-                        + texture(DiffuseSampler, vec2(14.5 / 16.0, 0.5)).r 
+        float exposuretmp = texture(DiffuseSampler, vec2(11.5 / 16.0, 0.5)).r
+                        + texture(DiffuseSampler, vec2(12.5 / 16.0, 0.5)).r
+                        + texture(DiffuseSampler, vec2(13.5 / 16.0, 0.5)).r
+                        + texture(DiffuseSampler, vec2(14.5 / 16.0, 0.5)).r
                         + texture(DiffuseSampler, vec2(15.5 / 16.0, 0.5)).r;
         color = vec4(encodeInt(int(exposuretmp * 0.2 * EXPOSURE_PRECISION)), 1.0);
-    } 
+    }
     else if (texCoord.x > 9.0 / 16.0) { // Sky color
         float successes = 0.0;
         vec4 puresky = vec4(0.0);

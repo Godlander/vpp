@@ -1,10 +1,8 @@
 {
     "blend": {
         "func": "add",
-        "srcrgb": "srcalpha",
-        "dstrgb": "1-srcalpha",
-        "srcalpha" : "0",
-        "dstalpha" : "1"
+        "srcrgb": "dstcolor",
+        "dstrgb": "0"
     },
     "vertex": "special/crumbling",
     "fragment": "special/crumbling",
@@ -21,6 +19,7 @@
     "uniforms": [
         { "name": "ModelViewMat", "type": "matrix4x4", "count": 16, "values": [ 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0 ] },
         { "name": "ProjMat", "type": "matrix4x4", "count": 16, "values": [ 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0 ] },
+        { "name": "IViewRotMat", "type": "matrix3x3", "count": 9, "values": [ 1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0 ] },
         { "name": "ColorModulator", "type": "float", "count": 4, "values": [ 1.0, 1.0, 1.0, 1.0 ] }
     ]
 }

@@ -24,30 +24,30 @@
         },
         {
             "when": {
-                "leaves": "small", "stage": "0" 
+                "leaves": "small", "stage": "0"
             },
-            "apply": 
+            "apply":
                 { "model": "minecraft:block/bamboo_small_leaves"}
         },
         {
             "when": {
                 "leaves": "large", "stage": "0"
             },
-            "apply": 
+            "apply":
                 { "model": "minecraft:block/bamboo_large_leaves" }
         },
         {
             "when": {
-                "leaves": "small", "stage": "1" 
+                "leaves": "small", "stage": "1"
             },
-            "apply": 
+            "apply":
                 { "model": "minecraft:block/bamboo_small_leaves_stage_1" }
         },
         {
             "when": {
                 "leaves": "large", "stage": "1"
             },
-            "apply": 
+            "apply":
                 { "model": "minecraft:block/bamboo_large_leaves_stage_1" }
         },
         {

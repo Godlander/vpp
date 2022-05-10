@@ -20,10 +20,10 @@ uniform vec3 ChunkOffset;
 uniform int FogShape;
 
 out float vertexDistance;
+out float dist;
 out vec4 vertexColor;
 out vec4 lightColor;
 out vec2 texCoord0;
-out vec4 normal;
 out vec4 glpos;
 
 #define pi 3.1415926535897932
@@ -56,52 +56,58 @@ void main() {
 
     vec3 offset = vec3(0.0,0.0,0.0);
     int alpha = int(texture(Sampler0, UV0).a * 255.5);
-
-    //waving foliage
-    if (alpha == 1 || alpha == 253 ) { // Most plants like grass and flowers use this
-        offset.x = sin(position.x + animation) * -1.0 / 32.;
-        offset.z = cos(position.z + position.y + animation) * -1.0 / 32.;
-    } else if (alpha == 2) { // Used for the edges of multi-blocks, like the top block of tall grass or the bottom block of twisting vines
-        offset.x = sin(position.x + position.y + animation) * -2.0 / 32.;
-        offset.z = cos(position.z + position.y + animation) * -2.0 / 32.;
-    } else if (alpha == 3) {
-        offset.x = sin(position.x + position.y + animation) * -1.0 / 32.;
-        offset.y = sin(position.y + (animation / 1.5)) / 9.0;
-        offset.z = cos(position.z + position.y + animation) * -1.0 / 32.;
-    } else if (alpha == 4 || alpha == 2) {
-        offset.x = sin(position.x + position.y + animation) / 32.;
-        offset.z = cos(position.z + position.y + animation) / 32.;
-    } else if (alpha == 5 || alpha == 254) { //leaves
-        offset.x = ((sin(time * 0.9 + yy) + cos(time * 0.9 + zz)) * 0.02);
-        offset.y = ((cos(time / 3.0 + xx) + sin(time / 3.0 + zz)) * 0.01);
-        offset.z = ((sin(time + 256 + yy) + cos(time + 256 + xx)) * 0.02);
-    }
-    //waving liquid
-    else if (alpha == 131) { //water
-        time = GameTime * 512;
-        xx = Position.x/16. * 2 * pi;
-        zz = Position.z/16. * 2 * pi;
-        if ((mod(Position.y, 1.0) > 0.1) || (mod(Position.y, 1.0) < 0.01)) {
-            offset.y = ((sin(time + xx) + cos(time + zz)) * 0.02) - 0.02;
-            offset.y += ((sin(time*7 + xx*4.) + cos(time*7 + zz*4.)) * 0.01) - 0.01;
-            offset.y += 0.01 * sin((Position.z * pi / 4.0 + anim * 700)) * 1.0 * (1.0 - smoothstep(0.0, 1.0, vertexDistance / far));
-            offset.y += 0.01 * cos((Position.z * pi / 8.0 + Position.x * pi / 4.0 + anim * 400) + pi / 13.0) * 1.2 * (1.0 - smoothstep(0.1, 1.0, vertexDistance / far));
-            offset.y += 0.01 * sin((Position.z * pi / 8.0 - Position.x * pi / 2.0 - anim * 900) - pi / 7.0) * 0.75 * (1.0 - smoothstep(0.0, 0.3, vertexDistance / far));
-            offset.y += 0.01 * cos((Position.z * pi * 7.0 + Position.x * pi / 2.0 - anim * 870) + pi / 5.0) * 0.75 * (1.0 - smoothstep(0.0, 0.9, vertexDistance / far));
-            offset.y /= dropoff;
-        }
-    } else if (alpha == 165) { //lava
-        time = GameTime * 128;
-        xx = Position.x/16. * 2 * pi;
-        zz = Position.z/16. * 2 * pi;
-        if ((mod(Position.y, 1.0) > 0.1) || (mod(Position.y, 1.0) < 0.01)) {
-            offset.y = ((sin(time + xx) + cos(time + zz)) * 0.02) - 0.01;
-            offset.y /= dropoff;
-            offset.y += 0.03 * sin((Position.z * pi / 4.0 + anim * 700)) * 1.0 * (1.0 - smoothstep(0.0, 1.0, vertexDistance / far));
-            offset.y += 0.03 * cos((Position.z * pi / 8.0 + Position.x * pi / 4.0 + anim * 400) + pi / 13.0) * 1.2 * (1.0 - smoothstep(0.1, 1.0, vertexDistance / far));
-            offset.y += 0.03 * sin((Position.z * pi / 8.0 - Position.x * pi / 2.0 - anim * 900) - pi / 7.0) * 0.75 * (1.0 - smoothstep(0.0, 0.3, vertexDistance / far));
-            offset.y += 0.03 * cos((Position.z * pi * 7.0 + Position.x * pi / 2.0 - anim * 870) + pi / 5.0) * 0.75 * (1.0 - smoothstep(0.0, 0.9, vertexDistance / far));
-        }
+    switch (alpha) {
+        //waving foliage
+        case 1: case 253: // Most plants like grass and flowers use this
+            offset.x = sin(position.x + animation) * -1.0 / 32.;
+            offset.z = cos(position.z + position.y + animation) * -1.0 / 32.;
+            break;
+        case 2: // Used for the edges of multi-blocks, like the top block of tall grass or the bottom block of twisting vines
+            offset.x = sin(position.x + position.y + animation) * -2.0 / 32.;
+            offset.z = cos(position.z + position.y + animation) * -2.0 / 32.;
+            break;
+        case 3 :
+            offset.x = sin(position.x + position.y + animation) * -1.0 / 32.;
+            offset.y = sin(position.y + (animation / 1.5)) / 9.0;
+            offset.z = cos(position.z + position.y + animation) * -1.0 / 32.;
+            break;
+        case 4 :
+            offset.x = sin(position.x + position.y + animation) / 32.;
+            offset.z = cos(position.z + position.y + animation) / 32.;
+            break;
+        case 5: case 254: //leaves
+            offset.x = ((sin(time * 0.9 + yy) + cos(time * 0.9 + zz)) * 0.02);
+            offset.y = ((cos(time / 3.0 + xx) + sin(time / 3.0 + zz)) * 0.01);
+            offset.z = ((sin(time + 256 + yy) + cos(time + 256 + xx)) * 0.02);
+            break;
+        //waving liquid
+        case 131: //water
+            time = GameTime * 512;
+            xx = Position.x/16. * 2 * pi;
+            zz = Position.z/16. * 2 * pi;
+            if ((mod(Position.y, 1.0) > 0.1) || (mod(Position.y, 1.0) < 0.01)) {
+                offset.y = ((sin(time + xx) + cos(time + zz)) * 0.02) - 0.02;
+                offset.y += ((sin(time*7 + xx*4.) + cos(time*7 + zz*4.)) * 0.01) - 0.01;
+                offset.y += 0.01 * sin((Position.z * pi / 4.0 + anim * 700)) * 1.0 * (1.0 - smoothstep(0.0, 1.0, vertexDistance / far));
+                offset.y += 0.01 * cos((Position.z * pi / 8.0 + Position.x * pi / 4.0 + anim * 400) + pi / 13.0) * 1.2 * (1.0 - smoothstep(0.1, 1.0, vertexDistance / far));
+                offset.y += 0.01 * sin((Position.z * pi / 8.0 - Position.x * pi / 2.0 - anim * 900) - pi / 7.0) * 0.75 * (1.0 - smoothstep(0.0, 0.3, vertexDistance / far));
+                offset.y += 0.01 * cos((Position.z * pi * 7.0 + Position.x * pi / 2.0 - anim * 870) + pi / 5.0) * 0.75 * (1.0 - smoothstep(0.0, 0.9, vertexDistance / far));
+                offset.y /= dropoff;
+            }
+            break;
+        case 165: //lava
+            time = GameTime * 128;
+            xx = Position.x/16. * 2 * pi;
+            zz = Position.z/16. * 2 * pi;
+            if ((mod(Position.y, 1.0) > 0.1) || (mod(Position.y, 1.0) < 0.01)) {
+                offset.y = ((sin(time + xx) + cos(time + zz)) * 0.02) - 0.01;
+                offset.y /= dropoff;
+                offset.y += 0.03 * sin((Position.z * pi / 4.0 + anim * 700)) * 1.0 * (1.0 - smoothstep(0.0, 1.0, vertexDistance / far));
+                offset.y += 0.03 * cos((Position.z * pi / 8.0 + Position.x * pi / 4.0 + anim * 400) + pi / 13.0) * 1.2 * (1.0 - smoothstep(0.1, 1.0, vertexDistance / far));
+                offset.y += 0.03 * sin((Position.z * pi / 8.0 - Position.x * pi / 2.0 - anim * 900) - pi / 7.0) * 0.75 * (1.0 - smoothstep(0.0, 0.3, vertexDistance / far));
+                offset.y += 0.03 * cos((Position.z * pi * 7.0 + Position.x * pi / 2.0 - anim * 870) + pi / 5.0) * 0.75 * (1.0 - smoothstep(0.0, 0.9, vertexDistance / far));
+            }
+            break;
     }
 
     gl_Position = ProjMat * ModelViewMat * (vec4(Position + ChunkOffset + offset, 1.0));
@@ -130,6 +136,6 @@ void main() {
     lightColor = minecraft_sample_lightmap(Sampler2, UV2);
     vertexColor = Color;
     texCoord0 = UV0;
-    normal = ProjMat * ModelViewMat * vec4(Normal, 0.0);
+    dist = length(Position + ChunkOffset);
     glpos = gl_Position;
 }

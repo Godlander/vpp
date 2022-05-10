@@ -1,7 +1,7 @@
 #version 150
 
 #moj_import <fog.glsl>
-#moj_import <emissive_utils.glsl>
+#moj_import <tools.glsl>
 #moj_import <utils.glsl>
 
 uniform mat4 ProjMat;
@@ -14,6 +14,7 @@ uniform float FogEnd;
 uniform vec4 FogColor;
 
 in float vertexDistance;
+in float dist;
 in vec4 vertexColor;
 in vec4 lightColor;
 in vec2 texCoord0;
@@ -22,23 +23,21 @@ in vec4 glpos;
 out vec4 fragColor;
 
 float mapcolor(vec3 color, vec3 match) {
-    if (rougheq(color/2, 0.5*match)) {return 1.;}
-    if (rougheq(color/2, 0.5*match*0.53)) {return 0.53;}
-    if (rougheq(color/2, 0.5*match*0.86)) {return 0.865;}
-    if (rougheq(color/2, 0.5*match*0.71)) {return 0.71;}
+    if (rougheq(color, match, 2.0)) {return 1.;}
+    if (rougheq(color, match*0.53, 2.0)) {return 0.53;}
+    if (rougheq(color, match*0.86, 2.0)) {return 0.865;}
+    if (rougheq(color, match*0.71, 2.0)) {return 0.71;}
     return 0.;
 }
 
 void main() {
     if (!isGUI(ProjMat)) discardControlGLPos(gl_FragCoord.xy, glpos);
     vec4 color = texture(Sampler0, texCoord0);
-    if (color.a < 0.1) {
-        discard;
-    }
+    if (color.a < 0.1) discard;
 
     if (textureSize(Sampler0, 0) == ivec2(128)) { //map
         float height = 1.;
-        height = mapcolor(color.rgb*255., vec3(127.,178.,56.));  if (height > 0.) {color.rgb = vec3(94.,123.,57.)   * height / 255.;} else { //GRASS 
+        height = mapcolor(color.rgb*255., vec3(127.,178.,56.));  if (height > 0.) {color.rgb = vec3(94.,123.,57.)   * height / 255.;} else { //GRASS
         height = mapcolor(color.rgb*255., vec3(247.,233.,163.)); if (height > 0.) {color.rgb = vec3(248.,235.,186.) * height / 255.;} else { //SAND
         height = mapcolor(color.rgb*255., vec3(160.,160.,255.)); if (height > 0.) {color.rgb = vec3(132.,171.,244.) * height / 255.;} else { //ICE
         height = mapcolor(color.rgb*255., vec3(167.,167.,167.)); if (height > 0.) {color.rgb = vec3(200.,200.,200.) * height / 255.;} else { //METAL
@@ -55,11 +54,11 @@ void main() {
         height = mapcolor(color.rgb*255., vec3(127.,63.,178.));  if (height > 0.) {color.rgb = vec3(133.,107.,153)  * height / 255.;} else { //MYCELIUM
         height = mapcolor(color.rgb*255., vec3(112.,2.,0.));     if (height > 0.) {color.rgb = vec3(113.,47.,47.)   * height / 255.;} else { //NETHER
         height = mapcolor(color.rgb*255., vec3(255.,0.,0.));     if (height > 0.) {color.rgb = vec3(215.,53.,2.)  * height / 255.;} }}}}}}}}}}}}}}}}//FIRE
-    }                                                                                                                                //:works_as_intended:
+    }                                                                                                                               //:works_as_intended:
     color *= vertexColor * ColorModulator;
     if (!isGUI(ProjMat)) {
         float alpha = textureLod(Sampler0, texCoord0, 0.0).a * 255.0;
-        color = make_emissive(color, lightColor, vertexDistance, alpha);
+        color = make_emissive(color, lightColor, dist, alpha);
     }
     fragColor = linear_fog(color, vertexDistance, FogStart, FogEnd, FogColor);
 }
