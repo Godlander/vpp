@@ -8,7 +8,7 @@ uniform vec2 OutSize;
 out vec2 texCoord;
 out vec2 oneTexel;
 
-void main(){
+void main() {
     float x = -1.0;
     float y = -1.0;
     if (Position.x > 0.001){

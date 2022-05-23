@@ -6,26 +6,32 @@
         "swap3",
         "swap4",
         "swap5",
-        "time",
-        "oldtime",
         "translucent",
         "itemEntity",
         "particles",
         "clouds",
         "weather",
         { "name": "temporals1", "width": 16, "height": 1, "bilinear": false },
-        { "name": "temporals2", "width": 16, "height": 1, "bilinear": false }
+        { "name": "temporals2", "width": 16, "height": 1, "bilinear": false },
+        { "name": "time", "width": 2, "height": 1, "bilinear": false },
+        { "name": "timeswap", "width": 2, "height": 1, "bilinear": false }
     ],
     "passes": [
+        {
+            "name": "time",
+            "intarget": "timeswap",
+            "outtarget": "time",
+            "auxtargets": [
+                {"name": "MainSampler", "id": "minecraft:main"}
+            ]
+        },
+        {"name": "copy", "intarget": "time", "outtarget": "timeswap"},
         {
             "name": "shading",
             "intarget": "minecraft:main",
             "outtarget": "swap5",
             "auxtargets": [
-                {
-                    "name": "DiffuseDepthSampler",
-                    "id": "minecraft:main:depth"
-                }
+                {"name": "DiffuseDepthSampler", "id": "minecraft:main:depth"}
             ]
         },
         {
@@ -33,16 +39,10 @@
             "intarget": "temporals1",
             "outtarget": "swap2",
             "auxtargets": [
-                {
-                    "name": "DiffuseDepthSampler",
-                    "id": "minecraft:main:depth"
-                }
+                {"name": "DiffuseDepthSampler", "id": "minecraft:main:depth"}
             ],
             "uniforms": [
-                {
-                    "name":"Range",
-                    "values": [ 64.0 ]
-                }
+                {"name":"Range", "values": [ 64.0 ]}
             ]
         },
         {
@@ -50,14 +50,8 @@
             "intarget": "swap2",
             "outtarget": "swap3",
             "uniforms": [
-                {
-                    "name":"Tolerance",
-                    "values": [ 100.0 ]
-                },
-                {
-                    "name":"Reject",
-                    "values": [ 3.0 ]
-                }
+                {"name":"Tolerance", "values": [ 100.0 ]},
+                {"name":"Reject", "values": [ 3.0 ]}
             ]
         },
         {
@@ -65,10 +59,7 @@
             "intarget": "swap3",
             "outtarget": "swap2",
             "uniforms": [
-                {
-                    "name":"Tolerance",
-                    "values": [ 90000.0 ]
-                }
+                {"name":"Tolerance", "values": [ 90000.0 ]}
             ]
         },
         {
@@ -76,48 +67,23 @@
             "intarget": "temporals1",
             "outtarget": "temporals2",
             "auxtargets": [
-                {
-                    "name": "ExposureSampler",
-                    "id": "swap1"
-                },
-                {
-                    "name": "SkySampler",
-                    "id": "minecraft:main"
-                },
-                {
-                    "name": "SkyDepthSampler",
-                    "id": "minecraft:main:depth"
-                },
-                {
-                    "name": "FOVSampler",
-                    "id": "swap2"
-                }
+                {"name": "ExposureSampler", "id": "swap1"},
+                {"name": "SkySampler", "id": "minecraft:main"},
+                {"name": "SkyDepthSampler", "id": "minecraft:main:depth"},
+                {"name": "FOVSampler", "id": "swap2"}
             ],
             "uniforms": [
-                {
-                    "name":"FOVGuess",
-                    "values": [ 70.0 ]
-                }
+                {"name":"FOVGuess", "values": [ 70.0 ]}
             ]
         },
-        {
-            "name": "copy",
-            "intarget": "temporals2",
-            "outtarget": "temporals1"
-        },
+        {"name": "copy", "intarget": "temporals2", "outtarget": "temporals1"},
         {
             "name": "water_blur",
             "intarget": "translucent",
             "outtarget": "swap1",
             "uniforms": [
-                {
-                    "name": "BlurDir",
-                    "values": [ 1.0, 0.0 ]
-                },
-                {
-                    "name": "BlurSize",
-                    "values": [ 0.01 ]
-                }
+                {"name": "BlurDir", "values": [ 1.0, 0.0 ]},
+                {"name": "BlurSize", "values": [ 0.01 ]}
             ]
         },
         {
@@ -125,14 +91,8 @@
             "intarget": "swap1",
             "outtarget": "swap2",
             "uniforms": [
-                {
-                    "name": "BlurDir",
-                    "values": [ 0.0, 1.0 ]
-                },
-                {
-                    "name": "BlurSize",
-                    "values": [ 0.01 ]
-                }
+                {"name": "BlurDir", "values": [ 0.0, 1.0 ]},
+                {"name": "BlurSize", "values": [ 0.01 ]}
             ]
         },
         {
@@ -140,16 +100,10 @@
             "intarget": "swap2",
             "outtarget": "swap1",
             "auxtargets": [
-                {
-                    "name": "DiffuseDepthSampler",
-                    "id": "translucent:depth"
-                }
+                {"name": "DiffuseDepthSampler", "id": "translucent:depth"}
             ],
             "uniforms": [
-                {
-                    "name": "BlurSize",
-                    "values": [ 4.0 ]
-                }
+                {"name": "BlurSize", "values": [ 4.0 ]}
             ]
         },
         {
@@ -157,26 +111,11 @@
             "intarget": "swap5",
             "outtarget": "swap2",
             "auxtargets": [
-                {
-                    "name": "DiffuseDepthSampler",
-                    "id": "minecraft:main:depth"
-                },
-                {
-                    "name": "TranslucentSampler",
-                    "id": "translucent"
-                },
-                {
-                    "name": "TranslucentDepthSampler",
-                    "id": "translucent:depth"
-                },
-                {
-                    "name": "TranslucentHeightSampler",
-                    "id": "swap1"
-                },
-                {
-                    "name": "TemporalSampler",
-                    "id": "temporals1"
-                }
+                {"name": "DiffuseDepthSampler", "id": "minecraft:main:depth"},
+                {"name": "TranslucentSampler", "id": "translucent"},
+                {"name": "TranslucentDepthSampler", "id": "translucent:depth"},
+                {"name": "TranslucentHeightSampler", "id": "swap1"},
+                {"name": "TemporalSampler", "id": "temporals1"}
             ]
         },
         {
@@ -184,46 +123,16 @@
             "intarget": "translucent",
             "outtarget": "swap1",
             "auxtargets": [
-                {
-                    "name": "TranslucentDepthSampler",
-                    "id": "translucent:depth"
-                },
-                {
-                    "name": "DiffuseDepthSampler",
-                    "id": "minecraft:main:depth"
-                },
-                {
-                    "name": "ItemEntitySampler",
-                    "id": "itemEntity"
-                },
-                {
-                    "name": "ItemEntityDepthSampler",
-                    "id": "itemEntity:depth"
-                },
-                {
-                    "name": "ParticlesSampler",
-                    "id": "particles"
-                },
-                {
-                    "name": "ParticlesDepthSampler",
-                    "id": "particles:depth"
-                },
-                {
-                    "name": "WeatherSampler",
-                    "id": "weather"
-                },
-                {
-                    "name": "WeatherDepthSampler",
-                    "id": "weather:depth"
-                },
-                {
-                    "name": "CloudsSampler",
-                    "id": "clouds"
-                },
-                {
-                    "name": "CloudsDepthSampler",
-                    "id": "clouds:depth"
-                }
+                {"name": "TranslucentDepthSampler", "id": "translucent:depth"},
+                {"name": "DiffuseDepthSampler", "id": "minecraft:main:depth"},
+                {"name": "ItemEntitySampler", "id": "itemEntity"},
+                {"name": "ItemEntityDepthSampler", "id": "itemEntity:depth"},
+                {"name": "ParticlesSampler", "id": "particles"},
+                {"name": "ParticlesDepthSampler", "id": "particles:depth"},
+                {"name": "WeatherSampler", "id": "weather"},
+                {"name": "WeatherDepthSampler", "id": "weather:depth"},
+                {"name": "CloudsSampler", "id": "clouds"},
+                {"name": "CloudsDepthSampler", "id": "clouds:depth"}
             ]
         },
         {
@@ -231,46 +140,16 @@
             "intarget": "swap5",
             "outtarget": "swap3",
             "auxtargets": [
-                {
-                    "name": "DiffuseDepthSampler",
-                    "id": "minecraft:main:depth"
-                },
-                {
-                    "name": "TranslucentSampler",
-                    "id": "translucent"
-                },
-                {
-                    "name": "TranslucentSpecSampler",
-                    "id": "swap2"
-                },
-                {
-                    "name": "TranslucentDepthSampler",
-                    "id": "translucent:depth"
-                },
-                {
-                    "name": "ParticlesSampler",
-                    "id": "particles"
-                },
-                {
-                    "name": "ParticlesDepthSampler",
-                    "id": "particles:depth"
-                },
-                {
-                    "name": "PartialCompositeSampler",
-                    "id": "swap1"
-                },
-                {
-                    "name": "ItemEntityDepthSampler",
-                    "id": "itemEntity:depth"
-                },
-                {
-                    "name": "WeatherDepthSampler",
-                    "id": "weather:depth"
-                },
-                {
-                    "name": "CloudsDepthSampler",
-                    "id": "clouds:depth"
-                }
+                {"name": "DiffuseDepthSampler", "id": "minecraft:main:depth"},
+                {"name": "TranslucentSampler", "id": "translucent"},
+                {"name": "TranslucentSpecSampler", "id": "swap2"},
+                {"name": "TranslucentDepthSampler", "id": "translucent:depth"},
+                {"name": "ParticlesSampler", "id": "particles"},
+                {"name": "ParticlesDepthSampler", "id": "particles:depth"},
+                {"name": "PartialCompositeSampler", "id": "swap1"},
+                {"name": "ItemEntityDepthSampler", "id": "itemEntity:depth"},
+                {"name": "WeatherDepthSampler", "id": "weather:depth"},
+                {"name": "CloudsDepthSampler", "id": "clouds:depth"}
             ]
         },
         {
@@ -288,23 +167,27 @@
             "intarget": "swap2",
             "outtarget": "swap1",
             "auxtargets": [
-                {
-                    "name": "TemporalSampler",
-                    "id": "temporals1"
-                }
+                {"name": "TemporalSampler", "id": "temporals1"}
             ]
-
+        },
+        {"name": "bloom", "intarget": "swap1", "outtarget": "swap2"},
+        {"name": "tonemap", "intarget": "swap2", "outtarget": "swap3"},
+        {
+            "name": "blur1",
+            "intarget": "swap3",
+            "outtarget": "swap4",
+            "auxtargets": [
+                {"name": "TimeSampler", "id": "time"}
+            ]
         },
         {
-            "name": "bloom",
-            "intarget": "swap1",
-            "outtarget": "swap2"
-
+            "name": "blur2",
+            "intarget": "swap4",
+            "outtarget": "swap5",
+            "auxtargets": [
+                {"name": "TimeSampler", "id": "time"}
+            ]
         },
-        {
-            "name": "tonemap",
-            "intarget": "swap2",
-            "outtarget": "minecraft:main"
-        }
+        {"name": "copy", "intarget": "swap5", "outtarget": "minecraft:main"}
     ]
 }

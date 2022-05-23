@@ -10,6 +10,7 @@ uniform vec4 FogColor;
 uniform vec2 ScreenSize;
 uniform mat4 ModelViewMat;
 uniform mat4 ProjMat;
+uniform float GameTime;
 
 in mat4 ProjInv;
 in float isSky;
@@ -49,6 +50,10 @@ void main() {
                 //store FogEnd
                 case 26:
                     fragColor = vec4(encodeInt(int(round(FogEnd))), 1.0);
+                    break;
+                //store GameTime
+                case 27:
+                    fragColor = vec4(vec3(fract(GameTime*1200)), 1.0);
                     break;
                 //blackout control pixels for sunDir so sun can write to them (by default, all pixels are FogColor)
                 default:

@@ -4,7 +4,7 @@
         "srcrgb": "one",
         "dstrgb": "zero"
     },
-    "vertex": "preprocess",
+    "vertex": "copy",
     "fragment": "preprocess",
     "attributes": [ "Position" ],
     "samplers": [

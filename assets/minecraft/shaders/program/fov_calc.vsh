@@ -12,7 +12,7 @@ out vec3 tangent;
 out vec3 bitangent;
 out float aspectRatio;
 
-void main(){
+void main() {
     float x = -1.0;
     float y = -1.0;
     if (Position.x > 0.001){

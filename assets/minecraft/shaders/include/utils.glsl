@@ -1,6 +1,6 @@
 #version 150
 
-#define NUMCONTROLS 27
+#define NUMCONTROLS 32
 #define THRESH 0.5
 #define FPRECISION 4000000.0
 #define PROJNEAR 0.05
@@ -39,6 +39,7 @@ Control Map:
 [24] ModelViewMat[2][2]
 [25] FogColor
 [26] FogEnd
+[27] GameTime
 */
 
 // returns control pixel index or -1 if not control

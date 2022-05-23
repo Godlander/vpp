@@ -44,7 +44,7 @@ float decodeFloat(vec3 vec) {
     return decodeInt(vec) / FPRECISION;
 }
 
-void main(){
+void main() {
     vec2 start = getControl(0, OutSize);
     vec2 inc = vec2(2.0 / OutSize.x, 0.0);
     mat4 ModelViewMat = mat4(

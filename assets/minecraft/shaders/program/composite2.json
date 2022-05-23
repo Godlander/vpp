@@ -4,7 +4,7 @@
         "srcrgb": "one",
         "dstrgb": "zero"
     },
-    "vertex": "composite2",
+    "vertex": "composite",
     "fragment": "composite2",
     "attributes": [ "Position" ],
     "samplers": [
