@@ -1,5 +1,6 @@
 v++
-2.9
+2.8
++Updated fog shader to 1.18.2
 +Reformat core shaders with new template
 
 GUI:
@@ -9,11 +10,6 @@ Shaders:
 +Glowing entities properly show their team color
 +Block breaking is now in 3D
 +Pause blur in Singleplayer
-
-
-2.8
-+Updated fog shader to 1.18.2
-
 
 
 2.7
