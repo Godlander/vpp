@@ -1,6 +1,7 @@
 #version 150
 
 uniform sampler2D DiffuseSampler;
+uniform sampler2D TimeSampler;
 uniform vec2 OutSize;
 
 flat in float blur;
@@ -14,4 +15,9 @@ void main() {
     for (int i = -10; i <=10; i++) {
         fragColor += gauss[i+10]*texelFetch(DiffuseSampler, ivec2(clamp(gl_FragCoord.xy + vec2(0,i*blur), vec2(0), OutSize-1.0)), 0);
     }
+
+    //ivec2 coord = ivec2(gl_FragCoord.xy/20);
+    //if (all(lessThan(coord, ivec2(2,1)))) {
+    //    fragColor = texelFetch(TimeSampler, coord, 0);
+    //}
 }

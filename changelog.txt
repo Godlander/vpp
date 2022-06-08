@@ -1,4 +1,14 @@
 v++
+2.9
++Update pack format to 9
+
+Shaders:
++Add new rendertype_entity_translucent_emmissive
++Fix pause blur in the nether and end
++Fix inverted top in end poem scrolling background
+
+
+
 2.8
 +Updated fog shader to 1.18.2
 +Reformat core shaders with new template

@@ -1,4 +1,7 @@
-vec2 texCoord = abs(texCoord0);
+vec2 texCoord = texCoord0;
+if (isNeg != 0)
+    texCoord.y = -texCoord.y + ScrSize.y / 64; //Inverse poem
+
 ivec2 block = ivec2(texCoord);
 int variate;
 

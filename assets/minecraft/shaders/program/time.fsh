@@ -4,7 +4,8 @@ uniform sampler2D DiffuseSampler;
 
 in vec2 texCoord;
 in vec2 oneTexel;
-in float time;
+flat in vec4 oldtime;
+flat in vec4 time;
 
 out vec4 fragColor;
 
@@ -12,13 +13,12 @@ out vec4 fragColor;
 #define DURATION 10
 
 void main() {
-    float oldtime = texelFetch(DiffuseSampler, ivec2(0), 0).r;
     switch(int(gl_FragCoord.x)) {
         case 0:
-            fragColor = vec4(time);
+            fragColor = time;
             break;
         case 1:
-            if (oldtime == time) {
+            if (oldtime.r == time.r && abs(oldtime.g - time.g) < 0.004) {
                 fragColor = texelFetch(DiffuseSampler, ivec2(1,0), 0);
                 fragColor += vec4(1.0/DURATION);
             } else {

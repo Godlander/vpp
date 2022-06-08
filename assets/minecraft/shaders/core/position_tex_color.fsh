@@ -9,7 +9,9 @@ uniform vec2 ScreenSize;
 
 in vec2 texCoord0;
 in vec4 vertexColor;
-in vec2 Pos;
+in vec4 Pos;
+in float isNeg;
+in vec2 ScrSize;
 
 out vec4 fragColor;
 
@@ -29,9 +31,7 @@ void main() {
         else {
             #moj_import <background-transitions.glsl>
         }
-
         if (color.a < 0.1) discard;
-
         fragColor = color * ColorModulator;
     }
 }
