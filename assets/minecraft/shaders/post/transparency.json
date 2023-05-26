@@ -170,8 +170,7 @@
                 {"name": "TemporalSampler", "id": "temporals1"}
             ]
         },
-        {"name": "bloom", "intarget": "swap1", "outtarget": "swap2"},
-        {"name": "tonemap", "intarget": "swap2", "outtarget": "swap3"},
+        {"name": "tonemap", "intarget": "swap1", "outtarget": "swap3"},
         {
             "name": "blur1",
             "intarget": "swap3",

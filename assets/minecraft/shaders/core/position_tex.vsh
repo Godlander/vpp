@@ -14,6 +14,8 @@ out vec3 c2;
 out vec3 c3;
 out vec2 texCoord0;
 out float isSun;
+out float isNeg;
+out vec2 ScrSize;
 
 #define SUNSIZE 60
 #define SUNDIST 110
@@ -28,6 +30,8 @@ void main() {
     c3 = vec3(0.0);
     isSun = 0.0;
     vec2 tsize = textureSize(Sampler0, 0);
+    isNeg = float(UV0.y < 0);
+    ScrSize = 2 / vec2(ProjMat[0][0], -ProjMat[1][1]);
 
     // test if sun or moon. Position.y limit excludes worldborder.
     if (Position.y < SUNDIST  && Position.y > -SUNDIST && (ModelViewMat * vec4(Position, 1.0)).z > -SUNDIST) {

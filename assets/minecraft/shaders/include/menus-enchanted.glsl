@@ -72,8 +72,8 @@ else {
     if (block.y < 211 && clamp(variate, 0, 1) == 1)                                         offset = BEDROCK;
 }
 
-if (vertexColor.r > 0.25098 && vertexColor.r < 0.25099) {                                   //separate out top/bottom bar
+if (ColorModulator.r > 0.25098 && ColorModulator.r < 0.25099) {                             //separate out top/bottom bar
     if (texCoord.y > 13.)                                                                   offset = STONE;
 }
 
-color = texture(Sampler0, (texCoord - block) / 5.0 + offset) * (vertexColor + 0.1);
+color = texture(Sampler0, (texCoord - block) / 5.0 + offset) * (ColorModulator + 0.1);

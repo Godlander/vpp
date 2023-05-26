@@ -23,9 +23,9 @@ out vec4 fragColor;
 void main() {
     discardControlGLPos(gl_FragCoord.xy, glpos);
     vec4 color = texture(Sampler0, texCoord0);
+    float alpha = color.a * 255.0;
     if (color.a < 0.1) discard;
     color = color * vertexColor * ColorModulator;
-    float alpha = textureLod(Sampler0, texCoord0, 0.0).a * 255.0;
     color = make_emissive(color, lightColor, dist, alpha);
     fragColor = linear_fog(color, vertexDistance, FogStart, FogEnd, FogColor);
 }
