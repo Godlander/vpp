@@ -4,7 +4,7 @@
 	"textures": {
 		"particle": "block/rail_corner",
 		"rail": "block/rail_corner",
-		"rail_3d": "3d/rails/rail"
+		"rail_3d": "block/rails"
 	},
 	"elements": [
 		{

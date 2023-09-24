@@ -1,0 +1,316 @@
+#version 330
+
+uniform sampler2D DiffuseSampler;
+uniform sampler2D DiffuseDepthSampler;
+uniform vec2 OutSize;
+uniform float Time;
+uniform float EnableAO;
+
+in vec2 texCoord;
+in vec2 oneTexel;
+in vec3 sunDir;
+in mat4 Proj;
+in mat4 ProjInv;
+in float near;
+in float far;
+in float fov;
+
+out vec4 fragColor;
+
+// moj_import doesn't work in post-process shaders ;_; Felix pls fix
+#define FPRECISION 4000000.0
+#define FPRECISION_L 400000.0
+#define PROJNEAR 0.05
+#define PROJFAR 1024.0
+#define PI 3.1415926535897932
+#define FUDGE 32.0
+
+
+const vec2 poissonDisk[64] = vec2[64](
+    vec2(-0.613392, 0.617481), vec2(0.170019, -0.040254), vec2(-0.299417, 0.791925), vec2(0.645680, 0.493210), vec2(-0.651784, 0.717887), vec2(0.421003, 0.027070), vec2(-0.817194, -0.271096), vec2(-0.705374, -0.668203), 
+    vec2(0.977050, -0.108615), vec2(0.063326, 0.142369), vec2(0.203528, 0.214331), vec2(-0.667531, 0.326090), vec2(-0.098422, -0.295755), vec2(-0.885922, 0.215369), vec2(0.566637, 0.605213), vec2(0.039766, -0.396100),
+    vec2(0.751946, 0.453352), vec2(0.078707, -0.715323), vec2(-0.075838, -0.529344), vec2(0.724479, -0.580798), vec2(0.222999, -0.215125), vec2(-0.467574, -0.405438), vec2(-0.248268, -0.814753), vec2(0.354411, -0.887570),
+    vec2(0.175817, 0.382366), vec2(0.487472, -0.063082), vec2(-0.084078, 0.898312), vec2(0.488876, -0.783441), vec2(0.470016, 0.217933), vec2(-0.696890, -0.549791), vec2(-0.149693, 0.605762), vec2(0.034211, 0.979980),
+    vec2(0.503098, -0.308878), vec2(-0.016205, -0.872921), vec2(0.385784, -0.393902), vec2(-0.146886, -0.859249), vec2(0.643361, 0.164098), vec2(0.634388, -0.049471), vec2(-0.688894, 0.007843), vec2(0.464034, -0.188818),
+    vec2(-0.440840, 0.137486), vec2(0.364483, 0.511704), vec2(0.034028, 0.325968), vec2(0.099094, -0.308023), vec2(0.693960, -0.366253), vec2(0.678884, -0.204688), vec2(0.001801, 0.780328), vec2(0.145177, -0.898984),
+    vec2(0.062655, -0.611866), vec2(0.315226, -0.604297), vec2(-0.780145, 0.486251), vec2(-0.371868, 0.882138), vec2(0.200476, 0.494430), vec2(-0.494552, -0.711051), vec2(0.612476, 0.705252), vec2(-0.578845, -0.768792),
+    vec2(-0.772454, -0.090976), vec2(0.504440, 0.372295), vec2(0.155736, 0.065157), vec2(0.391522, 0.849605), vec2(-0.620106, -0.328104), vec2(0.789239, -0.419965), vec2(-0.545396, 0.538133), vec2(-0.178564, -0.596057));
+
+float linearstep(float edge0, float edge1, float x) {
+    return  clamp((x - edge0) / (edge1 - edge0), 0.0, 1.0);
+}
+
+vec3 encode_int(int i) {
+    int s = int(i < 0) * 128;
+    i = abs(i);
+    int r = i % 256;
+    i = i / 256;
+    int g = i % 256;
+    i = i / 256;
+    int b = i % 128;
+    return vec3(float(r) / 255.0, float(g) / 255.0, float(b + s) / 255.0);
+}
+
+int decode_int(vec3 ivec) {
+    ivec *= 255.0;
+    int s = ivec.b >= 128.0 ? -1 : 1;
+    return s * (int(ivec.r) + int(ivec.g) * 256 + (int(ivec.b) - 64 + s * 64) * 256 * 256);
+}
+
+vec3 encode_float(float f) {
+    return encode_int(int(f * FPRECISION));
+}
+
+float decode_float(vec3 vec) {
+    return decode_int(vec) / FPRECISION;
+}
+
+vec4 encode_uint(uint i) {
+    uint r = (i) % 256u;
+    uint g = (i >> 8u) % 256u;
+    uint b = (i >> 16u) % 256u;
+    uint a = (i >> 24u) % 256u;
+    return vec4(float(r) / 255.0, float(g) / 255.0, float(b) / 255.0 , float(a) / 255.0);
+}
+
+uint decode_uint(vec4 ivec) {
+    ivec *= 255.0;
+    return uint(ivec.r) + (uint(ivec.g) << 8u) + (uint(ivec.b) << 16u) + (uint(ivec.a) << 24u);
+}
+
+vec4 encode_depth(float depth) {
+    return encode_uint(floatBitsToUint(depth)); 
+}
+
+float decode_depth(vec4 depth) {
+    return uintBitsToFloat(decode_uint(depth)); 
+}
+
+float linearize_depth(float depth) {
+    return (2.0 * near * far) / (far + near - depth * (far - near));    
+}
+
+vec4 back_project(vec4 vec) {
+    vec4 tmp = ProjInv * vec;
+    return tmp / tmp.w;
+}
+
+#define AO_SAMPLES 24
+#define AO_INTENSITY 3.0
+#define AO_SCALE 2.5
+#define AO_BIAS 0.004
+#define AO_SAMPLE_RAD 0.5
+#define AO_MAX_DISTANCE 3.0
+#define AO_GOLDEN_ANGLE 2.4
+
+float hash21(vec2 p) {
+	vec3 p3  = fract(vec3(p.xyx) * 0.1031);
+    p3 += dot(p3, p3.yzx + 33.33);
+    return fract((p3.x + p3.y) * p3.z);
+}
+
+float doAmbientOcclusion(vec2 tcoord, vec2 uv, vec3 p, vec3 cnorm)
+{
+    vec3 diff = back_project(vec4(2.0 * (tcoord + uv - vec2(0.5)), decode_depth(texture(DiffuseDepthSampler, tcoord + uv)), 1.0)).xyz - p;
+    float l = length(diff);
+    vec3 v = diff / (l + 0.0000001);
+    float d = l * AO_SCALE;
+    float ao = max(0.0, dot(cnorm, v)) * (1.0 / (1.0 + d));
+    ao *= linearstep(AO_MAX_DISTANCE, AO_MAX_DISTANCE * 0.5, l);
+    return ao;
+}
+
+float spiralAO(vec2 uv, vec3 p, vec3 n, float rad)
+{
+    float ao = 0.0;
+    float inv = 1.0 / float(AO_SAMPLES);
+    float radius = 0.0;
+
+    float rotatePhase = hash21( uv * 101.0 + Time * 69.0 ) * 6.28;
+    float rStep = inv * rad;
+    vec2 spiralUV = vec2(sin(rotatePhase), cos(rotatePhase));
+    mat2 goldenRot = mat2(cos(AO_GOLDEN_ANGLE), -sin(AO_GOLDEN_ANGLE), sin(AO_GOLDEN_ANGLE), cos(AO_GOLDEN_ANGLE));
+
+    p *= 1.0 - AO_BIAS;
+
+    for (int i = 0; i < AO_SAMPLES; i++) {
+        radius += rStep;
+        ao += doAmbientOcclusion(uv, floor(spiralUV * OutSize.y * radius) / OutSize, p, n);
+        spiralUV *= goldenRot;
+    }
+    ao *= inv;
+    return ao * AO_INTENSITY;
+}
+
+#define S_PENUMBRA 0.01
+#define S_TAPS 3
+#define S_SAMPLES 16
+#define S_MAXREFINESAMPLES 1
+#define S_STEPSIZE 0.12
+#define S_STEPREFINE 0.4
+#define S_STEPINCREASE 1.2
+#define S_IGNORETHRESH 6.0
+#define S_BIAS 0.001
+#define S_TRANSITION 200.0
+#define S_FLIP_BIAS -0.2
+
+int xorshift(int value) {
+    // Xorshift*32
+    value ^= value << 13;
+    value ^= value >> 17;
+    value ^= value << 5;
+    return value;
+}
+
+float luma(vec3 color) {
+    return dot(color, vec3(0.2126, 0.7152, 0.0722));
+}
+
+vec2 Volumetric(vec3 fragpos, vec3 sundir, float fragdepth, float rand) {
+    float dirConst = 1.0 + 2.0 * clamp(pow(abs(dot(normalize(fragpos), sunDir)), 4.0), 0.0, 1.0);
+    float distBias = length(fragpos) / 512.0;
+    vec3 rayStart   = fragpos + abs(rand) * sundir * S_STEPSIZE;
+    vec3 rayDir     = sundir;
+    vec3 rayStep    = (S_STEPSIZE + S_STEPSIZE * 0.5 * (rand + 1.0)) * rayDir * (1.0 + distBias * 5.0);
+    vec3 rayPos     = rayStart + rayStep;
+    vec3 rayPrevPos = rayStart;
+    vec3 rayRefine  = rayStep;
+
+    vec4 pos    = vec4(0.0);
+    float edge  = 0.0;
+    float dtmp  = 0.0;
+    float dist  = 0.0;
+    float distmult = 1.0;
+    float strength = 1.0;
+    float strengthaccum = 0.0;
+    bool enter = false;
+    bool exit = false;
+    float enterdist = S_IGNORETHRESH + 1.0;
+    float enterdepth = 0.0;
+    vec3 enterpos = vec3(0.0);
+    vec3 exitpos = vec3(0.0);
+    float volume = 0.0;
+
+    for (int i = 0; i < S_SAMPLES; i += 1) {
+        pos = Proj * vec4(rayPos.xyz, 1.0);
+        pos.xyz /= pos.w;
+        if (pos.x < -1.0 || pos.x > 1.0 || pos.y < -1.0 || pos.y > 1.0 || pos.z < 0.0 || pos.z > 1.0) {
+            exitpos = rayPos;
+            exit = true;
+            break;
+        }
+        dtmp = linearize_depth(decode_depth(texture(DiffuseDepthSampler, 0.5 * pos.xy + vec2(0.5))));
+        dist = (linearize_depth(pos.z) - dtmp);
+
+        if (!enter && dist < distmult * max(length(rayStep) * pow(length(rayRefine), 0.25) * dirConst, 0.2) && dist > distBias) {
+            strength = strengthaccum;
+            enterpos = rayPos;
+            enterdist = dist;
+            enterdepth = dtmp;
+            rayStep = rayDir * S_STEPSIZE;
+            enter = true;
+        }
+        else if (enter && dist < distBias) {
+            exitpos = rayPos;
+            exit = true;
+            break;
+        }
+
+        if (dist > distBias) {
+            distmult *= 1.3;
+        }
+        else if (distmult > 1.2) {
+            distmult /= 1.3;
+        }
+
+        rayStep   *= S_STEPINCREASE;
+        rayPrevPos = rayPos;
+        rayRefine += rayStep;
+        rayPos     = rayStart+rayRefine;
+
+        strengthaccum += 1.0 / S_SAMPLES;
+    }
+
+    float interpt = length(fragpos - enterpos);
+
+    if (enter && !exit && interpt < 2.0) {
+        volume = 1.0;
+    }
+    else if (enter && exit && interpt < 2.0) {
+        volume = max(length(exitpos - enterpos), volume);
+    }
+
+    if (enterdist > S_IGNORETHRESH + linearstep(S_TRANSITION, S_TRANSITION * 1.1, length(enterpos)) * 128.0 || length(enterpos) > far * 0.5) {
+        strength = 1.0;
+    }
+    return vec2(strength, volume);
+}
+
+void main() {
+    vec4 outColor = vec4(1.0);
+    vec2 normCoord = texCoord;
+
+    bool top = false;
+    if (normCoord.y > 0.5) {
+        normCoord.y -= 0.5;
+        top = true;
+    }
+    normCoord.y = normCoord.y * 2.0 - oneTexel.y * 0.5;
+
+    float depth = decode_depth(texture(DiffuseDepthSampler, normCoord));
+    bool isSky = linearize_depth(depth) >= far - FUDGE;
+
+    // sunDir exists
+    if (length(sunDir) > 0.99) {
+
+        // only do lighting if not sky
+        if (!isSky) {
+            if (EnableAO > 0.5 && top) {
+                vec2 scaledCoord = 2.0 * (normCoord - vec2(0.5));
+
+                depth = decode_depth(texture(DiffuseDepthSampler, normCoord));
+                float depth2 = decode_depth(texture(DiffuseDepthSampler, normCoord + vec2(0.0, oneTexel.y)));
+                float depth3 = decode_depth(texture(DiffuseDepthSampler, normCoord + vec2(oneTexel.x, 0.0)));
+
+                vec3 fragpos = back_project(vec4(scaledCoord, depth, 1.0)).xyz;
+                vec3 p2 = back_project(vec4(scaledCoord + 2.0 * vec2(0.0, oneTexel.y), depth2, 1.0)).xyz;
+                p2 = p2 - fragpos;
+                vec3 p3 = back_project(vec4(scaledCoord + 2.0 * vec2(oneTexel.x, 0.0), depth3, 1.0)).xyz;
+                p3 = p3 - fragpos;
+                vec3 normal = cross(p2, p3);
+                normal = normal == vec3(0.0) ? vec3(0.0, 1.0, 0.0) : normalize(-normal);
+
+                // calculate AO output.
+                float rad = clamp(AO_SAMPLE_RAD/linearize_depth(depth) * (70.0 / fov), 0.0005, 0.1);
+                float ao = 1.0 - spiralAO(normCoord, fragpos, normal, rad);
+                outColor.rgb *= ao;
+            }
+            // else if (!top) {
+            //     vec3 dir = sunDir; 
+            //     float ldu = dot(vec3(0.0, 1.0, 0.0), dir);
+            //     float lduo = ldu;
+            //     if (ldu <= S_FLIP_BIAS) {
+            //         dir = normalize(vec3(-sunDir.xy, 0.0));
+            //         ldu = dot(vec3(0.0, 1.0, 0.0), dir);
+            //     }
+            //     vec2 scaledCoord = 2.0 * (normCoord - vec2(0.5));
+            //     vec3 fragpos = back_project(vec4(scaledCoord, depth, 1.0)).xyz;
+
+            //     // calculate shadow.
+            //     vec2 shade = vec2(0.0);
+            //     for (int k = 0; k < S_TAPS; k += 1) {
+            //         int pindex = (k + int(gl_FragCoord.x * gl_FragCoord.y)) % 60;
+            //         shade += Volumetric(fragpos * (1.0 - S_BIAS), normalize(dir + S_PENUMBRA * vec3(poissonDisk[pindex].x, 0.0, poissonDisk[pindex].y)), linearize_depth(depth), poissonDisk[pindex+1].x);
+            //     }
+            //     shade /= S_TAPS;
+            //     shade.x = shade.x * shade.x * shade.x;
+            //     shade.x = mix(1.0, shade.x, pow(min(abs(lduo - S_FLIP_BIAS), 1.0), 0.25));
+            //     shade.y = mix(1.0, shade.y, linearstep(0.0, 0.05, min(abs(lduo - S_FLIP_BIAS), 1.0)));
+            //     outColor.rg = shade;
+            // }
+
+        } 
+    }
+
+    fragColor = outColor;
+}

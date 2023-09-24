@@ -1,7 +1,7 @@
 {
 	"ambientocclusion": false,
 	"textures": {
-		"rail_3d": "3d/rails/rail",
+		"rail_3d": "block/rails",
 		"particle": "block/detector_rail",
 		"detector_rail": "block/detector_rail"
 	},

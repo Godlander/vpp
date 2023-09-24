@@ -4,8 +4,8 @@
         "srcrgb": "srcalpha",
         "dstrgb": "1-srcalpha"
     },
-    "vertex": "render/gui_color",
-    "fragment": "render/gui_color",
+    "vertex": "render/gui_overlay",
+    "fragment": "render/gui_overlay",
     "attributes": [
         "Color"
     ],

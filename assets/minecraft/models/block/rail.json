@@ -2,7 +2,7 @@
 	"ambientocclusion": false,
 	"parent": "block/rail_flat",
 	"textures": {
-		"rail": "block/rail"
+		"rail": "block/rails"
 	},
 	"display": {
 		"thirdperson_righthand": {

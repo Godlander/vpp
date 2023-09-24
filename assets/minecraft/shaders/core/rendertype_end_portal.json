@@ -4,8 +4,8 @@
         "srcrgb": "srcalpha",
         "dstrgb": "1-srcalpha"
     },
-    "vertex": "special/end_portal",
-    "fragment": "special/end_portal",
+    "vertex": "render/end_portal",
+    "fragment": "render/end_portal",
     "attributes": [],
     "samplers": [
         { "name": "Sampler0" },

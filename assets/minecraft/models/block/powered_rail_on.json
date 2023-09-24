@@ -4,6 +4,6 @@
 	"textures": {
 		"particle": "block/powered_rail_on",
 		"powered_rail": "block/powered_rail_on",
-		"rail_powered_3d": "3d/rails/rail_powered_on"
+		"rail_powered_3d": "block/rail_powered_on"
 	}
 }

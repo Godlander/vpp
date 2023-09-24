@@ -4,23 +4,26 @@
         "srcrgb": "one",
         "dstrgb": "zero"
     },
-    "vertex": "composite",
+    "vertex": "composite2",
     "fragment": "composite2",
     "attributes": [ "Position" ],
     "samplers": [
         { "name": "DiffuseSampler" },
+        { "name": "DataSampler" },
         { "name": "DiffuseDepthSampler" },
         { "name": "TranslucentSampler" },
-        { "name": "TranslucentSpecSampler" },
         { "name": "TranslucentDepthSampler" },
-        { "name": "ParticlesSampler" },
-        { "name": "ParticlesDepthSampler" },
-        { "name": "PartialCompositeSampler" },
+        { "name": "ReflectionSampler" },
+        { "name": "ItemEntitySampler" },
         { "name": "ItemEntityDepthSampler" },
-        { "name": "WeatherDepthSampler" },
+        { "name": "ParticlesWeatherSampler" },
+        { "name": "ParticlesWeatherDepthSampler" },
+        { "name": "CloudsSampler" },
         { "name": "CloudsDepthSampler" }
     ],
     "uniforms": [
-        { "name": "ProjMat",    "type": "matrix4x4", "count": 16, "values": [ 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0 ] }
+        { "name": "ProjMat",    "type": "matrix4x4", "count": 16, "values": [ 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0 ] },
+        { "name": "OutSize",    "type": "float",     "count": 2,  "values": [ 1.0, 1.0 ] },
+        { "name": "AuxSize0",   "type": "float",     "count": 2,  "values": [ 1.0, 1.0 ] }
     ]
 }

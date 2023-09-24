@@ -4,8 +4,8 @@
         "srcrgb": "srcalpha",
         "dstrgb": "1-srcalpha"
     },
-    "vertex": "special/simple_lightmap",
-    "fragment": "special/particle",
+    "vertex": "render/particle",
+    "fragment": "render/particle",
     "attributes": [
         "Position",
         "UV0",

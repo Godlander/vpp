@@ -1,6 +1,6 @@
 {
 	"textures": {
-		"all": "entity/end_crystal/end_crystal"
+		"all": "item/end_crystal"
 	},
 	"elements": [
 		{

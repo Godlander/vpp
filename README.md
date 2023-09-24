@@ -4,8 +4,7 @@ A vanilla minecraft complimentary resourcepack focused on improving visual quali
 
 This pack uses vanilla shaders, which are likely incompatible with Optifine, Sodium, or any other mod that affects client side rendering.
 
-[![image](https://user-images.githubusercontent.com/16228717/142796442-6964e2f0-65a5-47e6-b74e-8938902649e3.png)
-More screenshots here](Screenshots.md)
+[![image](https://user-images.githubusercontent.com/16228717/142796442-6964e2f0-65a5-47e6-b74e-8938902649e3.png)More screenshots here](Screenshots.md)
 
 For more information on what's included, check out [changelog.txt](changelog.txt)
 
@@ -35,13 +34,6 @@ Check [the guide](modules/Animated%20Skin.md) to see how to encode animation in 
 Connected texture for sugar cane and vines.
 
 ![vanillactm](https://user-images.githubusercontent.com/16228717/139353051-85878743-5147-485b-941d-517ffae4be04.png)
-
-## [GUi](modules/GUi.zip)
-
-Custom container GUIs that make sense.
-
-![image](https://user-images.githubusercontent.com/16228717/139380148-68662a02-e89b-42b5-b518-40427dda29dd.png)
-![image](https://user-images.githubusercontent.com/16228717/139380251-1271d0a5-457b-4e91-9fc5-1f40ae545ccc.png)
 
 ## Credits to cool people
 

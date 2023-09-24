@@ -4,12 +4,13 @@
         "srcrgb": "srcalpha",
         "dstrgb": "1-srcalpha"
     },
-    "vertex": "common/entity",
-    "fragment": "common/entity",
+    "vertex": "render/armor",
+    "fragment": "render/armor",
     "attributes": [
         "Position",
         "Color",
         "UV0",
+        "UV1",
         "UV2",
         "Normal"
     ],

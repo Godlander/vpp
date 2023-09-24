@@ -3,7 +3,7 @@
 	"parent": "block/activator_rail",
 	"textures": {
 		"powered_rail": "block/powered_rail_on",
-		"particle": "3d/rails/rail_powered_on",
-		"rail_powered_3d": "3d/rails/rail_powered_on"
+		"particle": "block/rail_powered_on",
+		"rail_powered_3d": "block/rail_powered_on"
 	}
 }

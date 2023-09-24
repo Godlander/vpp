@@ -4,8 +4,8 @@
         "srcrgb": "srcalpha",
         "dstrgb": "1-srcalpha"
     },
-    "vertex": "common/entity_overlay",
-    "fragment": "common/entity",
+    "vertex": "render/end_crystal_beam",
+    "fragment": "render/end_crystal_beam",
     "attributes": [
         "Position",
         "Color",

@@ -4,8 +4,8 @@
         "srcrgb": "srcalpha",
         "dstrgb": "1-srcalpha"
     },
-    "vertex": "special/warden_emissive",
-    "fragment": "special/warden_emissive",
+    "vertex": "render/warden_emissive",
+    "fragment": "render/warden_emissive",
     "attributes": [
         "Position",
         "Color",

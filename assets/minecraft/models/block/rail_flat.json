@@ -1,8 +1,8 @@
 {
 	"ambientocclusion": false,
 	"textures": {
-		"particle": "3d/rails/rail",
-		"rail_3d": "3d/rails/rail"
+		"particle": "block/rails",
+		"rail_3d": "block/rails"
 	},
 	"elements": [
 		{

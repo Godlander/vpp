@@ -1,210 +1,167 @@
-#version 150
+#version 330
 
-#define NUMCONTROLS 32
-#define THRESH 0.5
+vec3 rgbhsv(vec3 c) {
+    vec4 K = vec4(0.0, -1.0 / 3.0, 2.0 / 3.0, -1.0);
+    vec4 p = mix(vec4(c.bg, K.wz), vec4(c.gb, K.xy), step(c.b, c.g));
+    vec4 q = mix(vec4(p.xyw, c.r), vec4(c.r, p.yzx), step(p.x, c.r));
+
+    float d = q.x - min(q.w, q.y);
+    float e = 1.0e-10;
+    return vec3(abs(q.z + (q.w - q.y) / (6.0 * d + e)), d / (q.x + e), q.x);
+}
+vec3 hsvrgb(vec3 c) {
+    vec4 K = vec4(1.0, 2.0 / 3.0, 1.0 / 3.0, 3.0);
+    vec3 p = abs(fract(c.xxx + K.xyz) * 6.0 - K.www);
+    return c.z * mix(K.xxx, clamp(p - K.xxx, 0.0, 1.0), c.y);
+}
+
+bool rougheq(float a, float b, float acc) {return (abs(a - b) < acc);}
+bool rougheq(vec3 a, vec3 b, float acc) {return (lessThan(a,b+acc)==bvec3(true) && lessThan(b-acc,a)==bvec3(true));}
+
+const vec2[4] corners = vec2[4](vec2(0, 1),vec2(0, 0),vec2(1, 0),vec2(1, 1));
+
+#define PI 3.1415926535897932
+#define PHI 1.61803398875
+#define NUMCONTROLS 33
 #define FPRECISION 4000000.0
 #define PROJNEAR 0.05
-#define TINY 8e-8
-#define PI 3.14159265359
-#define LIGHT0_DIRECTION vec3(0.2, 1.0, -0.7) // Default light 0 direction everywhere except in inventory
-#define LIGHT1_DIRECTION vec3(-0.2, 1.0, 0.7) // Default light 1 direction everywhere except in nether and inventory
 
+// Control Map:
+#define CTL_SUNDIRX         0
+#define CTL_SUNDIRY         1
+#define CTL_SUNDIRZ         2
+#define CTL_ATAN_PMAT00     3
+#define CTL_ATAN_PMAT11     4
+#define CTL_PMAT10          5
+#define CTL_PMAT01          6
+#define CTL_PMAT12          7
+#define CTL_PMAT13          8
+#define CTL_PMAT20          9
+#define CTL_PMAT21          10
+#define CTL_PMAT22          11
+#define CTL_PMAT23          12
+#define CTL_PMAT30          13
+#define CTL_PMAT31          14
+#define CTL_PMAT32          15
+#define CTL_MVMAT00         16
+#define CTL_MVMAT01         17
+#define CTL_MVMAT02         18
+#define CTL_MVMAT10         19
+#define CTL_MVMAT11         20
+#define CTL_MVMAT12         21
+#define CTL_MVMAT20         22
+#define CTL_MVMAT21         23
+#define CTL_MVMAT22         24
+#define CTL_FOGCOLOR        25
+#define CTL_FOGSTART        26
+#define CTL_FOGEND          27 // also FogLambda
+#define CTL_DIM             28
+#define CTL_RAINSTRENGTH    29
+#define CTL_MISCFLAGS       30 // bit0:underwater
+#define CTL_FARCLIP         31
+#define CTL_SKYCOL          32
 
-/*
-Control Map:
-[0] sunDir.x
-[1] sunDir.y
-[2] sunDir.z
-[3] arctan(ProjMat[0][0])
-[4] arctan(ProjMat[1][1])
-[5] ProjMat[1][0]
-[6] ProjMat[0][1]
-[7] ProjMat[1][2]
-[8] ProjMat[1][3]
-[9] ProjMat[2][0]
-[10] ProjMat[2][1]
-[11] ProjMat[2][2]
-[12] ProjMat[2][3]
-[13] ProjMat[3][0]
-[14] ProjMat[3][1]
-[15] ProjMat[3][2]
-[16] ModelViewMat[0][0]
-[17] ModelViewMat[0][1]
-[18] ModelViewMat[0][2]
-[19] ModelViewMat[1][0]
-[20] ModelViewMat[1][1]
-[21] ModelViewMat[1][2]
-[22] ModelViewMat[2][0]
-[23] ModelViewMat[2][1]
-[24] ModelViewMat[2][2]
-[25] FogColor
-[26] FogEnd
-[27] GameTime
-*/
+#define DIM_UNKNOWN 0
+#define DIM_OVER    1
+#define DIM_END     2
+#define DIM_NETHER  3
 
+#ifdef FSH
 // returns control pixel index or -1 if not control
-int inControl(vec2 screenCoord, float screenWidth) {
-    if (screenCoord.y < 1.0) {
-        float index = floor(screenWidth / 2.0) + THRESH / 2.0;
-        index = (screenCoord.x - index) / 2.0;
-        if (fract(index) < THRESH && index < NUMCONTROLS && index >= 0) {
-            return int(index);
-        }
+int in_control(vec2 screenCoord, float screenWidth) {
+    float start = floor(screenWidth / 4.0) * 2.0;
+    int index = int(screenCoord.x - start) / 2;
+    if (screenCoord.y < 1.0 && screenCoord.x > start && int(screenCoord.x) % 2 == 0 && index < NUMCONTROLS) {
+        return index;
     }
     return -1;
 }
 
 // discards the current pixel if it is control
-void discardControl(vec2 screenCoord, float screenWidth) {
-    if (screenCoord.y < 1.0) {
-        float index = floor(screenWidth / 2.0) + THRESH / 2.0;
-        index = (screenCoord.x - index) / 2.0;
-        if (fract(index) < THRESH && index < NUMCONTROLS && index >= 0) {
-            discard;
-        }
+void discard_control(vec2 screenCoord, float screenWidth) {
+    if (in_control(screenCoord, screenWidth) >= 0) {
+        discard;
     }
 }
 
 // discard but for when ScreenSize is not given
-void discardControlGLPos(vec2 screenCoord, vec4 glpos) {
-    if (screenCoord.y < 1.0) {
-        float screenWidth = round(screenCoord.x * 2.0 / (glpos.x / glpos.w + 1.0));
-        float index = floor(screenWidth / 2.0) + THRESH / 2.0;
-        index = (screenCoord.x - index) / 2.0;
-        if (fract(index) < THRESH && index < NUMCONTROLS && index >= 0) {
-            discard;
-        }
-    }
+void discard_control_glpos(vec2 screenCoord, vec4 glpos) {
+    float screenWidth = round(screenCoord.x * 2.0 / (glpos.x / glpos.w + 1.0));
+    discard_control(screenCoord, screenWidth);
 }
+#endif
+
+bool is_gui(mat4 ProjMat) {return ProjMat[2][3] == 0.0;}
+bool is_hand(float fogs, float foge) {return fogs > foge;}
 
 // get screen coordinates of a particular control index
-vec2 getControl(int index, vec2 screenSize) {
-    return vec2(floor(screenSize.x / 2.0) + float(index) * 2.0 + 0.5, 0.5) / screenSize;
+vec2 get_control(int index, vec2 screenSize) {
+    return vec2(floor(screenSize.x / 4.0) * 2.0 + float(index) * 2.0 + 0.5, 0.5) / screenSize;
 }
 
-int intmod(int i, int base) {
-    return i - (i / base * base);
-}
-
-vec3 encodeInt(int i) {
+vec3 encode_int(int i) {
     int s = int(i < 0) * 128;
     i = abs(i);
-    int r = intmod(i, 256);
+    int r = i % 256;
     i = i / 256;
-    int g = intmod(i, 256);
+    int g = i % 256;
     i = i / 256;
-    int b = intmod(i, 128);
+    int b = i % 128;
     return vec3(float(r) / 255.0, float(g) / 255.0, float(b + s) / 255.0);
 }
-
-int decodeInt(vec3 ivec) {
+int decode_int(vec3 ivec) {
     ivec *= 255.0;
     int s = ivec.b >= 128.0 ? -1 : 1;
     return s * (int(ivec.r) + int(ivec.g) * 256 + (int(ivec.b) - 64 + s * 64) * 256 * 256);
 }
+vec3 encode_float(float f) {return encode_int(int(round(f * FPRECISION)));}
+float decode_float(vec3 vec) {return decode_int(vec) / FPRECISION;}
 
-vec3 encodeFloat(float f) {
-    return encodeInt(int(round(f * FPRECISION)));
+// Gets the dimension that an object is in, -1 for The Nether, 0 for The Overworld, 1 for The End.
+int get_dimension(sampler2D lightmap) {
+    vec4 minLightColor = texelFetch(lightmap, ivec2(0), 0);
+    if (minLightColor.r == minLightColor.g && minLightColor.g == minLightColor.b) return DIM_OVER; // Shadows are grayscale in The Overworld
+    else if (minLightColor.r > minLightColor.g) return DIM_NETHER; // Shadows are more red in The Nether
+    else return DIM_END; // Shadows are slightly green in The End
 }
 
-float decodeFloat(vec3 vec) {
-    return decodeInt(vec) / FPRECISION;
+float get_fov(mat4 ProjMat) {
+    return atan(1.0, ProjMat[1][1]) * 360.0 / PI;
 }
 
-// vec3 encodeFloat(float val) {
-//     uint sign = val > 0.0 ? 0u : 1u;
-//     uint exponent = uint(clamp(ceil(log2(abs(val) + TINY)) + 31, 0.0, 63.0));
-//     uint mantissa = uint((abs(val) * pow(2.0, -float(exponent) + 31.0 + 17.0)));
-//     return vec3(
-//         ((sign & 1u) << 7u) | ((exponent & 63u) << 1u) | (mantissa >> 16u) & 1u,
-//         (mantissa >> 8u) & 255u,
-//         mantissa & 255u
-//     ) / 255.0;
-// }
-
-// float decodeFloat(vec3 raw) {
-//     uvec3 scaled = uvec3(raw * 255.0);
-//     uint sign = scaled.r >> 7;
-//     uint exponent = ((scaled.r >> 1u) & 63u);
-//     uint mantissa = ((scaled.r & 1u) << 16u) | (scaled.g << 8u) | scaled.b;
-//     return (-float(sign) * 2.0 + 1.0) * float(mantissa)  * pow(2.0, float(exponent) - 31.0 - 17.0);
-// }
-
-float getDirE(vec3 normal) {
-    float dir = 3.0;
-    float dotx = abs(dot(normal, vec3(1.0, 0.0, 0.0)));
-    float doty = abs(dot(normal, vec3(0.0, 1.0, 0.0)));
-    float dotz = abs(dot(normal, vec3(0.0, 0.0, 1.0)));
-    if (dotx > doty && dotx > dotz) {
-        dir = 1.0;
-    } else if (dotz > doty && dotz > dotx) {
-        dir = 2.0;
-    }
-    return dir;
+float hash11(float p) {
+    p = fract(p * 0.1031);
+    p *= p + 33.33;
+    p *= p + p;
+    return fract(p);
+}
+vec3 hash13(float p) {
+   vec3 p3 = fract(vec3(p, p, p) * vec3(0.1031, 0.1030, 0.0973));
+   p3 += dot(p3, p3.yzx + 33.33);
+   return fract((p3.xxy + p3.yzz) * p3.zyx);
+}
+vec4 hash14(float p) {
+    vec4 p4 = fract(vec4(p, p, p, p) * vec4(0.1031, 0.1030, 0.0973, 0.1099));
+    p4 += dot(p4, p4.wzxy + 33.33);
+    return fract((p4.xxyz + p4.yzzw) * p4.zywx);
+}
+float hash21(vec2 p) {
+    vec3 p3  = fract(vec3(p.xyx) * 0.1031);
+    p3 += dot(p3, p3.yzx + 33.33);
+    return fract((p3.x + p3.y) * p3.z);
+}
+vec2 hash22(vec2 p) {
+    vec3 p3 = fract(vec3(p.xyx) * vec3(0.1031, 0.1030, 0.0973));
+    p3 += dot(p3, p3.yzx + 33.33);
+    return fract((p3.xx + p3.yz) * p3.zy);
+}
+vec3 hash33(vec3 p3) {
+    p3 = fract(p3 * vec3(0.1031, 0.1030, 0.0973));
+    p3 += dot(p3, p3.yxz + 33.33);
+    return fract((p3.xxy + p3.yxx) * p3.zyx);
 }
 
-float getDirB(vec3 normal) {
-    float dir = 3.0;
-    if (abs(normal.x) > 0.999) {
-        dir = 1.0;
-    } else if (abs(normal.z) > 0.999) {
-        dir = 2.0;
-    }
-    return dir;
-}
-
-/*
- * Created by Onnowhere (https://github.com/onnowhere)
- * Utility functions for Minecraft core vertex shaders
- */
-
-/*
- * Returns the FOV in degrees
- * Calculates using the fact that top/near = tan(theta / 2)
- */
-float getFOV(mat4 ProjMat) {
-    return atan(1.0, ProjMat[1][1]) * 114.591559;
-}
-
-/*
- * Returns if rendering in a GUI
- * In the GUI, near is 1000 and far is 3000, so -(far+near)/(far-near) = -2.0
- */
-bool isGUI(mat4 ProjMat) {
-    return ProjMat[3][2] == -2.0;
-}
-
-/*
- * Returns if rendering in the main menu background panorama
- * Checks the far clipping plane value so this should only be used with position_tex_color
- */
-bool isPanorama(mat4 ProjMat) {
-    float far = ProjMat[3][2] / (ProjMat[2][2] + 1);
-    return far < 9.99996 && far > 9.99995;
-}
-
-/*
- * Returns if rendering in the nether given light directions
- * In the nether, the light directions are parallel but in opposite directions
- */
-bool isNether(vec3 light0, vec3 light1) {
-    return light0 == -light1;
-}
-
-/*
- * Returns camera to world space matrix given light directions
- * Creates matrix by comparing world space light directions to camera space light directions
- */
-mat3 getWorldMat(vec3 light0, vec3 light1) {
-    if (isNether(light0, light1)) {
-        // Cannot determine matrix in the nether due to parallel light directions
-        return mat3(1.0);
-    }
-    mat3 V = mat3(normalize(LIGHT0_DIRECTION), normalize(LIGHT1_DIRECTION), normalize(cross(LIGHT0_DIRECTION, LIGHT1_DIRECTION)));
-    mat3 W = mat3(normalize(light0), normalize(light1), normalize(cross(light0, light1)));
-    return W * inverse(V);
-}
-
-mat3 getInvWorldMat(vec3 light0, vec3 light1) {
-    return transpose(getWorldMat(light0, light1));
+float get_far(mat4 ProjMat) {
+    vec4 probe = inverse(ProjMat) * vec4(0.0, 0.0, 1.0, 1.0);
+    return length(probe.xyz / probe.w);
 }

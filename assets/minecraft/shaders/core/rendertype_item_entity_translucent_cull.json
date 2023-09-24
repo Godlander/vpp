@@ -4,12 +4,13 @@
         "srcrgb": "srcalpha",
         "dstrgb": "1-srcalpha"
     },
-    "vertex": "common/entity",
-    "fragment": "common/entity",
+    "vertex": "shared/entity_item_translucent_cull",
+    "fragment": "shared/entity_item_translucent_cull",
     "attributes": [
         "Position",
         "Color",
         "UV0",
+        "UV1",
         "UV2",
         "Normal"
     ],
@@ -27,6 +28,7 @@
         { "name": "FogStart", "type": "float", "count": 1, "values": [ 0.0 ] },
         { "name": "FogEnd", "type": "float", "count": 1, "values": [ 1.0 ] },
         { "name": "FogColor", "type": "float", "count": 4, "values": [ 0.0, 0.0, 0.0, 0.0 ] },
-        { "name": "GameTime", "type": "float", "count": 1, "values": [ 1.0 ] }
+        { "name": "FogShape", "type": "int", "count": 1, "values": [ 0 ] },
+        { "name": "GameTime", "type":"float", "count":1, "values":[0.0] }
     ]
 }

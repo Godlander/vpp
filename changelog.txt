@@ -1,4 +1,18 @@
 v++
+3.0
++Update to 1.20.2
+
+GUI:
++Remove extra menu panoramas
++Remove most custom containers due to new layout
++Change menu button textures
+
+Shaders:
++Fix SSR
++Reformat core shaders with new template
+
+
+
 2.9
 +Update pack format to 9
 

@@ -3,8 +3,8 @@
 	"textures": {
 		"particle": "block/activator_rail",
 		"activator_rail": "block/activator_rail",
-		"rail_3d": "3d/rails/rail",
-		"rail_powered_3d": "3d/rails/rail_powered"
+		"rail_3d": "block/rails",
+		"rail_powered_3d": "block/rail_powered"
 	},
 	"elements": [
 		{

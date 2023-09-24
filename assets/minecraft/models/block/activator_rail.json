@@ -3,8 +3,8 @@
 	"ambientocclusion": false,
 	"textures": {
 		"powered_rail": "block/powered_rail",
-		"particle": "3d/rails/rail_powered",
-		"rail_powered_3d": "3d/rails/rail_powered"
+		"particle": "block/rail_powered",
+		"rail_powered_3d": "block/rail_powered"
 	},
 	"elements": [
 		{

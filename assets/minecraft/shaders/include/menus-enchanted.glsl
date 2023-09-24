@@ -76,4 +76,8 @@ if (ColorModulator.r > 0.25098 && ColorModulator.r < 0.25099) {                 
     if (texCoord.y > 13.)                                                                   offset = STONE;
 }
 
-color = texture(Sampler0, (texCoord - block) / 5.0 + offset) * (ColorModulator + 0.1);
+color = texture(Sampler0, (texCoord-block)/5 + offset) * (ColorModulator + 0.1);
+
+#ifndef POSITION_TEX
+color *= vertexColor;
+#endif

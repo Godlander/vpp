@@ -2,7 +2,7 @@
 	"ambientocclusion": false,
 	"parent": "block/detector_rail",
 	"textures": {
-		"rail_3d": "3d/rails/rail",
+		"rail_3d": "block/rails",
 		"particle": "block/detector_rail_on",
 		"detector_rail": "block/detector_rail_on"
 	}

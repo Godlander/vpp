@@ -3,7 +3,7 @@
 	"textures": {
 		"particle": "block/powered_rail",
 		"powered_rail": "block/powered_rail",
-		"rail_powered_3d": "3d/rails/rail_powered"
+		"rail_powered_3d": "block/rail_powered"
 	},
 	"elements": [
 		{
