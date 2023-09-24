@@ -21,10 +21,8 @@ out vec4 fragColor;
 
 void main() {
     vec4 color = texture(Sampler0, texCoord0);
-    color *= vertexColor * ColorModulator * vec4(1,1,1,0.8);
-    color.rgb = mix(color.rgb, FogColor.rgb * FogColor.rgb, 0.5 * (1.0 - yval));
-    if (color.a < 0.1) {
-        discard;
-    }
-    fragColor = linear_fog(color, fogDistance, FogStart, FogEnd, FogColor);
+    color *= vertexColor * ColorModulator * vec4(1,1,1,0.6);
+    color.rgb = mix(color.rgb, pow(FogColor.rgb, vec3(2)), 0.5 * (1.0 - yval));
+    if (color.a < 0.1) discard;
+    fragColor = linear_fog_translucent(color, fogDistance, FogStart, FogEnd, FogColor);
 }

@@ -36,10 +36,11 @@ Shaders:
 +Pause blur in Singleplayer
 
 
+
 2.7
 
 GUI:
-+Added frozen hearts
++Add frozen hearts
 
 Shaders:
 -Fog distance changed back to default

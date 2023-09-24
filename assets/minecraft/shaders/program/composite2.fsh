@@ -230,11 +230,11 @@ void main() {
     active_layers = 1;
     vec4 reflection = texture(ReflectionSampler, texCoord);
 
-    try_insert( texture(CloudsSampler, texCoord), texture(CloudsDepthSampler, texCoord).r, FOGFADE);
+    try_insert(texture(CloudsSampler, texCoord)*0.8, texture(CloudsDepthSampler, texCoord).r, BLENDADD);
 
     // glass, water
     uint flags = HASREFLECT;
-    try_insert( texture(TranslucentSampler, texCoord), texture(TranslucentDepthSampler, texCoord).r, flags); 
+    try_insert( texture(TranslucentSampler, texCoord), texture(TranslucentDepthSampler, texCoord).r, flags);
     // rain, snow, tripwire
     try_insert( texture(ParticlesWeatherSampler, texCoord), decode_depth(texture(ParticlesWeatherDepthSampler, texCoord)), DEFAULT);
     // translucent_moving_block, lines, item_entity_translucent_cull
@@ -246,15 +246,12 @@ void main() {
         uint flags = op_layers[index];
         float dist = euclidianDistance(vec4(scaledCoord, depth_layers[index], 1.0));
         currdist = dist;
-        if ((flags & FOGFADE) == 0u) {
-            sky = false;
-        }
         if ((flags & BLENDMULT) > 0u) {
             texelAccum.rgb = blendmult( texelAccum.rgb, color_layers[index]);
-        } 
+        }
         else if ((flags & BLENDADD) > 0u) {
             texelAccum.rgb = blendadd( texelAccum.rgb, color_layers[index]);
-        } 
+        }
         else {
             texelAccum.rgb = blend( texelAccum.rgb, color_layers[index]);
         }
@@ -262,7 +259,6 @@ void main() {
             texelAccum.rgb = mix(texelAccum.rgb, reflection.rgb, reflection.a);
         }
     }
-
     if (sky && underWater > 0.5) {
         texelAccum = fogColor;
     }
