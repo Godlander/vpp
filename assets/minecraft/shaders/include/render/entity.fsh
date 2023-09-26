@@ -62,6 +62,7 @@ else {
             color = (time < duration.y)? color2 : color;
         }
     }
+    if (!gui) color *= lightColor;
 #endif
 
     if (color.a < 0.01) discard;
@@ -71,7 +72,10 @@ else {
     color.rgb = mix(overlayColor.rgb, color.rgb, overlayColor.a);
 #endif
 
-    color = emissive(color, lightColor, Distance);
+#ifndef PLAYER
+    if (!gui) color = emissive(color, lightColor, Distance);
+#endif
+
     fragColor = linear_fog(color, fogDistance, FogStart, FogEnd, FogColor);
 }
 }

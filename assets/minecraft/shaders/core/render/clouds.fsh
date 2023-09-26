@@ -24,5 +24,5 @@ void main() {
     color *= vertexColor * ColorModulator * vec4(1,1,1,0.6);
     color.rgb = mix(color.rgb, pow(FogColor.rgb, vec3(2)), 0.5 * (1.0 - yval));
     if (color.a < 0.1) discard;
-    fragColor = linear_fog_translucent(color, fogDistance, FogStart, FogEnd, FogColor);
+    fragColor = linear_fog_translucent(color, fogDistance, clamp(FogStart*0.8, 0, 256-64), clamp(FogEnd*1.5, 16, 512-64), FogColor);
 }

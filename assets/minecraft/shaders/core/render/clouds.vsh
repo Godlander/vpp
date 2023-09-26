@@ -9,7 +9,6 @@ in vec3 Normal;
 
 uniform mat4 ModelViewMat;
 uniform mat4 ProjMat;
-uniform mat3 IViewRotMat;
 uniform int FogShape;
 
 out vec2 texCoord0;
@@ -23,10 +22,12 @@ float slide(float val , float start, float end) {
 }
 
 void main() {
-    gl_Position = ProjMat * ModelViewMat * vec4(Position, 1.0);
+    vec3 pos = Position - 8;
+
+    gl_Position = ProjMat * ModelViewMat * vec4(pos, 1.0);
 
     texCoord0 = UV0;
-    fogDistance = fog_distance(ModelViewMat, Position, FogShape);
+    fogDistance = fog_distance(ModelViewMat, pos, FogShape);
 
     // try the flatten the cloud shading as much as possible
     vec4 col = Color;

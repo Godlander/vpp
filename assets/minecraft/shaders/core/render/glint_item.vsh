@@ -19,5 +19,5 @@ void main() {
     gl_Position = ProjMat * ModelViewMat * vec4(Position, 1.0);
     glpos = gl_Position;
     fogDistance = fog_distance(ModelViewMat, IViewRotMat * Position, FogShape);
-    texCoord0 = (TextureMat * vec4(UV0, 0.0, 1.0)).xy;
+    texCoord0 = (TextureMat * vec4(UV0*0.3, 0.0, 1.0)).xy;
 }

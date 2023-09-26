@@ -151,7 +151,7 @@
             ],
             "uniforms": [
                 {"name":"BloomAmount","values": [0.15]},
-                {"name":"AutoExposure","values": [0.5]},
+                {"name":"AutoExposure","values": [0.0]},
                 {"name":"ExposurePoint","values": [1.1]},
                 {"name":"Vibrance","values": [1.0]},
                 {"name":"Curve","values": [1.0]}

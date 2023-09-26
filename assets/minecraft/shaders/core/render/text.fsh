@@ -2,6 +2,7 @@
 #define FSH
 
 #moj_import <utils.glsl>
+#moj_import <light.glsl>
 #moj_import <fog.glsl>
 
 uniform sampler2D Sampler0;
@@ -26,7 +27,8 @@ case ((int(v.r*180./255.)<<16) + (int(v.g*180./255.)<<8) + int(v.b*180./255.)): 
 case ((int(v.r*135./255.)<<16) + (int(v.g*135./255.)<<8) + int(v.b*135./255.)): color.rgb = t/255.*135./255.; break;
 
 void main() {
-    if (!is_gui(ProjMat)) discard_control_glpos(gl_FragCoord.xy, glpos);
+    bool gui = is_gui(ProjMat);
+    if (!gui) discard_control_glpos(gl_FragCoord.xy, glpos);
 
     vec4 color = texture(Sampler0, texCoord0);
     ivec3 i = ivec3(color.rgb*255.5);
@@ -49,8 +51,8 @@ void main() {
         MAP(vec3(112.,2.,0.)    ,   vec3(113.,47.,47.))
         MAP(vec3(255.,0.,0.)    ,   vec3(215.,53.,2.))
     }
-
-    color = color * vertexColor * lightColor * ColorModulator;
+    if (!gui) color = emissive(color, lightColor, 0);
+    color = color * vertexColor * ColorModulator;
     if (color.a < 0.1) discard;
     fragColor = linear_fog(color, fogDistance, FogStart, FogEnd, FogColor);
 }

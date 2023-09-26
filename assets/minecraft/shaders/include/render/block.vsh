@@ -113,7 +113,7 @@ void main() {
                 offset = newPos - relativePos;
             }
             break;
-        case 251: //portal
+        case 150: //portal
             animation = GameTime * 4000.0;
             float m0 = distance(Position.xz, vec2(8.0, 8.0)) * 10.0;
             vec3 absNormal = abs(Normal);
