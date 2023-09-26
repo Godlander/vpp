@@ -1,4 +1,15 @@
 v++
+3.1
+
+Blocks:
++Nether Portal waves
+
+Shaders:
++Improve cloud blending
++Fix lightmap not applying properly
+
+
+
 3.0
 +Update to 1.20.2
 
