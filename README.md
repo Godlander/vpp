@@ -1,6 +1,6 @@
 # [v++](https://github.com/Godlander/vpp/blob/main/v++.zip?raw=true)
 
-A vanilla minecraft complimentary resourcepack focused on improving visual quality and the survival experience.
+A vanilla minecraft complementary resourcepack focused on improving visual quality and the survival experience.
 
 This pack uses vanilla shaders, which are likely incompatible with Optifine, Sodium, or any other mod that affects client side rendering.
 
