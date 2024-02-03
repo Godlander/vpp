@@ -71,4 +71,4 @@ Connected texture for sugar cane and vines.
 - Everyone in the MCC discord: https://discord.gg/QAFXFtZ
 - And the ShaderLABS discord: https://discord.gg/RpzWN9S
 
-Feel free to contact me on discord @Godlander#1020 or https://discord.gg/2s6th9SvZd
+Feel free to contact me on discord @godlander or https://discord.gg/2s6th9SvZd
